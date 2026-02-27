@@ -4,7 +4,7 @@ import { ScrollReveal } from './ScrollReveal';
 
 export function ObservationPipeline() {
   return (
-    <section className="section-cream grid-bg px-6 py-20 sm:py-28">
+    <section className="section-gradient px-6 py-20 sm:py-28">
       <div className="mx-auto max-w-3xl">
         <ScrollReveal>
           <div className="text-center space-y-3">
