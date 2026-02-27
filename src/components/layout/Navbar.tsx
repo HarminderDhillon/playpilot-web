@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -12,9 +12,22 @@ const navLinks = [
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 16);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
-    <nav className="fixed top-0 z-50 w-full border-b border-divider bg-surface/90 backdrop-blur-md">
+    <nav
+      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
+        scrolled
+          ? 'border-b border-divider bg-surface/90 backdrop-blur-md shadow-sm'
+          : 'bg-transparent'
+      }`}
+    >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
@@ -35,13 +48,13 @@ export function Navbar() {
           ))}
           <Link
             href="/login"
-            className="rounded-lg border border-border bg-surface px-4 py-2 text-sm font-medium text-text transition-colors hover:bg-surface-variant"
+            className="btn-secondary rounded-xl border border-border bg-surface px-4 py-2 text-sm font-medium text-text"
           >
             Log In
           </Link>
           <Link
             href="/login"
-            className="rounded-lg bg-primary px-5 py-2 text-sm font-semibold text-text-on-primary transition-colors hover:bg-primary-hover"
+            className="btn-primary rounded-xl bg-primary px-5 py-2 text-sm font-semibold text-text-on-primary"
           >
             Get Started
           </Link>
@@ -53,15 +66,27 @@ export function Navbar() {
           className="flex flex-col gap-1 md:hidden"
           aria-label="Toggle menu"
         >
-          <span className={`block h-0.5 w-5 bg-text transition-transform ${mobileOpen ? 'translate-y-1.5 rotate-45' : ''}`} />
-          <span className={`block h-0.5 w-5 bg-text transition-opacity ${mobileOpen ? 'opacity-0' : ''}`} />
-          <span className={`block h-0.5 w-5 bg-text transition-transform ${mobileOpen ? '-translate-y-1.5 -rotate-45' : ''}`} />
+          <span
+            className={`block h-0.5 w-5 bg-text transition-transform ${
+              mobileOpen ? 'translate-y-1.5 rotate-45' : ''
+            }`}
+          />
+          <span
+            className={`block h-0.5 w-5 bg-text transition-opacity ${
+              mobileOpen ? 'opacity-0' : ''
+            }`}
+          />
+          <span
+            className={`block h-0.5 w-5 bg-text transition-transform ${
+              mobileOpen ? '-translate-y-1.5 -rotate-45' : ''
+            }`}
+          />
         </button>
       </div>
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="border-t border-divider bg-surface px-6 pb-6 pt-4 md:hidden">
+        <div className="border-t border-divider bg-surface/95 backdrop-blur-md px-6 pb-6 pt-4 md:hidden">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -75,7 +100,7 @@ export function Navbar() {
           <Link
             href="/login"
             onClick={() => setMobileOpen(false)}
-            className="mt-2 block rounded-lg bg-primary px-5 py-2.5 text-center text-sm font-semibold text-text-on-primary"
+            className="mt-2 block btn-primary rounded-xl bg-primary px-5 py-2.5 text-center text-sm font-semibold text-text-on-primary"
           >
             Get Started
           </Link>

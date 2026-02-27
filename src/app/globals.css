@@ -1,12 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  /* PlayPilot Brand — matches mobile app */
-  --primary: #2F3E8F;
-  --primary-hover: #5A67D8;
-  --background: #F7F2EA;
+  /* PlayPilot — Premium Brand System */
+  --primary: #1B2559;
+  --primary-hover: #2F3E8F;
+  --primary-light: #3D4F9F;
+  --background: #F4EFE8;
   --surface: #FFFFFF;
-  --surface-variant: #EFE6D6;
+  --surface-variant: #EDE5D8;
+  --surface-elevated: #FFFFFF;
   --accent-blue: #3FA7F5;
   --accent-teal: #2EC4B6;
   --accent-green: #5CCB8A;
@@ -14,12 +16,14 @@
   --accent-orange: #FF8C42;
   --accent-pink: #FF5DA2;
   --accent-purple: #7B5CF0;
-  --text: #2A2A2A;
-  --text-secondary: #5F6368;
-  --text-muted: #8C8C8C;
-  --text-on-primary: #F7F2EA;
-  --border: #E0D8CC;
-  --divider: #EDE5D8;
+  --accent-coral: #F87171;
+  --text: #1A1A2E;
+  --text-secondary: #4A4A5A;
+  --text-muted: #8C8C9A;
+  --text-on-primary: #F4EFE8;
+  --border: #DDD5C8;
+  --divider: #E8E0D4;
+  --glow: rgba(27, 37, 89, 0.06);
 }
 
 @theme inline {
@@ -27,8 +31,10 @@
   --color-foreground: var(--text);
   --color-primary: var(--primary);
   --color-primary-hover: var(--primary-hover);
+  --color-primary-light: var(--primary-light);
   --color-surface: var(--surface);
   --color-surface-variant: var(--surface-variant);
+  --color-surface-elevated: var(--surface-elevated);
   --color-accent-blue: var(--accent-blue);
   --color-accent-teal: var(--accent-teal);
   --color-accent-green: var(--accent-green);
@@ -36,13 +42,15 @@
   --color-accent-orange: var(--accent-orange);
   --color-accent-pink: var(--accent-pink);
   --color-accent-purple: var(--accent-purple);
+  --color-accent-coral: var(--accent-coral);
   --color-text: var(--text);
   --color-text-secondary: var(--text-secondary);
   --color-text-muted: var(--text-muted);
   --color-text-on-primary: var(--text-on-primary);
   --color-border: var(--border);
   --color-divider: var(--divider);
-  --font-sans: var(--font-geist-sans);
+  --color-glow: var(--glow);
+  --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
 }
 
@@ -51,7 +59,108 @@ body {
   color: var(--text);
 }
 
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+/* ── Glass card ─────────────────────────────── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06), 0 16px 40px rgba(0, 0, 0, 0.05);
+  border-color: var(--primary-hover);
+}
+
+/* ── Subtle grid background ────────────────── */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(27, 37, 89, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(27, 37, 89, 0.02) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* ── Float animation ───────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+.animate-float-slow {
+  animation: float 8s ease-in-out infinite;
+}
+.animate-float-delay {
+  animation: float 6s ease-in-out 2s infinite;
+}
+
+/* ── Scroll reveal ─────────────────────────── */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.reveal {
+  opacity: 0;
+  animation: reveal-up 0.7s ease-out forwards;
+}
+.reveal-delay-1 { animation-delay: 0.1s; }
+.reveal-delay-2 { animation-delay: 0.2s; }
+.reveal-delay-3 { animation-delay: 0.3s; }
+.reveal-delay-4 { animation-delay: 0.4s; }
+
+/* ── Button premium hover ──────────────────── */
+.btn-primary {
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba(27, 37, 89, 0.15);
+}
+.btn-primary:hover {
+  box-shadow: 0 4px 16px rgba(27, 37, 89, 0.25);
+  transform: translateY(-1px);
+}
+.btn-secondary {
+  transition: all 0.25s ease;
+}
+.btn-secondary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* ── Count-up bar animation ────────────────── */
+@keyframes grow-width {
+  from { width: 0%; }
+}
+.animate-bar {
+  animation: grow-width 1.2s ease-out forwards;
+}
+
+/* ── Gradient shift background ─────────────── */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.gradient-shift {
+  background-size: 200% 200%;
+  animation: gradient-shift 12s ease-in-out infinite;
+}
+
+/* ── Section alternating backgrounds ───────── */
+.section-cream { background: var(--background); }
+.section-warm { background: var(--surface-variant); }
+.section-navy {
+  background: var(--primary);
+  color: var(--text-on-primary);
 }

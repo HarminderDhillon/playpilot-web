@@ -1,4 +1,6 @@
+import { EnergyMotion } from '@/components/landing/EnergyMotion';
 import { Hero } from '@/components/landing/Hero';
+import { BigStat } from '@/components/landing/BigStat';
 import { TheShift } from '@/components/landing/TheShift';
 import { PedagogicalEngine } from '@/components/landing/PedagogicalEngine';
 import { ObservationPipeline } from '@/components/landing/ObservationPipeline';
@@ -11,23 +13,27 @@ import { CTA } from '@/components/landing/CTA';
 export default function Home() {
   return (
     <>
+      {/* Energy Motion — plays once per session */}
+      <EnergyMotion />
       {/* 1. Hero — Empowering the next generation */}
       <Hero />
-      {/* 2. The Real Problem — Drowning in documentation */}
+      {/* 2. Big Stat — Impact numbers */}
+      <BigStat />
+      {/* 3. The Real Problem — Drowning in documentation */}
       <TheShift />
-      {/* 3. Pedagogical Powerhouse — Not another observation app */}
+      {/* 4. Pedagogical Powerhouse — Not another observation app */}
       <PedagogicalEngine />
-      {/* 4. The Shift — Pressure → Presence */}
+      {/* 5. The Shift — Pressure → Presence */}
       <ObservationPipeline />
-      {/* 5–7. For Educators, For Leaders, For Families */}
+      {/* 6–8. For Educators, For Leaders, For Families */}
       <StakeholderPillars />
-      {/* 8. Leadership Console — The operating system */}
+      {/* 9. Leadership Console — The operating system */}
       <LeadershipConsole />
-      {/* 9. Ethics — Built on dignity */}
+      {/* 10. Ethics — Built on dignity */}
       <EthicsSection />
-      {/* 10. The Vision — Stronger ecosystems together */}
+      {/* 11. The Vision — Stronger ecosystems together */}
       <BuiltForScale />
-      {/* 11. Final CTA — Reclaim documentation */}
+      {/* 12. Final CTA — Reclaim documentation */}
       <CTA />
     </>
   );
