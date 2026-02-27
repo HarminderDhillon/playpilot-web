@@ -2,9 +2,10 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const navLinks = [
-  { label: 'Features', href: '/features' },
+  { label: 'Platform', href: '/features' },
   { label: 'About', href: '/about' },
   { label: 'Privacy', href: '/privacy' },
 ];
@@ -14,10 +15,11 @@ export function Navbar() {
 
   return (
     <nav className="fixed top-0 z-50 w-full border-b border-divider bg-surface/90 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
         {/* Logo */}
-        <Link href="/" className="text-xl font-bold text-primary">
-          PlayPilot
+        <Link href="/" className="flex items-center gap-2">
+          <Image src="/logo.png" alt="PlayPilot" width={48} height={48} priority />
+          <span className="text-xl font-bold text-primary">PlayPilot</span>
         </Link>
 
         {/* Desktop links */}
@@ -33,9 +35,15 @@ export function Navbar() {
           ))}
           <Link
             href="/login"
-            className="rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-text-on-primary transition-colors hover:bg-primary-hover"
+            className="rounded-lg border border-border bg-surface px-4 py-2 text-sm font-medium text-text transition-colors hover:bg-surface-variant"
           >
             Log In
+          </Link>
+          <Link
+            href="/login"
+            className="rounded-lg bg-primary px-5 py-2 text-sm font-semibold text-text-on-primary transition-colors hover:bg-primary-hover"
+          >
+            Get Started
           </Link>
         </div>
 
@@ -69,7 +77,7 @@ export function Navbar() {
             onClick={() => setMobileOpen(false)}
             className="mt-2 block rounded-lg bg-primary px-5 py-2.5 text-center text-sm font-semibold text-text-on-primary"
           >
-            Log In
+            Get Started
           </Link>
         </div>
       )}

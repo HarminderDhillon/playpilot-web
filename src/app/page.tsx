@@ -1,14 +1,22 @@
 import { Hero } from '@/components/landing/Hero';
-import { FeatureGrid } from '@/components/landing/FeatureGrid';
-import { HowItWorks } from '@/components/landing/HowItWorks';
+import { PedagogicalEngine } from '@/components/landing/PedagogicalEngine';
+import { StakeholderPillars } from '@/components/landing/StakeholderPillars';
+import { ObservationPipeline } from '@/components/landing/ObservationPipeline';
+import { LeadershipConsole } from '@/components/landing/LeadershipConsole';
+import { EthicsSection } from '@/components/landing/EthicsSection';
+import { BuiltForScale } from '@/components/landing/BuiltForScale';
 import { CTA } from '@/components/landing/CTA';
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <FeatureGrid />
-      <HowItWorks />
+      <PedagogicalEngine />
+      <StakeholderPillars />
+      <ObservationPipeline />
+      <LeadershipConsole />
+      <EthicsSection />
+      <BuiltForScale />
       <CTA />
     </>
   );

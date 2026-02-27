@@ -57,7 +57,7 @@ export default function PrivacyPage() {
             <h2 className="text-xl font-semibold text-text">5. Data Storage & Security</h2>
             <p className="mt-3">
               Data is stored securely using industry-standard encryption at rest and in transit.
-              We use Supabase (hosted on AWS) for data storage, with servers located in Australia
+              We use Supabase (hosted on AWS) for data storage, with servers located in Canada
               where available. Access is controlled through role-based permissions.
             </p>
           </section>

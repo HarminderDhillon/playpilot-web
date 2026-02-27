@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export function Footer() {
   return (
@@ -7,7 +8,10 @@ export function Footer() {
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div>
-            <p className="text-lg font-bold text-primary">PlayPilot</p>
+            <div className="flex items-center gap-2">
+              <Image src="/logo.png" alt="PlayPilot" width={44} height={44} />
+              <p className="text-lg font-bold text-primary">PlayPilot</p>
+            </div>
             <p className="mt-2 text-sm text-text-secondary">
               Helping early childhood educators document meaningful learning moments.
             </p>

@@ -15,10 +15,18 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'PlayPilot — Document Learning, Not Paperwork',
+  title: 'PlayPilot — Pedagogical Intelligence for Early Learning',
   description:
-    'PlayPilot helps early childhood educators capture observations, spot schemas, track milestones, and share beautiful learning stories.',
-  keywords: ['early childhood', 'educator', 'documentation', 'observation', 'EYLF', 'NQS', 'Australia'],
+    'PlayPilot is a pedagogical intelligence platform connecting educators, families, supervisors, and communities through meaningful documentation and shared insight.',
+  keywords: ['early childhood', 'educator', 'documentation', 'pedagogy', 'Alberta', 'Flight', 'curriculum framework', 'observation', 'NNN'],
+  icons: {
+    icon: [
+      { url: '/favicon.png', sizes: '48x48', type: 'image/png' },
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: '/apple-touch-icon.png',
+  },
 };
 
 export default function RootLayout({

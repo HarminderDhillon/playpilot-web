@@ -44,9 +44,9 @@ export default function AboutPage() {
           </p>
 
           <p>
-            We align with the <strong>Early Years Learning Framework (EYLF)</strong>,
-            the <strong>National Quality Standard (NQS)</strong>, and the developmental research that
-            underpins quality early childhood education in Australia.
+            We started with Alberta&apos;s <strong>Flight curriculum framework</strong> and
+            the developmental research that underpins quality early childhood education — with
+            plans to support frameworks across Canada and beyond.
           </p>
 
           <h2 className="pt-4 text-2xl font-bold text-text">Built With Educators</h2>
