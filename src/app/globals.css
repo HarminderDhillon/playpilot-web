@@ -1,26 +1,57 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* PlayPilot Brand — matches mobile app */
+  --primary: #2F3E8F;
+  --primary-hover: #5A67D8;
+  --background: #F7F2EA;
+  --surface: #FFFFFF;
+  --surface-variant: #EFE6D6;
+  --accent-blue: #3FA7F5;
+  --accent-teal: #2EC4B6;
+  --accent-green: #5CCB8A;
+  --accent-yellow: #FFC83D;
+  --accent-orange: #FF8C42;
+  --accent-pink: #FF5DA2;
+  --accent-purple: #7B5CF0;
+  --text: #2A2A2A;
+  --text-secondary: #5F6368;
+  --text-muted: #8C8C8C;
+  --text-on-primary: #F7F2EA;
+  --border: #E0D8CC;
+  --divider: #EDE5D8;
 }
 
 @theme inline {
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-foreground: var(--text);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-surface: var(--surface);
+  --color-surface-variant: var(--surface-variant);
+  --color-accent-blue: var(--accent-blue);
+  --color-accent-teal: var(--accent-teal);
+  --color-accent-green: var(--accent-green);
+  --color-accent-yellow: var(--accent-yellow);
+  --color-accent-orange: var(--accent-orange);
+  --color-accent-pink: var(--accent-pink);
+  --color-accent-purple: var(--accent-purple);
+  --color-text: var(--text);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-text-on-primary: var(--text-on-primary);
+  --color-border: var(--border);
+  --color-divider: var(--divider);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
 }
