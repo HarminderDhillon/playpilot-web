@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { NewsletterForm } from './NewsletterForm';
 
 export function Footer() {
   return (
@@ -21,7 +22,7 @@ export function Footer() {
           <div>
             <p className="text-sm font-semibold text-text">Product</p>
             <div className="mt-3 flex flex-col gap-2">
-              <Link href="/features" className="text-sm text-text-secondary transition-colors hover:text-primary">Platform</Link>
+              <Link href="/features" className="text-sm text-text-secondary transition-colors hover:text-primary">Features</Link>
               <Link href="/about" className="text-sm text-text-secondary transition-colors hover:text-primary">About</Link>
               <Link href="/login" className="text-sm text-text-secondary transition-colors hover:text-primary">Dashboard</Link>
             </div>
@@ -36,12 +37,16 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Contact */}
+          {/* Connect + Newsletter */}
           <div>
             <p className="text-sm font-semibold text-text">Connect</p>
             <div className="mt-3 flex flex-col gap-2">
               <a href="mailto:hello@playpilot.app" className="text-sm text-text-secondary transition-colors hover:text-primary">hello@playpilot.app</a>
             </div>
+
+            <p className="mt-6 text-sm font-semibold text-text">Stay in the loop</p>
+            <p className="mt-1 text-xs text-text-muted">Get updates on launch and early access.</p>
+            <NewsletterForm />
           </div>
         </div>
 

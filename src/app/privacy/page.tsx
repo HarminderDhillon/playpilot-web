@@ -72,14 +72,26 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-text">7. Your Rights</h2>
-            <p className="mt-3">You have the right to:</p>
+            <h2 className="text-xl font-semibold text-text">7. Canadian Privacy Law (PIPEDA)</h2>
+            <p className="mt-3">
+              PlayPilot is based in Alberta, Canada. We comply with the <em>Personal Information
+              Protection and Electronic Documents Act</em> (PIPEDA) and Alberta&apos;s <em>Personal
+              Information Protection Act</em> (PIPA). Under these laws, you have the right to:
+            </p>
             <ul className="mt-2 list-disc pl-6 space-y-1">
-              <li>Access the personal data we hold about you.</li>
-              <li>Request correction of inaccurate data.</li>
+              <li>Know what personal information we hold about you and why.</li>
+              <li>Access your personal information upon written request.</li>
+              <li>Request correction of inaccurate or incomplete information.</li>
+              <li>Withdraw consent for the collection or use of your data (subject to legal or contractual obligations).</li>
               <li>Request deletion of your account and associated data.</li>
               <li>Export your data in a portable format.</li>
+              <li>File a complaint with the <em>Office of the Privacy Commissioner of Canada</em> or the <em>Office of the Information and Privacy Commissioner of Alberta</em> if you believe your rights have been violated.</li>
             </ul>
+            <p className="mt-3">
+              We collect personal information only with your knowledge and consent, limit collection
+              to what is necessary, and retain data only as long as needed to fulfil the purposes
+              for which it was collected.
+            </p>
           </section>
 
           <section>

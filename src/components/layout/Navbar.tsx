@@ -5,8 +5,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 const navLinks = [
-  { label: 'Platform', href: '/features' },
   { label: 'About', href: '/about' },
+  { label: 'Features', href: '/features' },
   { label: 'Privacy', href: '/privacy' },
 ];
 
