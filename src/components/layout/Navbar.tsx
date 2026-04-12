@@ -6,8 +6,9 @@ import Image from 'next/image';
 
 const navLinks = [
   { label: 'About', href: '/about' },
+  { label: 'How It Works', href: '/how-it-works' },
   { label: 'Features', href: '/features' },
-  { label: 'Privacy', href: '/privacy' },
+  { label: 'Pricing', href: '/pricing' },
 ];
 
 export function Navbar() {
@@ -28,42 +29,42 @@ export function Navbar() {
           : 'bg-transparent'
       }`}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-8 py-6 sm:py-8">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
-          <Image src="/logo.png" alt="PlayPilot" width={48} height={48} priority />
-          <span className="text-xl font-bold text-primary">PlayPilot</span>
+        <Link href="/" className="flex items-center gap-3">
+          <Image src="/logo-plane.png" alt="PlayPilot" width={72} height={72} priority />
+          <span className="text-3xl font-bold text-primary">PlayPilot</span>
         </Link>
 
         {/* Desktop links */}
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-8 lg:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-text-secondary transition-colors hover:text-primary"
+              className="text-base font-medium text-text-secondary transition-colors hover:text-primary"
             >
               {link.label}
             </Link>
           ))}
           <Link
             href="/login"
-            className="btn-secondary rounded-xl border border-border bg-surface px-4 py-2 text-sm font-medium text-text"
+            className="btn-secondary rounded-xl border border-border bg-surface px-6 py-3 text-base font-medium text-text"
           >
             Log In
           </Link>
           <Link
-            href="/login"
-            className="btn-primary rounded-xl bg-primary px-5 py-2 text-sm font-semibold text-text-on-primary"
+            href="/demo"
+            className="btn-primary rounded-xl bg-primary px-7 py-3 text-base font-semibold text-text-on-primary"
           >
-            Get Started
+            Book a Demo
           </Link>
         </div>
 
         {/* Mobile hamburger */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="flex flex-col gap-1 md:hidden"
+          className="flex flex-col gap-1 lg:hidden"
           aria-label="Toggle menu"
         >
           <span
@@ -86,7 +87,7 @@ export function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="border-t border-divider bg-surface/95 backdrop-blur-md px-6 pb-6 pt-4 md:hidden">
+        <div className="border-t border-divider bg-surface/95 backdrop-blur-md px-6 pb-6 pt-4 lg:hidden">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -100,9 +101,16 @@ export function Navbar() {
           <Link
             href="/login"
             onClick={() => setMobileOpen(false)}
+            className="block py-3 text-sm font-medium text-text-secondary"
+          >
+            Log In
+          </Link>
+          <Link
+            href="/demo"
+            onClick={() => setMobileOpen(false)}
             className="mt-2 block btn-primary rounded-xl bg-primary px-5 py-2.5 text-center text-sm font-semibold text-text-on-primary"
           >
-            Get Started
+            Book a Demo
           </Link>
         </div>
       )}

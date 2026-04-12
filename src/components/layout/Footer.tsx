@@ -10,7 +10,7 @@ export function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2">
-              <Image src="/logo.png" alt="PlayPilot" width={44} height={44} />
+              <Image src="/logo-plane.png" alt="PlayPilot" width={44} height={44} />
               <p className="text-lg font-bold text-primary">PlayPilot</p>
             </div>
             <p className="mt-2 text-sm text-text-secondary leading-relaxed">

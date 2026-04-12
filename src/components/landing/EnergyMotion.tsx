@@ -169,7 +169,7 @@ export function EnergyMotion() {
             }}
           />
           <Image
-            src="/logo.png"
+            src="/logo-plane.png"
             alt="PlayPilot"
             width={96}
             height={96}
