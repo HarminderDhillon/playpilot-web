@@ -25,15 +25,15 @@ const STEPS: Step[] = [
     title: 'See PlayPilot in Action',
     subtitle: 'Interactive Walkthrough',
     description:
-      'Click through the entire PlayPilot experience — 20 capture tools, AI-powered enrichment, family journeys, classroom spaces, and leadership intelligence. No sign-up required.',
+      'Click through the entire PlayPilot experience — multiple capture modes, AI-powered enrichment, family journeys, and classroom spaces. No sign-up required.',
     accent: 'accent-teal',
     bg: 'section-gradient',
   },
   {
-    title: '20 Ways to Capture Learning',
+    title: '16+ Ways to Capture Learning',
     subtitle: 'The Capture Hub',
     description:
-      'Quick Jot, Voice Note, Mark Growth, Smart Swipe, ABC Tracker, Learning Thread, Child Voice — 20 purpose-built tools so educators capture the right way every time, without leaving the moment.',
+      'Quick Jot, Voice Note, Mark Growth, Smart Swipe, ABC Tracker, Learning Thread, Child Voice — 16+ purpose-built tools so educators capture the right way every time, without leaving the moment.',
     accent: 'accent-coral',
     bg: 'section-warm',
   },
@@ -62,10 +62,10 @@ const STEPS: Step[] = [
     bg: 'section-white',
   },
   {
-    title: 'Leadership with Signal, Not Noise',
+    title: 'Leadership Tools (Coming Soon)',
     subtitle: 'The Leadership Hub',
     description:
-      'Seven sections — Overview, Classrooms, Educators, Children, Insights, Compliance, Community. Signal-first language (Strong, Growing, Steady, Quiet) replaces raw metrics with human understanding.',
+      'A program-level view for supervisors and educational leaders. Signal-first language (Strong, Growing, Steady, Quiet) replaces raw metrics with human understanding. Currently in development.',
     accent: 'accent-purple',
     bg: 'section-cream',
   },

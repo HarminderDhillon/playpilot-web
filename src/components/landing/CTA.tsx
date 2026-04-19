@@ -28,13 +28,13 @@ export function CTA() {
         <ScrollReveal delay={200}>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
-              href="/login"
+              href="/demo"
               className="rounded-xl bg-surface px-7 py-3.5 text-sm font-semibold text-primary transition-all hover:bg-surface-variant hover:shadow-lg hover:-translate-y-0.5"
             >
               Book a Walkthrough
             </Link>
             <Link
-              href="/login"
+              href="/pricing"
               className="rounded-xl border border-text-on-primary/30 px-7 py-3.5 text-sm font-semibold text-text-on-primary transition-all hover:border-text-on-primary/60 hover:bg-white/5 hover:-translate-y-0.5"
             >
               Join Early Access

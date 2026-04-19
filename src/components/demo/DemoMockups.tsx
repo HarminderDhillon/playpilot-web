@@ -66,7 +66,7 @@ export function WelcomeMockup() {
 }
 
 /* ═══════════════════════════════════════════════════
-   Step 1 — Capture Hub: 20 capture modes in 3 sections
+   Step 1 — Capture Hub: 16+ capture modes in 3 sections
    ═══════════════════════════════════════════════════ */
 const captureSections = [
   {
@@ -101,10 +101,6 @@ const captureSections = [
       { icon: '✅', label: 'Checklist Pulse', desc: 'Milestone check' },
       { icon: '📊', label: 'Disposition Radar', desc: 'Rate learning traits' },
       { icon: '🗣️', label: 'Child Voice', desc: "Capture child's own words" },
-      { icon: '🏠', label: 'Family Echo', desc: 'Prompt for families' },
-      { icon: '🖼️', label: 'Photo Collage', desc: 'Multi-photo moment' },
-      { icon: '💬', label: 'Prompt Note', desc: 'Guided writing prompt' },
-      { icon: '🎨', label: 'Child Creations', desc: 'Document artwork' },
     ],
   },
 ];
@@ -123,7 +119,7 @@ export function CaptureMockup() {
 
   return (
     <div className="glass-card rounded-2xl p-5 pointer-events-none">
-      <TitleBar label="Capture Hub — 20 Documentation Tools" />
+      <TitleBar label="Capture Hub — 16+ Documentation Tools" />
       {/* Section tabs */}
       <div className="flex gap-2 mb-4">
         {captureSections.map((s, i) => (

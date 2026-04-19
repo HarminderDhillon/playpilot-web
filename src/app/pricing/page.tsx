@@ -1,69 +1,34 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Pricing | PlayPilot',
-  description: 'Simple, transparent pricing for early learning programs of every size.',
+  title: 'Early Access | PlayPilot',
+  description: 'Get early access to PlayPilot — documentation tools built for early childhood educators.',
 };
 
-const plans = [
+const included = [
   {
-    name: 'Starter',
-    price: 'Free',
-    period: '',
-    description: 'For individual educators getting started.',
+    title: 'Unlimited Observations',
+    description: 'Capture as many learning moments as you need with voice, photo, video, and text — no caps, no tiers.',
     accent: 'border-accent-teal',
     accentBg: 'bg-accent-teal/10',
     accentText: 'text-accent-teal',
-    features: [
-      'Up to 50 observations/month',
-      '1 educator account',
-      'Voice & text capture',
-      'Basic schema detection',
-      'Child portfolios',
-    ],
-    cta: 'Get Started Free',
-    ctaStyle: 'btn-secondary rounded-xl border border-border bg-surface px-7 py-3.5 text-sm font-semibold text-text',
+    icon: '📝',
   },
   {
-    name: 'Program',
-    price: '$12',
-    period: '/educator/month',
-    description: 'For centres and dayhomes that want the full picture.',
-    accent: 'border-primary',
-    accentBg: 'bg-primary/10',
-    accentText: 'text-primary',
-    popular: true,
-    features: [
-      'Unlimited observations',
-      'Unlimited educators',
-      'AI learning stories & reflections',
-      'Full NNN + schema engine',
-      'Family sharing & timelines',
-      'Leadership dashboard',
-      'Compliance readiness reports',
-      'Priority support',
-    ],
-    cta: 'Book a Demo',
-    ctaStyle: 'btn-primary rounded-xl bg-primary px-7 py-3.5 text-sm font-semibold text-text-on-primary',
-  },
-  {
-    name: 'Enterprise',
-    price: 'Custom',
-    period: '',
-    description: 'For multi-site operators and school districts.',
+    title: 'AI-Powered Documentation',
+    description: 'PlayPilot detects developmental domains, schemas, and dispositions — then drafts interpretations and next steps for you.',
     accent: 'border-accent-purple',
     accentBg: 'bg-accent-purple/10',
     accentText: 'text-accent-purple',
-    features: [
-      'Everything in Program',
-      'Multi-site management',
-      'Custom integrations',
-      'Dedicated onboarding',
-      'SLA & data residency options',
-    ],
-    cta: 'Contact Us',
-    ctaStyle: 'btn-secondary rounded-xl border border-border bg-surface px-7 py-3.5 text-sm font-semibold text-text',
+    icon: '🤖',
+  },
+  {
+    title: 'Family Sharing',
+    description: 'Beautiful, parent-friendly learning timelines that celebrate each child\'s journey and strengthen the home-centre partnership.',
+    accent: 'border-accent-orange',
+    accentBg: 'bg-accent-orange/10',
+    accentText: 'text-accent-orange',
+    icon: '👨‍👩‍👧',
   },
 ];
 
@@ -72,61 +37,57 @@ export default function PricingPage() {
     <div className="px-6 pt-32 pb-20">
       <div className="mx-auto max-w-5xl">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-text sm:text-5xl">Simple, Transparent Pricing</h1>
-          <p className="mt-4 text-lg text-text-secondary">
-            Start free. Scale when you&apos;re ready. No surprises.
+          <h1 className="text-4xl font-bold text-text sm:text-5xl">Get Early Access</h1>
+          <p className="mt-4 text-lg text-text-secondary max-w-2xl mx-auto">
+            PlayPilot is currently in early access for select early childhood programs.
+            We&apos;d love to hear from you.
           </p>
         </div>
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {plans.map((plan) => (
-            <div
-              key={plan.name}
-              className={`relative glass-card rounded-2xl p-6 flex flex-col border-t-4 ${plan.accent}`}
+        {/* Email capture */}
+        <div className="mt-12 mx-auto max-w-md">
+          <div className="glass-card rounded-2xl p-6 text-center">
+            <p className="text-sm font-semibold text-text mb-4">
+              Interested in joining? Let us know.
+            </p>
+            <a
+              href="mailto:hello@playpilotlearning.com?subject=Early%20Access%20Request"
+              className="inline-block w-full btn-primary rounded-xl bg-primary px-7 py-3.5 text-sm font-semibold text-text-on-primary text-center"
             >
-              {plan.popular && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-primary px-3 py-0.5 text-[10px] font-semibold text-text-on-primary uppercase tracking-wider">
-                  Most Popular
-                </span>
-              )}
+              Request Early Access
+            </a>
+            <p className="mt-3 text-xs text-text-muted">
+              Or email us directly at{' '}
+              <a href="mailto:hello@playpilotlearning.com" className="font-medium text-primary hover:text-primary-hover">
+                hello@playpilotlearning.com
+              </a>
+            </p>
+          </div>
+        </div>
 
-              <div className={`inline-flex self-start rounded-full px-3 py-1 text-xs font-semibold ${plan.accentBg} ${plan.accentText}`}>
-                {plan.name}
+        {/* What's included */}
+        <div className="mt-14 grid gap-6 sm:grid-cols-3">
+          {included.map((item) => (
+            <div
+              key={item.title}
+              className={`glass-card rounded-2xl p-6 flex flex-col border-t-4 ${item.accent}`}
+            >
+              <div className="text-2xl mb-3">{item.icon}</div>
+              <div className={`inline-flex self-start rounded-full px-3 py-1 text-xs font-semibold ${item.accentBg} ${item.accentText}`}>
+                {item.title}
               </div>
-
-              <div className="mt-4">
-                <span className="text-3xl font-bold text-text">{plan.price}</span>
-                {plan.period && (
-                  <span className="text-sm text-text-muted">{plan.period}</span>
-                )}
-              </div>
-
-              <p className="mt-2 text-sm text-text-secondary">{plan.description}</p>
-
-              <ul className="mt-6 space-y-2.5 flex-1">
-                {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-2 text-sm text-text-secondary">
-                    <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-green" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-
-              <Link
-                href={plan.name === 'Enterprise' ? 'mailto:hello@playpilotlearning.com' : '/demo'}
-                className={`mt-6 text-center block ${plan.ctaStyle}`}
-              >
-                {plan.cta}
-              </Link>
+              <p className="mt-4 text-sm text-text-secondary leading-relaxed flex-1">
+                {item.description}
+              </p>
             </div>
           ))}
         </div>
 
+        {/* Questions */}
         <div className="mt-14 text-center">
-          <p className="text-sm text-text-muted">
-            All plans include end-to-end encryption, Canadian data hosting, and PIPEDA compliance.
-            <br />
-            Questions? Reach out at{' '}
+          <h2 className="text-xl font-bold text-text">Questions?</h2>
+          <p className="mt-2 text-sm text-text-muted">
+            We&apos;re happy to chat. Reach out at{' '}
             <a href="mailto:hello@playpilotlearning.com" className="font-medium text-primary hover:text-primary-hover">
               hello@playpilotlearning.com
             </a>

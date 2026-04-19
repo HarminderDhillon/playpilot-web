@@ -10,7 +10,6 @@ const consoleFeatures = [
   'Milestone trends',
   'Family engagement metrics',
   'Educator reflection frequency',
-  'Compliance readiness indicators',
 ];
 
 const schemas = [
@@ -25,7 +24,7 @@ const schemas = [
 const complianceChecks = [
   { label: 'Doc. Frequency', status: 'green' as const },
   { label: 'Portfolio Complete', status: 'green' as const },
-  { label: 'Missing Reports', status: 'yellow' as const },
+  { label: 'Coverage Gaps', status: 'yellow' as const },
 ];
 
 export function LeadershipConsole() {
@@ -42,8 +41,9 @@ export function LeadershipConsole() {
               <h2 className="text-3xl font-bold text-text sm:text-4xl tracking-tight">
                 The Leadership Console&trade;
               </h2>
+              <p className="mt-1 text-xs font-semibold text-accent-purple">(Coming Soon)</p>
               <p className="mt-4 text-text-secondary leading-relaxed">
-                A real-time view of your program&apos;s learning ecosystem.
+                A real-time view of your program&apos;s learning ecosystem. Currently in development.
               </p>
             </ScrollReveal>
 
@@ -70,10 +70,10 @@ export function LeadershipConsole() {
               </div>
 
               <Link
-                href="/login"
+                href="/pricing"
                 className="mt-6 inline-block btn-primary rounded-xl bg-primary px-7 py-3.5 text-sm font-semibold text-text-on-primary"
               >
-                Explore the Leadership Console
+                Get Early Access
               </Link>
             </ScrollReveal>
           </div>
@@ -121,9 +121,9 @@ export function LeadershipConsole() {
                 </div>
               </div>
 
-              {/* Compliance readiness */}
+              {/* Documentation overview */}
               <div className="rounded-xl bg-surface-variant/60 p-4">
-                <p className="text-xs font-semibold text-text mb-3">Compliance Readiness</p>
+                <p className="text-xs font-semibold text-text mb-3">Documentation Overview</p>
                 <div className="grid grid-cols-3 gap-2">
                   {complianceChecks.map((c) => (
                     <div key={c.label} className="flex flex-col items-center gap-1.5">

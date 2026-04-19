@@ -43,16 +43,16 @@ const featureSections = [
     dot: 'bg-accent-pink',
   },
   {
-    title: 'Educator Community',
+    title: 'Team Communication',
     description:
-      'Group chats with your room team, schema-spotting challenges, peer provocations, and emotional support circles. Because great educators don\'t work in isolation.',
+      'Connect with your team through group messaging and classroom announcements. Share updates, coordinate planning, and stay aligned — because great educators don\'t work in isolation.',
     accent: 'bg-accent-teal/10 border-accent-teal/30',
     dot: 'bg-accent-teal',
   },
   {
-    title: 'Web Dashboard',
+    title: 'Leadership Tools (Coming Soon)',
     description:
-      'View all your observations, portfolios, and insights on a bigger screen. Supervisors and educational leaders can review documentation, track team progress, and support quality improvement. Coming soon.',
+      'A web-based view for supervisors and educational leaders to review documentation and support quality improvement across classrooms. Currently in development.',
     accent: 'bg-primary/5 border-primary/20',
     dot: 'bg-primary',
   },
@@ -81,10 +81,10 @@ export default function FeaturesPage() {
 
         <div className="mt-16 text-center">
           <Link
-            href="/login"
+            href="/pricing"
             className="inline-block rounded-xl bg-primary px-8 py-3.5 text-base font-semibold text-text-on-primary transition-colors hover:bg-primary-hover"
           >
-            Get Started Free
+            Get Early Access
           </Link>
         </div>
       </div>
