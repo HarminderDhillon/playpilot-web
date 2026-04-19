@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'About — PlayPilot',
+  title: 'About | PlayPilot',
   description: 'Learn why PlayPilot exists and the mission behind the app.',
 };
 
@@ -14,7 +14,7 @@ export default function AboutPage() {
         <div className="mt-10 space-y-8 text-base leading-relaxed text-text-secondary">
           <p>
             Early childhood educators are some of the most important people in a child&apos;s life.
-            They notice the small moments that matter — a child&apos;s first attempt at writing their name,
+            They notice the small moments that matter: a child&apos;s first attempt at writing their name,
             a three-year-old negotiating turns in the sandpit, the quiet persistence of a toddler
             stacking blocks for the twentieth time.
           </p>
@@ -32,20 +32,20 @@ export default function AboutPage() {
           <p>
             We believe documentation should be a tool for reflection, not a chore.
             It should help you see patterns in children&apos;s play, plan meaningful next steps,
-            and share the story of learning with families — without burning out.
+            and share the story of learning with families without burning out.
           </p>
 
           <h2 className="pt-4 text-2xl font-bold text-text">Our Approach</h2>
 
           <p>
             PlayPilot is built around the <strong>Noticing, Naming, Nurturing</strong> framework.
-            Every feature — from voice capture to AI-assisted drafting to provocation suggestions —
+            Every feature, from voice capture to AI-assisted drafting to provocation suggestions,
             is designed to support intentional, reflective practice.
           </p>
 
           <p>
             We started with Alberta&apos;s <strong>Flight curriculum framework</strong> and
-            the developmental research that underpins quality early childhood education — with
+            the developmental research that underpins quality early childhood education, with
             plans to support frameworks across Canada and beyond.
           </p>
 
@@ -53,7 +53,7 @@ export default function AboutPage() {
 
           <p>
             PlayPilot isn&apos;t built in a vacuum. Every feature is informed by conversations with
-            real educators — room leaders, educational leaders, family day care educators,
+            real educators: room leaders, educational leaders, family day care educators,
             and centre directors. If it doesn&apos;t save you time or deepen your practice,
             it doesn&apos;t make it into the app.
           </p>

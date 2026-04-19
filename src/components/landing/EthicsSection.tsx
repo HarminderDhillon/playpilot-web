@@ -41,7 +41,7 @@ export function EthicsSection() {
         <ScrollReveal delay={300}>
           <div className="mt-10 glass-card rounded-2xl px-8 py-5 text-center">
             <p className="text-sm font-semibold text-accent-green">
-              Technology should protect the human work of teaching — not replace it.
+              Technology should protect the human work of teaching, not replace it.
             </p>
           </div>
         </ScrollReveal>

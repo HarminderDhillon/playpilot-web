@@ -16,6 +16,17 @@ function TitleBar({ label }: { label: string }) {
   );
 }
 
+function SignalBadge({ label, color }: { label: string; color: string }) {
+  return (
+    <span
+      className="text-[9px] font-semibold px-2 py-0.5 rounded-full"
+      style={{ backgroundColor: `${color}20`, color }}
+    >
+      {label}
+    </span>
+  );
+}
+
 /* ═══════════════════════════════════════════════════
    Step 0 — Welcome: Animated logo + floating circles
    ═══════════════════════════════════════════════════ */
@@ -55,124 +66,180 @@ export function WelcomeMockup() {
 }
 
 /* ═══════════════════════════════════════════════════
-   Step 1 — Capture: Observation screen with typing sim
+   Step 1 — Capture Hub: 20 capture modes in 3 sections
    ═══════════════════════════════════════════════════ */
-const CAPTURE_TEXT =
-  'Liam built a marble run today, testing how fast different balls travel down the ramp. He adjusted the angle several times, observing changes in speed.';
+const captureSections = [
+  {
+    title: 'Quick Capture',
+    icon: '⚡',
+    modes: [
+      { icon: '✏️', label: 'Quick Jot', desc: 'Type a fast note' },
+      { icon: '🎤', label: 'Voice Note', desc: 'Speak your observation' },
+      { icon: '📷', label: 'Picture', desc: 'Snap a photo' },
+      { icon: '🎥', label: 'Video Note', desc: 'Record a short clip' },
+      { icon: '✍️', label: 'Handwriting', desc: 'Scan handwritten notes' },
+      { icon: '🌱', label: 'Mark Growth', desc: 'Tag a development win' },
+    ],
+  },
+  {
+    title: 'Guided Observation',
+    icon: '🔍',
+    modes: [
+      { icon: '☑️', label: 'Noticing Tiles', desc: 'Tap what you observed' },
+      { icon: '👆', label: 'Smart Swipe', desc: 'Swipe through prompts' },
+      { icon: '📋', label: 'ABC Tracker', desc: 'Antecedent-Behaviour-Consequence' },
+      { icon: '🕸️', label: 'Activity Web', desc: 'Map group play' },
+      { icon: '⏱️', label: 'Time Pulse', desc: 'Timed check-ins' },
+      { icon: '📝', label: 'Guided Report', desc: 'Step-by-step draft' },
+    ],
+  },
+  {
+    title: 'Reflect & Grow',
+    icon: '💡',
+    modes: [
+      { icon: '🧵', label: 'Learning Thread', desc: 'Link moments over time' },
+      { icon: '✅', label: 'Checklist Pulse', desc: 'Milestone check' },
+      { icon: '📊', label: 'Disposition Radar', desc: 'Rate learning traits' },
+      { icon: '🗣️', label: 'Child Voice', desc: "Capture child's own words" },
+      { icon: '🏠', label: 'Family Echo', desc: 'Prompt for families' },
+      { icon: '🖼️', label: 'Photo Collage', desc: 'Multi-photo moment' },
+      { icon: '💬', label: 'Prompt Note', desc: 'Guided writing prompt' },
+      { icon: '🎨', label: 'Child Creations', desc: 'Document artwork' },
+    ],
+  },
+];
 
 export function CaptureMockup() {
-  const [charIndex, setCharIndex] = useState(0);
+  const [activeSection, setActiveSection] = useState(0);
 
   useEffect(() => {
-    if (charIndex >= CAPTURE_TEXT.length) return;
     const id = setInterval(() => {
-      setCharIndex((prev) => {
-        if (prev >= CAPTURE_TEXT.length) { clearInterval(id); return prev; }
-        return prev + 1;
-      });
-    }, 30);
+      setActiveSection((prev) => (prev + 1) % captureSections.length);
+    }, 3000);
     return () => clearInterval(id);
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
+
+  const section = captureSections[activeSection];
 
   return (
     <div className="glass-card rounded-2xl p-5 pointer-events-none">
-      <TitleBar label="New Observation" />
-      {/* Text area with typing effect */}
-      <div className="rounded-lg bg-background/60 p-3 mb-3">
-        <p className="text-[11px] text-text leading-relaxed whitespace-pre-wrap">
-          {CAPTURE_TEXT.slice(0, charIndex)}
-          <span className="animate-pulse">|</span>
-        </p>
-      </div>
-      {/* Tag chips — delayed until after typing (~4.8s for 160 chars @ 30ms) */}
-      <div className="flex flex-wrap gap-1.5 mb-4">
-        {[
-          { label: 'Cognitive', color: 'purple' },
-          { label: 'Trajectory', color: 'orange' },
-          { label: 'Transporting', color: 'blue' },
-        ].map((tag, i) => (
-          <span
-            key={tag.label}
-            className={`text-[9px] font-medium bg-accent-${tag.color}/12 text-accent-${tag.color} px-2.5 py-1 rounded-full`}
-            style={{
-              opacity: 0,
-              animation: 'reveal-up 0.4s ease-out forwards',
-              animationDelay: `${5.0 + i * 0.2}s`,
-            }}
+      <TitleBar label="Capture Hub — 20 Documentation Tools" />
+      {/* Section tabs */}
+      <div className="flex gap-2 mb-4">
+        {captureSections.map((s, i) => (
+          <div
+            key={s.title}
+            className={`text-[9px] font-semibold px-3 py-1.5 rounded-full transition-all duration-300 ${
+              i === activeSection
+                ? 'bg-primary text-white'
+                : 'bg-surface-variant text-text-muted'
+            }`}
           >
-            {tag.label}
-          </span>
+            {s.icon} {s.title}
+          </div>
         ))}
       </div>
-      {/* Save button */}
-      <div
-        className="flex justify-end"
-        style={{
-          opacity: 0,
-          animation: 'reveal-up 0.4s ease-out forwards',
-          animationDelay: '5.8s',
-        }}
-      >
-        <div className="rounded-lg bg-accent-coral px-4 py-1.5">
-          <span className="text-[10px] font-semibold text-white">Save Observation</span>
-        </div>
+      {/* Mode grid */}
+      <div className="grid grid-cols-3 gap-2">
+        {section.modes.slice(0, 6).map((mode, i) => (
+          <div
+            key={mode.label}
+            className="rounded-xl bg-background/60 p-2.5 text-center"
+            style={{
+              opacity: 0,
+              animation: 'reveal-up 0.3s ease-out forwards',
+              animationDelay: `${i * 0.08}s`,
+            }}
+          >
+            <div className="text-lg mb-1">{mode.icon}</div>
+            <p className="text-[9px] font-semibold text-text">{mode.label}</p>
+            <p className="text-[7px] text-text-muted mt-0.5">{mode.desc}</p>
+          </div>
+        ))}
       </div>
+      {section.modes.length > 6 && (
+        <p className="text-[8px] text-text-muted text-center mt-2">
+          +{section.modes.length - 6} more tools
+        </p>
+      )}
     </div>
   );
 }
 
 /* ═══════════════════════════════════════════════════
-   Step 2 — Enrichment: AI magic moment
+   Step 2 — AI Enrichment: Real domains, dispositions, schemas
    ═══════════════════════════════════════════════════ */
-const enrichTags = [
-  { label: 'Schema: Trajectory', color: 'orange', delay: '0.6s' },
-  { label: 'Domain: Cognitive', color: 'purple', delay: '1.0s' },
-  { label: 'Milestone: Problem Solving', color: 'blue', delay: '1.4s' },
+const CAPTURE_TEXT =
+  'Aroha spent 20 minutes at the water table, carefully pouring water between different-sized containers. She experimented with filling a large jug using a small cup, counting each pour.';
+
+const enrichmentTags = [
+  { label: 'Cognitive', type: 'Domain', color: '#3FA7F5', delay: '0.4s' },
+  { label: 'Physical', type: 'Domain', color: '#FF8C42', delay: '0.7s' },
+  { label: 'Curiosity', type: 'Disposition', color: '#7B5CF0', delay: '1.0s' },
+  { label: 'Persistence', type: 'Disposition', color: '#2EC4B6', delay: '1.3s' },
+  { label: 'Transporting', type: 'Schema', color: '#FF5DA2', delay: '1.6s' },
 ];
 
 export function EnrichmentMockup() {
   return (
     <div className="glass-card rounded-2xl p-5 pointer-events-none">
-      <TitleBar label="AI Enrichment" />
-      {/* Original observation summary */}
-      <div className="rounded-lg bg-background/60 p-3 mb-4">
-        <p className="text-[10px] text-text-muted mb-1.5">Original Observation</p>
-        <div className="space-y-1.5">
-          <div className="h-2 w-full rounded bg-surface-variant" />
-          <div className="h-2 w-4/5 rounded bg-surface-variant" />
-        </div>
+      <TitleBar label="AI-Powered Enrichment" />
+      {/* Original observation */}
+      <div className="rounded-lg bg-background/60 p-3 mb-3">
+        <p className="text-[10px] text-text-muted mb-1">Educator&apos;s observation</p>
+        <p className="text-[10px] text-text leading-relaxed">{CAPTURE_TEXT}</p>
       </div>
-      {/* Tag chips popping in */}
-      <div className="flex flex-wrap gap-1.5 mb-4">
-        {enrichTags.map((tag) => (
+      {/* AI-detected tags with types */}
+      <div className="flex flex-wrap gap-1.5 mb-3">
+        {enrichmentTags.map((tag) => (
           <span
             key={tag.label}
-            className={`text-[9px] font-medium bg-accent-${tag.color}/12 text-accent-${tag.color} px-2.5 py-1 rounded-full`}
+            className="text-[8px] font-medium px-2.5 py-1 rounded-full flex items-center gap-1"
             style={{
+              backgroundColor: `${tag.color}15`,
+              color: tag.color,
               opacity: 0,
               transform: 'scale(0.5)',
               animation: 'pop-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards',
               animationDelay: tag.delay,
             }}
           >
-            {tag.label}
+            <span className="text-[7px] opacity-60">{tag.type}:</span> {tag.label}
           </span>
         ))}
       </div>
-      {/* Learning story draft */}
+      {/* Generated interpretation */}
       <div
-        className="rounded-lg bg-accent-purple/8 border border-accent-purple/15 p-3"
+        className="rounded-lg border p-3 mb-3"
         style={{
+          backgroundColor: 'rgba(123,92,240,0.05)',
+          borderColor: 'rgba(123,92,240,0.15)',
           opacity: 0,
-          animation: 'reveal-up 0.7s ease-out forwards',
-          animationDelay: '1.8s',
+          animation: 'reveal-up 0.5s ease-out forwards',
+          animationDelay: '2.0s',
         }}
       >
-        <p className="text-[10px] font-semibold text-accent-purple mb-2">Learning Story Draft</p>
-        <div className="space-y-1.5">
-          <div className="h-2 w-full rounded bg-accent-purple/10" />
-          <div className="h-2 w-5/6 rounded bg-accent-purple/10" />
-          <div className="h-2 w-3/4 rounded bg-accent-purple/10" />
+        <p className="text-[9px] font-semibold text-accent-purple mb-1.5">Interpretation</p>
+        <p className="text-[9px] text-text leading-relaxed">
+          Aroha is developing her understanding of volume and measurement through hands-on exploration. Her sustained engagement shows a growing ability to focus and persist.
+        </p>
+      </div>
+      {/* Next steps */}
+      <div
+        className="rounded-lg border p-3"
+        style={{
+          backgroundColor: 'rgba(46,196,182,0.05)',
+          borderColor: 'rgba(46,196,182,0.15)',
+          opacity: 0,
+          animation: 'reveal-up 0.5s ease-out forwards',
+          animationDelay: '2.5s',
+        }}
+      >
+        <p className="text-[9px] font-semibold text-accent-teal mb-1.5">Next Steps</p>
+        <div className="space-y-1">
+          <p className="text-[8px] text-text">• Introduce measuring cups with markings</p>
+          <p className="text-[8px] text-text">• Outdoor water channel with guttering and funnels</p>
+          <p className="text-[8px] text-text-muted">🏠 At bath time, ask &ldquo;which holds more?&rdquo;</p>
         </div>
       </div>
     </div>
@@ -180,59 +247,73 @@ export function EnrichmentMockup() {
 }
 
 /* ═══════════════════════════════════════════════════
-   Step 3 — Family Timeline
+   Step 3 — Family View: Child journey + growth + care circle
    ═══════════════════════════════════════════════════ */
-const timelineEntries = [
-  { color: 'bg-accent-blue', date: 'Mar 4', text: 'Built a marble run exploring trajectory', isNew: true },
-  { color: 'bg-accent-purple', date: 'Mar 1', text: 'Wrapped toys in blankets: enclosing schema', isNew: false },
-  { color: 'bg-accent-orange', date: 'Feb 26', text: 'Carried blocks across the room: transporting', isNew: false },
+const journeyMoments = [
+  { domain: 'Cognitive', color: '#3FA7F5', date: 'Today', text: 'Water play — measuring & counting', disposition: 'Curiosity' },
+  { domain: 'Creative', color: '#FFC83D', date: 'Yesterday', text: 'Painted a family beach story with narration', disposition: 'Confidence' },
+  { domain: 'Social & Emotional', color: '#FF5DA2', date: 'Mon', text: 'Led cooperative hospital play with Mia', disposition: 'Collaboration' },
+];
+
+const growthDomains = [
+  { name: 'Cognitive', pct: 85, color: '#3FA7F5' },
+  { name: 'Social & Emotional', pct: 72, color: '#FF5DA2' },
+  { name: 'Physical', pct: 68, color: '#FF8C42' },
+  { name: 'Language', pct: 60, color: '#7B5CF0' },
+  { name: 'Creative', pct: 55, color: '#FFC83D' },
 ];
 
 export function FamilyTimelineMockup() {
   return (
     <div className="glass-card rounded-2xl p-5 pointer-events-none">
-      <TitleBar label="Liam's Learning Journey" />
-      <div className="space-y-4 mb-4">
-        {timelineEntries.map((entry, i) => (
+      <TitleBar label="Aroha's Learning Journey — Family View" />
+      {/* Journey timeline */}
+      <div className="space-y-3 mb-4">
+        {journeyMoments.map((m, i) => (
           <div
-            key={entry.date}
+            key={m.date}
             className="flex gap-3"
             style={{
               opacity: 0,
-              animation: 'reveal-up 0.5s ease-out forwards',
-              animationDelay: `${0.3 + i * 0.3}s`,
+              animation: 'reveal-up 0.4s ease-out forwards',
+              animationDelay: `${0.2 + i * 0.25}s`,
             }}
           >
             <div className="flex flex-col items-center">
-              <div className={`h-3 w-3 rounded-full ${entry.color} shrink-0 mt-0.5 relative`}>
-                {entry.isNew && (
-                  <div
-                    className={`absolute inset-[-4px] rounded-full ${entry.color}/30`}
-                    style={{ animation: 'pulse-ring 2s ease-in-out infinite' }}
-                  />
-                )}
-              </div>
-              {i < timelineEntries.length - 1 && (
-                <div className="w-px flex-1 bg-divider mt-1" />
-              )}
+              <div className="h-3 w-3 rounded-full shrink-0 mt-0.5" style={{ backgroundColor: m.color }} />
+              {i < journeyMoments.length - 1 && <div className="w-px flex-1 bg-divider mt-1" />}
             </div>
-            <div>
-              <p className="text-[9px] text-text-muted">{entry.date}</p>
-              <p className="text-[10px] text-text leading-snug mt-0.5">{entry.text}</p>
+            <div className="flex-1">
+              <div className="flex items-center gap-2">
+                <p className="text-[9px] text-text-muted">{m.date}</p>
+                <span className="text-[7px] font-medium px-1.5 py-0.5 rounded-full" style={{ backgroundColor: `${m.color}15`, color: m.color }}>
+                  {m.domain}
+                </span>
+              </div>
+              <p className="text-[10px] text-text leading-snug mt-0.5">{m.text}</p>
+              <p className="text-[8px] text-text-muted mt-0.5">Disposition: {m.disposition}</p>
             </div>
           </div>
         ))}
       </div>
+      {/* Growth snapshot */}
       <div
-        className="flex justify-center"
-        style={{
-          opacity: 0,
-          animation: 'reveal-up 0.4s ease-out forwards',
-          animationDelay: '1.3s',
-        }}
+        className="rounded-lg bg-surface-variant/60 p-3"
+        style={{ opacity: 0, animation: 'reveal-up 0.4s ease-out forwards', animationDelay: '1.0s' }}
       >
-        <div className="rounded-lg bg-accent-yellow px-4 py-1.5">
-          <span className="text-[10px] font-semibold text-text">View Portfolio</span>
+        <p className="text-[9px] font-semibold text-text mb-2">Growth Snapshot</p>
+        <div className="space-y-1.5">
+          {growthDomains.map((d) => (
+            <div key={d.name} className="flex items-center gap-2">
+              <span className="text-[8px] text-text-muted w-20 shrink-0">{d.name}</span>
+              <div className="flex-1 h-1.5 rounded-full bg-surface">
+                <div
+                  className="h-1.5 rounded-full animate-bar"
+                  style={{ width: `${d.pct}%`, backgroundColor: d.color }}
+                />
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
@@ -240,70 +321,79 @@ export function FamilyTimelineMockup() {
 }
 
 /* ═══════════════════════════════════════════════════
-   Step 4 — Dashboard: Program metrics
+   Step 4 — Classroom Space: 5 sections with real data
    ═══════════════════════════════════════════════════ */
-const dashMetrics = [
-  { label: 'Observations', value: '47', color: 'accent-blue' },
-  { label: 'Schema Coverage', value: '94%', color: 'accent-green' },
-  { label: 'Reflection Rate', value: '87%', color: 'accent-purple' },
-  { label: 'Engagement', value: '61%', color: 'accent-orange' },
+const classroomSections = [
+  { id: 'moments', label: 'Moments', icon: '❤️' },
+  { id: 'journey', label: 'Journey', icon: '🌱' },
+  { id: 'community', label: 'Community', icon: '👥' },
+  { id: 'culture', label: 'Culture', icon: '🎨' },
+  { id: 'insights', label: 'Insights', icon: '📊' },
 ];
 
-const weeklyBars = [40, 65, 55, 80, 70, 90, 60];
-const days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
-
-const activityItems = [
-  { initials: 'SM', color: 'bg-accent-coral', w1: 'w-24', w2: 'w-16' },
-  { initials: 'PK', color: 'bg-accent-teal', w1: 'w-28', w2: 'w-20' },
-  { initials: 'JL', color: 'bg-accent-purple', w1: 'w-20', w2: 'w-14' },
+const recentMoments = [
+  { child: 'Aroha', note: 'Water play — pouring & counting', domains: ['Cognitive', 'Physical'], time: '2h ago' },
+  { child: 'Liam', note: 'Block tower with structural reasoning', domains: ['Cognitive', 'Social & Emotional'], time: '3h ago' },
+  { child: 'Mia', note: 'Beach painting with narrative storytelling', domains: ['Creative', 'Language'], time: '5h ago' },
 ];
 
 export function DashboardMockup() {
+  const [activeTab, setActiveTab] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => setActiveTab((p) => (p + 1) % classroomSections.length), 2500);
+    return () => clearInterval(id);
+  }, []);
+
   return (
-    <div className="glass-card rounded-2xl p-5 sm:p-6 pointer-events-none">
-      <TitleBar label="PlayPilot Dashboard" />
-      {/* Metric cards */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-5">
-        {dashMetrics.map((m) => (
-          <div key={m.label} className={`rounded-lg bg-${m.color}/10 p-2.5 text-center`}>
-            <p className={`text-xl font-bold text-${m.color}`}>{m.value}</p>
-            <p className="text-[9px] text-text-muted mt-0.5">{m.label}</p>
+    <div className="glass-card rounded-2xl p-5 pointer-events-none">
+      <TitleBar label="Kids Club — Classroom Space" />
+      {/* Section pill tabs */}
+      <div className="flex gap-1.5 mb-4 overflow-hidden">
+        {classroomSections.map((s, i) => (
+          <div
+            key={s.id}
+            className={`text-[8px] font-semibold px-2.5 py-1.5 rounded-full transition-all duration-300 whitespace-nowrap ${
+              i === activeTab ? 'bg-primary text-white' : 'bg-surface-variant text-text-muted'
+            }`}
+          >
+            {s.icon} {s.label}
           </div>
         ))}
       </div>
-      {/* Weekly trend bars */}
-      <div className="rounded-lg bg-surface-variant/60 p-3 mb-4">
-        <p className="text-[9px] font-semibold text-text-muted mb-3">Weekly Trend</p>
-        <div className="flex items-end gap-1.5 h-16">
-          {weeklyBars.map((h, i) => (
-            <div
-              key={i}
-              className="flex-1 rounded-t bg-accent-teal/60 animate-bar"
-              style={{ height: `${h}%`, animationDelay: `${i * 100}ms` }}
-            />
-          ))}
-        </div>
-        <div className="flex justify-between mt-1.5">
-          {days.map((d, i) => (
-            <span key={i} className="flex-1 text-center text-[7px] text-text-muted">{d}</span>
-          ))}
-        </div>
-      </div>
-      {/* Recent Activity */}
-      <div className="rounded-lg bg-surface-variant/60 p-3">
-        <p className="text-[9px] font-semibold text-text-muted mb-2">Recent Activity</p>
-        <div className="space-y-2.5">
-          {activityItems.map((item) => (
-            <div key={item.initials} className="flex items-center gap-2.5">
-              <div className={`h-6 w-6 rounded-full ${item.color} flex items-center justify-center shrink-0`}>
-                <span className="text-[8px] font-bold text-white">{item.initials}</span>
-              </div>
-              <div className="space-y-1">
-                <div className={`h-1.5 ${item.w1} rounded bg-surface-variant`} />
-                <div className={`h-1.5 ${item.w2} rounded bg-surface-variant`} />
-              </div>
+      {/* Recent moments feed */}
+      <div className="space-y-2.5 mb-4">
+        {recentMoments.map((m, i) => (
+          <div
+            key={m.child}
+            className="rounded-lg bg-background/60 p-2.5"
+            style={{
+              opacity: 0,
+              animation: 'reveal-up 0.3s ease-out forwards',
+              animationDelay: `${i * 0.15}s`,
+            }}
+          >
+            <div className="flex items-center justify-between mb-1">
+              <span className="text-[10px] font-semibold text-text">{m.child}</span>
+              <span className="text-[8px] text-text-muted">{m.time}</span>
             </div>
-          ))}
+            <p className="text-[9px] text-text-secondary">{m.note}</p>
+            <div className="flex gap-1 mt-1.5">
+              {m.domains.map((d) => (
+                <span key={d} className="text-[7px] font-medium text-accent-blue bg-accent-blue/10 px-1.5 py-0.5 rounded-full">
+                  {d}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+      {/* Weekly stat */}
+      <div className="flex items-center gap-3 rounded-lg bg-accent-teal/8 p-3">
+        <span className="text-2xl font-bold text-accent-teal">12</span>
+        <div>
+          <p className="text-[9px] font-semibold text-text">moments this week</p>
+          <p className="text-[8px] text-text-muted">across 8 children</p>
         </div>
       </div>
     </div>
@@ -311,79 +401,87 @@ export function DashboardMockup() {
 }
 
 /* ═══════════════════════════════════════════════════
-   Step 5 — Leadership Console
+   Step 5 — Leadership Hub: Signal-first with real metrics
    ═══════════════════════════════════════════════════ */
-const leaderMetrics = [
-  { value: '94%', label: 'Doc. Frequency', color: 'accent-blue' },
-  { value: '87%', label: 'Compliance', color: 'accent-green' },
-  { value: '72%', label: 'Reflection Rate', color: 'accent-purple' },
-  { value: '61%', label: 'Family Engagement', color: 'accent-pink' },
+const pulseCards = [
+  { title: 'Active Classrooms', value: '3', signal: 'Strong', color: '#5CCB8A', icon: '🏫' },
+  { title: 'Moments Captured', value: '47', signal: 'Strong', color: '#5CCB8A', icon: '📸' },
+  { title: 'Educator Engagement', value: '4/4', signal: 'Growing', color: '#3FA7F5', icon: '👩‍🏫' },
+  { title: 'Program Climate', value: '', signal: 'Strong', color: '#5CCB8A', icon: '☀️' },
 ];
 
-const schemas = [
-  { name: 'Transporting', pct: 28, color: 'bg-accent-orange' },
-  { name: 'Trajectory', pct: 22, color: 'bg-accent-blue' },
-  { name: 'Enclosing', pct: 18, color: 'bg-accent-purple' },
-  { name: 'Rotation', pct: 15, color: 'bg-accent-green' },
-  { name: 'Connecting', pct: 10, color: 'bg-accent-yellow' },
-  { name: 'Other', pct: 7, color: 'bg-text-muted' },
+const classroomCards = [
+  { name: 'Kids Club', children: 4, moments: 8, educators: ['S', 'P'], signal: 'Strong', color: '#5CCB8A' },
+  { name: 'Rainbow Room', children: 4, moments: 4, educators: ['J'], signal: 'Growing', color: '#3FA7F5' },
 ];
 
-const complianceChecks = [
-  { label: 'Doc. Frequency', status: 'green' },
-  { label: 'Portfolio Complete', status: 'green' },
-  { label: 'Missing Reports', status: 'yellow' },
+const complianceItems = [
+  { label: 'Documentation Coverage', value: '75%', signal: 'Steady', color: '#FFC83D' },
+  { label: 'Consent Completion', value: '6/8', signal: 'Growing', color: '#3FA7F5' },
+  { label: 'Program Readiness', value: '', signal: 'Growing', color: '#3FA7F5' },
 ];
 
 export function LeaderConsoleMockup() {
   return (
-    <div className="glass-card rounded-2xl p-6 pointer-events-none">
-      {/* Live indicator */}
-      <div className="flex items-center gap-2 mb-4">
-        <div className="h-3 w-3 rounded-full bg-accent-green animate-pulse" />
-        <span className="text-xs font-medium text-text-muted">Live: Program Overview</span>
-      </div>
-      {/* 2x2 metrics */}
-      <div className="grid grid-cols-2 gap-3 mb-4">
-        {leaderMetrics.map((m) => (
-          <div key={m.label} className={`rounded-xl bg-${m.color}/10 p-3 text-center`}>
-            <p className={`text-2xl font-bold text-${m.color}`}>{m.value}</p>
-            <p className="text-[10px] text-text-muted">{m.label}</p>
+    <div className="glass-card rounded-2xl p-5 pointer-events-none">
+      <TitleBar label="Leadership Hub — Program at a Glance" />
+      {/* Section pills */}
+      <div className="flex gap-1.5 mb-4 overflow-hidden">
+        {['Overview', 'Classrooms', 'Educators', 'Children', 'Insights', 'Compliance', 'Community'].map((s, i) => (
+          <div
+            key={s}
+            className={`text-[8px] font-semibold px-2.5 py-1 rounded-full whitespace-nowrap ${
+              i === 0 ? 'bg-primary text-white' : 'bg-surface-variant text-text-muted'
+            }`}
+          >
+            {s}
           </div>
         ))}
       </div>
-      {/* Schema bars */}
-      <div className="rounded-xl bg-surface-variant/60 p-4 mb-4">
-        <p className="text-xs font-semibold text-text mb-3">Schema Distribution</p>
-        <div className="space-y-2">
-          {schemas.map((s) => (
-            <div key={s.name} className="flex items-center gap-2">
-              <span className="text-[10px] text-text-muted w-20 shrink-0">{s.name}</span>
-              <div className="flex-1 h-2 rounded-full bg-surface">
-                <div
-                  className={`h-2 rounded-full ${s.color} animate-bar`}
-                  style={{ width: `${s.pct}%` }}
-                />
-              </div>
-              <span className="text-[10px] text-text-muted w-8 text-right">{s.pct}%</span>
+      {/* Program Pulse — signal-first cards */}
+      <div className="grid grid-cols-2 gap-2 mb-4">
+        {pulseCards.map((c) => (
+          <div key={c.title} className="rounded-xl bg-background/60 p-2.5">
+            <div className="flex items-center gap-1 mb-1">
+              <span className="text-xs">{c.icon}</span>
+              <span className="text-[8px] text-text-muted">{c.title}</span>
             </div>
-          ))}
-        </div>
+            <p className="text-sm font-bold" style={{ color: c.color }}>{c.signal}</p>
+            {c.value && <p className="text-[9px] text-text-muted">{c.value}</p>}
+          </div>
+        ))}
       </div>
-      {/* Compliance readiness */}
-      <div className="rounded-xl bg-surface-variant/60 p-4">
-        <p className="text-xs font-semibold text-text mb-3">Compliance Readiness</p>
-        <div className="grid grid-cols-3 gap-2">
-          {complianceChecks.map((c) => (
-            <div key={c.label} className="flex flex-col items-center gap-1.5">
-              <div
-                className={`h-3.5 w-3.5 rounded-full ${
-                  c.status === 'green' ? 'bg-accent-green' : 'bg-accent-yellow'
-                }`}
-              />
-              <span className="text-[9px] text-text-muted text-center leading-tight">
-                {c.label}
-              </span>
+      {/* Classroom snapshots */}
+      <div className="grid grid-cols-2 gap-2 mb-3">
+        {classroomCards.map((cls) => (
+          <div key={cls.name} className="rounded-xl bg-background/60 overflow-hidden">
+            <div className="h-1" style={{ backgroundColor: cls.color }} />
+            <div className="p-2.5">
+              <p className="text-[10px] font-semibold text-text">{cls.name}</p>
+              <p className="text-[8px] text-text-muted">{cls.children} children · {cls.moments} moments</p>
+              <div className="flex items-center gap-1 mt-1.5">
+                {cls.educators.map((e, i) => (
+                  <div key={i} className="h-4 w-4 rounded-full bg-primary flex items-center justify-center">
+                    <span className="text-[7px] font-bold text-white">{e}</span>
+                  </div>
+                ))}
+                <SignalBadge label={cls.signal} color={cls.color} />
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      {/* Compliance row */}
+      <div className="rounded-xl bg-surface-variant/60 p-3">
+        <p className="text-[9px] font-semibold text-text mb-2">Compliance</p>
+        <div className="space-y-1.5">
+          {complianceItems.map((c) => (
+            <div key={c.label} className="flex items-center justify-between">
+              <span className="text-[8px] text-text-muted">{c.label}</span>
+              <div className="flex items-center gap-1.5">
+                {c.value && <span className="text-[9px] font-semibold text-text">{c.value}</span>}
+                <SignalBadge label={c.signal} color={c.color} />
+              </div>
             </div>
           ))}
         </div>

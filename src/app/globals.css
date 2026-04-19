@@ -170,9 +170,36 @@ html {
 .section-gradient {
   background: linear-gradient(165deg, var(--background) 0%, #E8E0F4 35%, #D8EEF0 65%, var(--background) 100%);
 }
+.section-gradient-soft {
+  background: linear-gradient(165deg, var(--background) 0%, #EDE5F2 40%, #F0EAF8 60%, var(--background) 100%);
+}
 .section-navy-gradient {
   background: linear-gradient(165deg, var(--primary) 0%, #243275 50%, #1B2559 100%);
   color: var(--text-on-primary);
+}
+
+/* ── Section transition fades ────────────── */
+.section-fade-top::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: linear-gradient(180deg, var(--background), transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+.section-fade-bottom::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: linear-gradient(0deg, var(--background), transparent);
+  pointer-events: none;
+  z-index: 1;
 }
 
 /* ── Overlay for depth ────────────────────── */
@@ -203,6 +230,24 @@ html {
 }
 .animate-drift-delay {
   animation: float-drift 12s ease-in-out 3s infinite;
+}
+
+/* ── Pop-in for demo tag chips ───────────── */
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ── Pulse ring for demo timeline ────────── */
+@keyframes pulse-ring {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 0; transform: scale(2); }
 }
 
 /* ── Auto-scroll logos ────────────────────── */

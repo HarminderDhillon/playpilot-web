@@ -24,7 +24,7 @@ export function TheShift() {
               <p>Be accountable.</p>
             </div>
 
-            <p>And somehow — document it all.</p>
+            <p>And somehow, document it all.</p>
 
             <p>
               But when documentation becomes a checklist, something sacred gets lost.

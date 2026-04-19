@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useEffect, useRef } from 'react';
 import { ProductMockup } from './ProductMockup';
+import { HeroBackground } from './HeroBackground';
 
 export function Hero() {
   const mockupRef = useRef<HTMLDivElement>(null);
@@ -26,6 +27,7 @@ export function Hero() {
 
   return (
     <section className="section-overlay-top relative overflow-hidden grid-bg px-6 pt-32 pb-24 sm:pt-44 sm:pb-36">
+      <HeroBackground />
       <div className="mx-auto max-w-6xl grid gap-12 lg:grid-cols-2 lg:items-center relative z-10">
         {/* Left — copy */}
         <div className="reveal">
@@ -41,13 +43,13 @@ export function Hero() {
 
           <p className="mt-6 max-w-lg text-lg text-text-secondary leading-relaxed">
             In a world moving faster every day, educators deserve systems that support
-            presence — not pressure. PlayPilot transforms documentation from a compliance
+            presence, not pressure. PlayPilot transforms documentation from a compliance
             burden into a powerful engine for insight, creativity, and community.
           </p>
 
           <p className="mt-6 max-w-md text-sm font-semibold text-text leading-relaxed">
             Learning happens through play.<br />
-            Educators should be free to witness it — not trapped in documenting it.
+            Educators should be free to witness it, not trapped in documenting it.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">

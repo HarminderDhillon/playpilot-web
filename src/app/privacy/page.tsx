@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy — PlayPilot',
+  title: 'Privacy Policy | PlayPilot',
   description: 'How PlayPilot handles your data, children\'s information, and educator privacy.',
 };
 
@@ -10,7 +10,7 @@ export default function PrivacyPage() {
     <div className="px-6 pt-32 pb-20">
       <div className="mx-auto max-w-3xl">
         <h1 className="text-4xl font-bold text-text sm:text-5xl">Privacy Policy</h1>
-        <p className="mt-4 text-sm text-text-muted">Last updated: February 2026</p>
+        <p className="mt-4 text-sm text-text-muted">Last updated: April 2026</p>
 
         <div className="mt-10 space-y-8 text-base leading-relaxed text-text-secondary">
           <section>
@@ -108,8 +108,8 @@ export default function PrivacyPage() {
             <h2 className="text-xl font-semibold text-text">9. Contact</h2>
             <p className="mt-3">
               For privacy questions or data requests, contact us at{' '}
-              <a href="mailto:privacy@playpilot.app" className="font-medium text-primary hover:text-primary-hover">
-                privacy@playpilot.app
+              <a href="mailto:hello@playpilotlearning.com" className="font-medium text-primary hover:text-primary-hover">
+                hello@playpilotlearning.com
               </a>.
             </p>
           </section>

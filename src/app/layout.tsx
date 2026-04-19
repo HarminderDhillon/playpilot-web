@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'PlayPilot — Pedagogical Intelligence for Early Learning',
+  title: 'PlayPilot | Pedagogical Intelligence for Early Learning',
   description:
     'PlayPilot is a pedagogical intelligence platform connecting educators, families, supervisors, and communities through meaningful documentation and shared insight.',
   keywords: ['early childhood', 'educator', 'documentation', 'pedagogy', 'Alberta', 'Flight', 'curriculum framework', 'observation', 'NNN'],

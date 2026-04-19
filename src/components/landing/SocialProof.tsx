@@ -13,7 +13,7 @@ const testimonials = [
   },
   {
     quote:
-      'The schema detection blew my mind. It identified patterns in my observations I never would have noticed on my own — and helped me plan better provocations.',
+      'The schema detection blew my mind. It identified patterns in my observations I never would have noticed on my own and helped me plan better provocations.',
     name: 'Priya K.',
     role: 'ECE, Calgary',
     initials: 'PK',
@@ -31,7 +31,7 @@ const testimonials = [
 
 export function SocialProof() {
   return (
-    <section className="section-gradient px-6 py-20 sm:py-28">
+    <section className="section-gradient-soft px-6 py-20 sm:py-28">
       <div className="mx-auto max-w-6xl">
         <ScrollReveal>
           <div className="text-center mb-12">

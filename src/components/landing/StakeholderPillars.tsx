@@ -114,9 +114,9 @@ function ParentTimelineMockup() {
       {/* Timeline entries */}
       <div className="space-y-4 mb-4">
         {[
-          { color: 'bg-accent-blue', date: 'Feb 24', text: 'Built a marble run — Trajectory schema' },
-          { color: 'bg-accent-purple', date: 'Feb 21', text: 'Wrapped toys in blankets — Enclosing' },
-          { color: 'bg-accent-orange', date: 'Feb 18', text: 'Carried blocks across the room — Transporting' },
+          { color: 'bg-accent-blue', date: 'Feb 24', text: 'Built a marble run exploring trajectory' },
+          { color: 'bg-accent-purple', date: 'Feb 21', text: 'Wrapped toys in blankets: Enclosing' },
+          { color: 'bg-accent-orange', date: 'Feb 18', text: 'Carried blocks across the room: Transporting' },
         ].map((entry) => (
           <div key={entry.date} className="flex gap-3">
             <div className="flex flex-col items-center">
@@ -144,7 +144,7 @@ export function StakeholderPillars() {
   return (
     <>
       {/* FOR EDUCATORS — text left, mockup right */}
-      <section className="section-warm px-6 py-20 sm:py-28">
+      <section className="section-warm relative section-fade-top px-6 py-20 sm:py-28">
         <div className="mx-auto max-w-5xl grid gap-12 lg:grid-cols-2 lg:items-center">
           <div>
             <ScrollReveal>
@@ -174,7 +174,7 @@ export function StakeholderPillars() {
             <ScrollReveal delay={250}>
               <div className="mt-8 glass-card rounded-2xl px-6 py-4">
                 <p className="text-sm font-semibold text-accent-coral">
-                  Your role is to witness learning — not chase paperwork.
+                  Your role is to witness learning, not chase paperwork.
                 </p>
               </div>
             </ScrollReveal>
@@ -221,7 +221,7 @@ export function StakeholderPillars() {
             <ScrollReveal delay={250}>
               <div className="mt-8 glass-card rounded-2xl px-6 py-4">
                 <p className="text-sm font-semibold text-accent-teal">
-                  Leadership becomes supportive — not reactive.
+                  Leadership becomes supportive, not reactive.
                 </p>
               </div>
             </ScrollReveal>

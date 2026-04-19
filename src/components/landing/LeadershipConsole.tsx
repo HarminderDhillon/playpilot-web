@@ -65,13 +65,13 @@ export function LeadershipConsole() {
             <ScrollReveal delay={250}>
               <div className="mt-8 glass-card rounded-2xl px-5 py-3">
                 <p className="text-sm font-semibold text-accent-purple">
-                  PlayPilot doesn&apos;t just document learning — it reveals it.
+                  PlayPilot doesn&apos;t just document learning. It reveals it.
                 </p>
               </div>
 
               <Link
                 href="/login"
-                className="mt-6 inline-block btn-primary rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-text-on-primary"
+                className="mt-6 inline-block btn-primary rounded-xl bg-primary px-7 py-3.5 text-sm font-semibold text-text-on-primary"
               >
                 Explore the Leadership Console
               </Link>
@@ -84,7 +84,7 @@ export function LeadershipConsole() {
               {/* Status bar */}
               <div className="flex items-center gap-2 mb-4">
                 <div className="h-3 w-3 rounded-full bg-accent-green animate-pulse" />
-                <span className="text-xs font-medium text-text-muted">Live — Program Overview</span>
+                <span className="text-xs font-medium text-text-muted">Live: Program Overview</span>
               </div>
 
               {/* Top metrics */}

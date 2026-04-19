@@ -61,7 +61,7 @@ export function TrustedBy() {
   const doubled = [...programs, ...programs];
 
   return (
-    <section className="section-white border-y border-divider px-6 py-14 sm:py-16 overflow-hidden">
+    <section className="section-white border-y border-divider px-6 py-16 sm:py-20 overflow-hidden">
       <p className="text-center text-xs font-semibold tracking-widest text-text-muted uppercase mb-8">
         Trusted by early learning programs across Canada
       </p>

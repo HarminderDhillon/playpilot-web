@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 // In development, the Expo web app runs locally.
-// In production, this would be something like https://app.playpilot.com
+// In production, this would be something like https://app.playpilotlearning.com
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:8081';
 
 export default function LoginPage() {

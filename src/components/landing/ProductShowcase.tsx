@@ -19,7 +19,7 @@ const activityItems = [
 
 const features = [
   { icon: '📊', title: 'Real-time schema trends', desc: 'See how play patterns evolve across your program in real time.' },
-  { icon: '🔄', title: 'Reflection frequency tracking', desc: 'Know which educators are reflecting — and who needs support.' },
+  { icon: '🔄', title: 'Reflection frequency tracking', desc: 'Know which educators are reflecting and who needs support.' },
   { icon: '✅', title: 'Compliance readiness indicators', desc: 'Always know where you stand before licensing visits.' },
   { icon: '👨‍👩‍👧', title: 'Family engagement metrics', desc: 'Track how families interact with portfolios and updates.' },
 ];

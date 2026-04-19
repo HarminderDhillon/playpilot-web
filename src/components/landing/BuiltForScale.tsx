@@ -4,14 +4,14 @@ import { ScrollReveal } from './ScrollReveal';
 
 export function BuiltForScale() {
   return (
-    <section id="the-vision" className="section-cream grid-bg px-6 py-20 sm:py-28">
+    <section id="the-vision" className="section-cream grid-bg relative section-fade-bottom px-6 py-20 sm:py-28">
       <div className="mx-auto max-w-3xl text-center">
         <ScrollReveal>
           <p className="text-xs font-semibold tracking-widest text-primary uppercase mb-3">
             The Vision
           </p>
           <h2 className="text-3xl font-bold text-text sm:text-4xl tracking-tight">
-            Let&apos;s build stronger early learning ecosystems — together.
+            Let&apos;s build stronger early learning ecosystems, together.
           </h2>
         </ScrollReveal>
 

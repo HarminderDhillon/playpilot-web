@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Leadership Console — PlayPilot',
+  title: 'Leadership Console | PlayPilot',
   description: 'Program analytics, educator support, and compliance-ready reporting for early learning leaders.',
 };
 
@@ -14,7 +14,7 @@ export default function DashboardPage() {
         <h1 className="text-3xl font-bold text-text">Program Intelligence Dashboard</h1>
         <p className="mt-2 text-text-secondary leading-relaxed">
           View program-wide analytics, support educator practice, and generate
-          compliance-ready reports — all powered by real documentation data.
+          compliance-ready reports, all powered by real documentation data.
         </p>
 
         {/* Placeholder stat cards */}

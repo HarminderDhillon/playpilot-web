@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Features — PlayPilot',
+  title: 'Features | PlayPilot',
   description: 'Explore all the ways PlayPilot helps educators document, track, and share learning.',
 };
 
@@ -10,7 +10,7 @@ const featureSections = [
   {
     title: 'Voice-First Capture',
     description:
-      'Speak your observation while it happens. PlayPilot transcribes your voice note, identifies developmental domains, and creates a draft learning story — all in seconds. No more scribbling on Post-its and typing them up later.',
+      'Speak your observation while it happens. PlayPilot transcribes your voice note, identifies developmental domains, and creates a draft learning story, all in seconds. No more scribbling on Post-its and typing them up later.',
     accent: 'bg-accent-blue/10 border-accent-blue/30',
     dot: 'bg-accent-blue',
   },
@@ -31,14 +31,14 @@ const featureSections = [
   {
     title: 'Milestone Tracking',
     description:
-      'Visual developmental progress at a glance. Track milestones across domains, see where each child is thriving, and identify areas that might need extra attention — without spreadsheets.',
+      'Visual developmental progress at a glance. Track milestones across domains, see where each child is thriving, and identify areas that might need extra attention. No spreadsheets needed.',
     accent: 'bg-accent-green/10 border-accent-green/30',
     dot: 'bg-accent-green',
   },
   {
     title: 'Portfolio & Family Sharing',
     description:
-      'Beautiful, parent-friendly learning portfolios that celebrate each child\'s journey. Families see the learning behind the play — without the educator jargon. Strengthens the home-centre partnership.',
+      'Beautiful, parent-friendly learning portfolios that celebrate each child\'s journey. Families see the learning behind the play without the educator jargon. Strengthens the home-centre partnership.',
     accent: 'bg-accent-pink/10 border-accent-pink/30',
     dot: 'bg-accent-pink',
   },
@@ -52,7 +52,7 @@ const featureSections = [
   {
     title: 'Web Dashboard',
     description:
-      'View all your observations, portfolios, and insights on a bigger screen. Supervisors and educational leaders can review documentation, track team progress, and support quality improvement — coming soon.',
+      'View all your observations, portfolios, and insights on a bigger screen. Supervisors and educational leaders can review documentation, track team progress, and support quality improvement. Coming soon.',
     accent: 'bg-primary/5 border-primary/20',
     dot: 'bg-primary',
   },

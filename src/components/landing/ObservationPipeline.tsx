@@ -4,7 +4,7 @@ import { ScrollReveal } from './ScrollReveal';
 
 export function ObservationPipeline() {
   return (
-    <section className="section-gradient px-6 py-20 sm:py-28">
+    <section className="section-gradient relative section-fade-bottom px-6 py-20 sm:py-28">
       <div className="mx-auto max-w-3xl">
         <ScrollReveal>
           <div className="text-center space-y-3">
@@ -35,7 +35,7 @@ export function ObservationPipeline() {
         <ScrollReveal delay={250}>
           <div className="mt-10 glass-card rounded-2xl px-8 py-5 text-center">
             <p className="text-sm font-semibold text-accent-green">
-              Documentation becomes a tool for empowerment — not exhaustion.
+              Documentation becomes a tool for empowerment, not exhaustion.
             </p>
           </div>
         </ScrollReveal>

@@ -41,7 +41,7 @@ export function PedagogicalEngine() {
           <div className="mt-10 space-y-2">
             <p className="text-sm text-text-muted">This is not digital paperwork.</p>
             <p className="text-lg font-bold text-primary tracking-tight">
-              This is pedagogical power — structured, supported, and scalable.
+              This is pedagogical power: structured, supported, and scalable.
             </p>
           </div>
         </ScrollReveal>
