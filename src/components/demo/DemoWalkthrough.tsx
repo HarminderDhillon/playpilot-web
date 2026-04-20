@@ -25,7 +25,7 @@ const STEPS: Step[] = [
     title: 'See PlayPilot in Action',
     subtitle: 'Interactive Walkthrough',
     description:
-      'Click through the entire PlayPilot experience. Explore multiple capture modes, AI-powered enrichment, family journeys, and classroom spaces. No sign-up required.',
+      'Explore the full PlayPilot experience:\n• Multiple capture modes\n• AI-powered enrichment\n• Family journeys\n• Classroom spaces\n\nNo sign-up required.',
     accent: 'accent-teal',
     bg: 'section-gradient',
   },
@@ -33,7 +33,7 @@ const STEPS: Step[] = [
     title: '16+ Ways to Capture Learning',
     subtitle: 'The Capture Hub',
     description:
-      'Quick Jot, Voice Note, Mark Growth, Smart Swipe, ABC Tracker, Learning Thread, Child Voice, and more. 16+ purpose-built tools so educators capture the right way every time, without leaving the moment.',
+      '16+ purpose-built tools:\n• Quick Jot, Voice Note, Photo, Video\n• Smart Swipe, Noticing Tiles, ABC Tracker\n• Learning Thread, Child Voice, and more\n\nCapture the right way every time, without leaving the moment.',
     accent: 'accent-coral',
     bg: 'section-warm',
   },
@@ -41,7 +41,7 @@ const STEPS: Step[] = [
     title: 'AI That Understands Pedagogy',
     subtitle: 'Intelligent Enrichment',
     description:
-      'PlayPilot detects development domains (Cognitive, Physical, Creative), learning dispositions (Curiosity, Persistence), and schemas (Transporting, Trajectory). It then drafts interpretations and next steps automatically.',
+      'PlayPilot automatically detects:\n• Development domains (Cognitive, Physical, Creative)\n• Learning dispositions (Curiosity, Persistence)\n• Play schemas (Transporting, Trajectory)\n\nThen drafts interpretations and next steps for you.',
     accent: 'accent-purple',
     bg: 'section-cream',
   },
@@ -49,7 +49,7 @@ const STEPS: Step[] = [
     title: 'Families See the Full Picture',
     subtitle: 'Family Learning Journey',
     description:
-      'Parents receive a living timeline of their child\'s growth across all five domains. Every observation links to dispositions, schemas, and educator insights, building deep trust and partnership.',
+      'Parents receive a living timeline of their child\'s growth:\n• Progress across all five domains\n• Linked dispositions and schemas\n• Educator insights and next steps\n\nBuilding deep trust and partnership.',
     accent: 'accent-yellow',
     bg: 'section-warm',
   },
@@ -57,7 +57,7 @@ const STEPS: Step[] = [
     title: 'One Classroom, Five Lenses',
     subtitle: 'The Classroom Space',
     description:
-      'Moments, Journey, Community, Culture, and Insights. Five sections give educators, families, and consultants different views of the same classroom, each tailored to their role.',
+      'Five views tailored to each role:\n• Moments: recent captures\n• Journey: growth over time\n• Community: team messaging\n• Culture: classroom identity\n• Insights: patterns and trends',
     accent: 'accent-teal',
     bg: 'section-white',
   },
@@ -65,7 +65,7 @@ const STEPS: Step[] = [
     title: 'Leadership Tools (Coming Soon)',
     subtitle: 'The Leadership Hub',
     description:
-      'A program-level view for supervisors and educational leaders. Signal-first language (Strong, Growing, Steady, Quiet) replaces raw metrics with human understanding. Currently in development.',
+      'A program-level view for leaders:\n• Signal-first language (Strong, Growing, Steady, Quiet)\n• Human understanding over raw metrics\n• Educator support and growth tracking\n\nCurrently in development.',
     accent: 'accent-purple',
     bg: 'section-cream',
   },
@@ -73,7 +73,7 @@ const STEPS: Step[] = [
     title: 'Ready to Transform Documentation?',
     subtitle: 'Get Started',
     description:
-      'Join early childhood programs that are replacing paperwork pressure with presence-first documentation.',
+      'Join early childhood programs replacing paperwork pressure with presence-first documentation.',
     accent: 'accent-teal',
     bg: 'section-navy',
   },
@@ -258,7 +258,7 @@ export function DemoWalkthrough() {
               <h1 className={`text-3xl sm:text-4xl font-bold tracking-tight ${isNavy ? 'text-white' : 'text-text'}`}>
                 {step.title}
               </h1>
-              <p className={`mt-4 text-base leading-relaxed ${isNavy ? 'text-white/70' : 'text-text-secondary'}`}>
+              <p className={`mt-4 text-base leading-relaxed whitespace-pre-line ${isNavy ? 'text-white/70' : 'text-text-secondary'}`}>
                 {step.description}
               </p>
             </div>
