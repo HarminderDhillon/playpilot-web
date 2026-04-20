@@ -89,10 +89,14 @@ export function WelcomeMockup() {
             src="/logo-plane.png"
             alt="PlayPilot"
             style={{
-              width: 300,
-              height: 300,
-              objectFit: 'contain',
-              marginTop: -70,
+              width: 380,
+              height: 253,
+              objectFit: 'cover',
+              objectPosition: 'center 30%',
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -55%)',
             }}
           />
         </div>
