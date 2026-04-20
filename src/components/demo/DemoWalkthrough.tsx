@@ -237,8 +237,8 @@ export function DemoWalkthrough() {
       className="min-h-screen flex flex-col transition-colors duration-500"
       style={{ backgroundColor: isNavy ? '#1F2A44' : '#F7F3EC' }}
     >
-      {/* ── Step indicator dots ────────────────── */}
-      <div className="pt-4 pb-2">
+      {/* ── Step indicator dots (below fixed navbar) ── */}
+      <div className="pt-20 pb-4">
         <div className="flex items-center justify-center gap-2.5">
           {STEPS.map((_, i) => {
             const isActive = i === currentStep;
@@ -308,51 +308,51 @@ export function DemoWalkthrough() {
       </div>
 
       {/* ── Navigation ─────────────────────────── */}
-      <div className={`sticky bottom-0 z-30 ${isNavy ? 'bg-primary/80' : 'bg-surface/80'} backdrop-blur-md border-t ${isNavy ? 'border-white/10' : 'border-border'}`}>
+      <div className={`sticky bottom-0 z-30 ${isNavy ? 'bg-primary/90' : 'bg-surface/90'} backdrop-blur-md border-t ${isNavy ? 'border-white/10' : 'border-border'} shadow-[0_-2px_12px_rgba(0,0,0,0.06)]`}>
         <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-          {/* Back */}
-          {currentStep > 0 ? (
-            <button
-              onClick={() => { disableAutoPlay(); prev(); }}
-              disabled={isTransitioning}
-              className={`flex items-center gap-2 text-sm font-medium transition-colors cursor-pointer ${
-                isNavy ? 'text-white/60 hover:text-white' : 'text-text-muted hover:text-text'
-              } disabled:opacity-40`}
-            >
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-              </svg>
-              Back
-            </button>
-          ) : (
-            <div />
-          )}
+          {/* Back — hidden on step 1 */}
+          <div className="w-24">
+            {currentStep > 0 && (
+              <button
+                onClick={() => { disableAutoPlay(); prev(); }}
+                disabled={isTransitioning}
+                className={`flex items-center gap-2 text-sm font-medium transition-colors cursor-pointer ${
+                  isNavy ? 'text-white/60 hover:text-white' : 'text-text-muted hover:text-text'
+                } disabled:opacity-40`}
+              >
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                </svg>
+                Back
+              </button>
+            )}
+          </div>
 
           {/* Step counter */}
-          <span className={`text-xs font-medium ${isNavy ? 'text-white/40' : 'text-text-muted'}`}>
+          <span className={`text-sm font-medium ${isNavy ? 'text-white/50' : 'text-text-muted'}`}>
             {currentStep + 1} of {TOTAL}
           </span>
 
-          {/* Next / Get Started */}
-          {currentStep < TOTAL - 1 ? (
-            <button
-              onClick={() => { disableAutoPlay(); next(); }}
-              disabled={isTransitioning}
-              className={`flex items-center gap-2 text-sm font-semibold transition-colors cursor-pointer ${
-                isNavy
-                  ? 'text-accent-teal hover:text-accent-teal/80'
-                  : 'text-primary hover:text-primary-hover'
-              } disabled:opacity-40`}
-            >
-              {currentStep === TOTAL - 2 ? 'Get Started' : 'Next'}
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-              </svg>
-              {autoPlay && !isLastStep && <CountdownRing progress={progress} />}
-            </button>
-          ) : (
-            <div />
-          )}
+          {/* Next / Get Started — pill button */}
+          <div className="w-24 flex justify-end">
+            {currentStep < TOTAL - 1 && (
+              <button
+                onClick={() => { disableAutoPlay(); next(); }}
+                disabled={isTransitioning}
+                className={`flex items-center gap-2 text-sm font-semibold px-4 py-1.5 rounded-full transition-all cursor-pointer disabled:opacity-40 ${
+                  isNavy
+                    ? 'bg-accent-teal/15 text-accent-teal hover:bg-accent-teal/25'
+                    : 'bg-primary/10 text-primary hover:bg-primary/20'
+                }`}
+              >
+                {currentStep === TOTAL - 2 ? 'Get Started' : 'Next'}
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+                {autoPlay && !isLastStep && <CountdownRing progress={progress} />}
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </div>

@@ -66,7 +66,9 @@ export function WelcomeMockup() {
                 boxShadow: `0 0 12px 3px ${dot.color}60`,
                 top: '50%',
                 left: '50%',
-                transform: `rotate(${dot.offset}deg) translateY(-90px) translate(-50%, -50%)`,
+                marginTop: -6.5,
+                marginLeft: -6.5,
+                transform: `rotate(${dot.offset}deg) translateY(-97px)`,
               }}
             />
           ))}
