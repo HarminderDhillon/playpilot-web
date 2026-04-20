@@ -78,11 +78,11 @@ export function WelcomeMockup() {
           style={{
             width: 120,
             height: 120,
-            background: 'radial-gradient(circle at 50% 40%, #3B4A6B 0%, #1F2A44 70%)',
+            background: 'radial-gradient(circle at 50% 50%, #FFFFFF 0%, #F7F3EC 100%)',
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
-            boxShadow: '0 8px 32px rgba(31,42,68,0.4)',
+            boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
           }}
         >
           <img
