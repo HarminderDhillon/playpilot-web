@@ -36,18 +36,29 @@ export default function PricingPage() {
   const [organization, setOrganization] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const info = `Early Access Request\n\nName: ${name}\nEmail: ${email}\nRole: ${role}\nOrganization: ${organization || 'Not specified'}`;
-    navigator.clipboard.writeText(info).then(() => {
-      setSubmitted(true);
-    }).catch(() => {
-      // Fallback: open mailto
-      const subject = encodeURIComponent('Early Access Request');
-      const body = encodeURIComponent(info);
-      window.location.href = `mailto:hello@playpilotlearning.com?subject=${subject}&body=${body}`;
-      setSubmitted(true);
-    });
+    setIsSubmitting(true);
+    setError('');
+    try {
+      const res = await fetch('https://formspree.io/f/mlgawdnw', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, role, organization: organization || 'Not specified' }),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setError('Something went wrong. Please try again.');
+      }
+    } catch {
+      setError('Could not submit. Please email us directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -68,10 +79,7 @@ export default function PricingPage() {
                 <div className="text-3xl mb-3">{'\u2705'}</div>
                 <h3 className="text-lg font-bold text-text">You&apos;re on the list!</h3>
                 <p className="mt-2 text-sm text-text-secondary">
-                  Your details have been copied. Please email them to{' '}
-                  <a href="mailto:hello@playpilotlearning.com" className="font-medium text-primary hover:text-primary-hover">
-                    hello@playpilotlearning.com
-                  </a>
+                  We&apos;ve received your request and will be in touch soon.
                 </p>
                 <p className="mt-4 text-xs text-text-muted">
                   We&apos;ll reach out within 48 hours.
@@ -141,11 +149,14 @@ export default function PricingPage() {
                   />
                 </div>
 
+                {error && <p className="text-sm text-red-500 text-center">{error}</p>}
+
                 <button
                   type="submit"
-                  className="w-full rounded-xl bg-primary px-7 py-3.5 text-sm font-semibold text-text-on-primary transition-colors hover:bg-primary-hover"
+                  disabled={isSubmitting}
+                  className="w-full rounded-xl bg-primary px-7 py-3.5 text-sm font-semibold text-text-on-primary transition-colors hover:bg-primary-hover disabled:opacity-50"
                 >
-                  Request Early Access
+                  {isSubmitting ? 'Submitting...' : 'Request Early Access'}
                 </button>
 
                 <p className="text-center text-xs text-text-muted">
