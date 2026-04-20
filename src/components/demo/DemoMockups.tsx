@@ -72,9 +72,9 @@ export function WelcomeMockup() {
           ))}
         </div>
 
-        {/* Center FAB circle */}
+        {/* Center FAB circle with logo */}
         <div
-          className="absolute rounded-full flex items-center justify-center"
+          className="absolute rounded-full flex items-center justify-center overflow-hidden"
           style={{
             width: 120,
             height: 120,
@@ -85,19 +85,16 @@ export function WelcomeMockup() {
             boxShadow: '0 8px 32px rgba(31,42,68,0.4)',
           }}
         >
-          {/* Paper plane SVG */}
-          <svg
-            width="48"
-            height="48"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
-              fill="white"
-            />
-          </svg>
+          <img
+            src="/logo-plane.png"
+            alt="PlayPilot"
+            style={{
+              width: 200,
+              height: 200,
+              objectFit: 'contain',
+              marginTop: -45,
+            }}
+          />
         </div>
       </div>
 
