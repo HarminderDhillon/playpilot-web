@@ -34,10 +34,7 @@ export function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
           <Image src="/logo-plane.png" alt="PlayPilot" width={120} height={120} priority />
-          <span className="text-3xl font-bold">
-            <span style={{ background: 'linear-gradient(90deg, #3FA7F5, #7B5CF0, #FF5DA2, #FF8C42, #FFC83D, #5CCB8A)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Play</span>
-            <span className="text-primary">Pilot</span>
-          </span>
+          <span className="text-3xl font-bold text-primary">PlayPilot</span>
         </Link>
 
         {/* Desktop links */}
