@@ -96,7 +96,7 @@ export function WelcomeMockup() {
               position: 'absolute',
               top: '50%',
               left: '50%',
-              transform: 'translate(-45%, -39%)',
+              transform: 'translate(-45%, -42%)',
             }}
           />
         </div>
