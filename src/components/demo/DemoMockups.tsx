@@ -44,14 +44,14 @@ export function WelcomeMockup() {
       {/* Orbit container — rotates the whole ring */}
       <div
         className="relative"
-        style={{ width: 200, height: 200 }}
+        style={{ width: 220, height: 220 }}
       >
         {/* Rotating ring of dots */}
         <div
           style={{
             position: 'absolute',
             inset: 0,
-            animation: 'fab-orbit 20s linear infinite',
+            animation: 'fab-orbit 28s linear infinite',
           }}
         >
           {ORBIT_DOTS.map((dot) => (
@@ -59,14 +59,14 @@ export function WelcomeMockup() {
               key={dot.color}
               style={{
                 position: 'absolute',
-                width: 10,
-                height: 10,
+                width: 13,
+                height: 13,
                 borderRadius: '50%',
                 backgroundColor: dot.color,
-                boxShadow: `0 0 10px 2px ${dot.color}80`,
+                boxShadow: `0 0 12px 3px ${dot.color}60`,
                 top: '50%',
                 left: '50%',
-                transform: `rotate(${dot.offset}deg) translateY(-80px) translate(-50%, -50%)`,
+                transform: `rotate(${dot.offset}deg) translateY(-90px) translate(-50%, -50%)`,
               }}
             />
           ))}
@@ -83,6 +83,8 @@ export function WelcomeMockup() {
             left: '50%',
             transform: 'translate(-50%, -50%)',
             boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+            border: '1px solid rgba(0,0,0,0.06)',
+            animation: 'fab-glow 3s ease-in-out infinite',
           }}
         >
           <img
@@ -107,11 +109,15 @@ export function WelcomeMockup() {
         PlayPilot
       </p>
 
-      {/* Keyframes injected via style tag */}
+      {/* Keyframes */}
       <style>{`
         @keyframes fab-orbit {
           from { transform: rotate(0deg); }
           to   { transform: rotate(360deg); }
+        }
+        @keyframes fab-glow {
+          0%, 100% { box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+          50% { box-shadow: 0 4px 30px rgba(0,0,0,0.18); }
         }
       `}</style>
     </div>
