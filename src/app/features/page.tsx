@@ -45,7 +45,7 @@ const featureSections = [
   {
     title: 'Team Communication',
     description:
-      'Connect with your team through group messaging and classroom announcements. Share updates, coordinate planning, and stay aligned — because great educators don\'t work in isolation.',
+      'Connect with your team through group messaging and classroom announcements. Share updates, coordinate planning, and stay aligned. Great educators thrive when they work together.',
     accent: 'bg-accent-teal/10 border-accent-teal/30',
     dot: 'bg-accent-teal',
   },

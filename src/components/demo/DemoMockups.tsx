@@ -180,7 +180,7 @@ export function CaptureMockup() {
 
   return (
     <div className="glass-card rounded-2xl p-5 pointer-events-none">
-      <TitleBar label="Capture Hub — 16+ Documentation Tools" />
+      <TitleBar label="Capture Hub: 16+ Documentation Tools" />
       {/* Section tabs */}
       <div className="flex gap-2 mb-4">
         {captureSections.map((s, i) => (

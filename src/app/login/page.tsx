@@ -1,90 +1,65 @@
-'use client';
-
+import type { Metadata } from 'next';
 import Link from 'next/link';
-import { useState } from 'react';
 
-// In development, the Expo web app runs locally.
-// In production, this would be something like https://app.playpilotlearning.com
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:8081';
+export const metadata: Metadata = {
+  title: 'Download | PlayPilot',
+  description: 'Download PlayPilot on your mobile device.',
+};
 
 export default function LoginPage() {
-  const [email, setEmail] = useState('');
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Will connect to Supabase Auth when ready
-    setSubmitted(true);
-  };
-
   return (
     <div className="flex min-h-screen items-center justify-center px-6 pt-20">
-      <div className="w-full max-w-sm">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold text-text">Welcome back</h1>
-          <p className="mt-2 text-sm text-text-secondary">
-            Sign in to access your PlayPilot dashboard
-          </p>
+      <div className="w-full max-w-sm text-center">
+        <div className="text-5xl mb-4">{'\u{1F4F1}'}</div>
+        <h1 className="text-2xl font-bold text-text">PlayPilot is a Mobile App</h1>
+        <p className="mt-3 text-sm text-text-secondary leading-relaxed">
+          PlayPilot is designed for educators on the go. Download the app to capture observations,
+          track milestones, and share with families right from your phone.
+        </p>
+
+        <div className="mt-8 space-y-3">
+          <a
+            href="#"
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-text px-6 py-3.5 text-sm font-semibold text-surface transition-opacity hover:opacity-90"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+            </svg>
+            Download on the App Store
+          </a>
+          <a
+            href="#"
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-text px-6 py-3.5 text-sm font-semibold text-surface transition-opacity hover:opacity-90"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M3.18 23.04c.17.15.41.18.61.09l9.76-5.63-2.35-2.35-8.02 7.28c-.15.14-.17.37-.04.54l.04.07zm.49-19.14a.4.4 0 00-.15.32v15.56c0 .12.04.24.12.34l8.26-8.26-8.23-7.96zm17.6 7.93l-3.55-2.05-3.08 2.81 3.08 3.08 3.55-2.06c.55-.32.55-1.1 0-1.78zM5.15 2.45L14.7 8.2l-2.53 2.31L5.09 3.61a.5.5 0 01.06-1.16z"/>
+            </svg>
+            Get it on Google Play
+          </a>
         </div>
 
-        {submitted ? (
-          <div className="mt-8 rounded-xl border border-accent-green/30 bg-accent-green/10 p-6 text-center">
-            <p className="text-sm font-medium text-text">Check your email</p>
-            <p className="mt-2 text-sm text-text-secondary">
-              We sent a magic link to <strong>{email}</strong>. Click it to sign in.
-            </p>
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit} className="mt-8 space-y-4">
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-text">
-                Email address
-              </label>
-              <input
-                id="email"
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="you@centre.edu.au"
-                className="mt-1.5 w-full rounded-lg border border-border bg-surface px-4 py-2.5 text-sm text-text placeholder:text-text-muted outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="w-full rounded-lg bg-primary py-2.5 text-sm font-semibold text-text-on-primary transition-colors hover:bg-primary-hover"
-            >
-              Send Magic Link
-            </button>
-          </form>
-        )}
+        <p className="mt-4 text-xs text-text-muted">
+          Coming soon to app stores.
+        </p>
 
         {/* Divider */}
-        <div className="mt-6 flex items-center gap-3">
+        <div className="mt-8 flex items-center gap-3">
           <div className="h-px flex-1 bg-border" />
           <span className="text-xs text-text-muted">or</span>
           <div className="h-px flex-1 bg-border" />
         </div>
 
-        {/* Launch App button */}
-        <a
-          href={APP_URL}
-          className="mt-4 flex w-full items-center justify-center gap-2 rounded-lg border border-border bg-surface py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary/5"
+        <Link
+          href="/pricing"
+          className="mt-6 inline-block rounded-xl border border-border bg-surface px-7 py-3 text-sm font-semibold text-primary transition-colors hover:bg-primary/5"
         >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
-          </svg>
-          Open PlayPilot App
-        </a>
+          Join Our Early Access Program
+        </Link>
 
-        <div className="mt-6 text-center">
-          <p className="text-xs text-text-muted">
-            Don&apos;t have an account?{' '}
-            <Link href="/features" className="font-medium text-primary hover:text-primary-hover">
-              Learn more about PlayPilot
-            </Link>
-          </p>
+        <div className="mt-6">
+          <Link href="/features" className="text-xs font-medium text-text-muted hover:text-primary">
+            Learn more about PlayPilot features
+          </Link>
         </div>
       </div>
     </div>

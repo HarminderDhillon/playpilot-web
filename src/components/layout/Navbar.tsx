@@ -49,10 +49,10 @@ export function Navbar() {
             </Link>
           ))}
           <Link
-            href="/login"
+            href="/pricing"
             className="btn-secondary rounded-xl border border-border bg-surface px-6 py-3 text-base font-medium text-text"
           >
-            Log In
+            Download App
           </Link>
           <Link
             href="/demo"
@@ -100,11 +100,11 @@ export function Navbar() {
             </Link>
           ))}
           <Link
-            href="/login"
+            href="/pricing"
             onClick={() => setMobileOpen(false)}
             className="block py-3 text-sm font-medium text-text-secondary"
           >
-            Log In
+            Download App
           </Link>
           <Link
             href="/demo"
