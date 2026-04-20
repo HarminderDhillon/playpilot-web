@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import { Geist_Mono } from 'next/font/google';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+import { SplashScreen } from '@/components/layout/SplashScreen';
 import './globals.css';
 
 const inter = Inter({
@@ -39,6 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${geistMono.variable} font-sans antialiased`}>
+        <SplashScreen />
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />
