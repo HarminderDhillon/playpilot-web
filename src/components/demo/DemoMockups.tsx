@@ -78,7 +78,7 @@ export function WelcomeMockup() {
           style={{
             width: 120,
             height: 120,
-            backgroundColor: '#1F2A44',
+            background: 'radial-gradient(circle at 50% 40%, #3B4A6B 0%, #1F2A44 70%)',
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
@@ -97,16 +97,6 @@ export function WelcomeMockup() {
               top: '50%',
               left: '50%',
               transform: 'translate(-47%, -40%)',
-            }}
-          />
-          {/* White gradient overlay to lighten */}
-          <div
-            style={{
-              position: 'absolute',
-              inset: 0,
-              borderRadius: '50%',
-              background: 'radial-gradient(circle at 50% 50%, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.08) 50%, transparent 75%)',
-              pointerEvents: 'none',
             }}
           />
         </div>
