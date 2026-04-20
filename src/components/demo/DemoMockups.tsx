@@ -92,11 +92,11 @@ export function WelcomeMockup() {
               width: 440,
               height: 293,
               objectFit: 'cover',
-              objectPosition: '55% 35%',
+              objectPosition: '52% 30%',
               position: 'absolute',
               top: '50%',
               left: '50%',
-              transform: 'translate(-52%, -48%)',
+              transform: 'translate(-50%, -52%)',
             }}
           />
         </div>
