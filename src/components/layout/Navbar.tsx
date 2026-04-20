@@ -49,6 +49,12 @@ export function Navbar() {
             </Link>
           ))}
           <Link
+            href="/login"
+            className="text-base font-medium text-text-secondary transition-colors hover:text-primary"
+          >
+            Log In
+          </Link>
+          <Link
             href="/pricing"
             className="btn-secondary rounded-xl border border-border bg-surface px-6 py-3 text-base font-medium text-text"
           >
@@ -99,6 +105,13 @@ export function Navbar() {
               {link.label}
             </Link>
           ))}
+          <Link
+            href="/login"
+            onClick={() => setMobileOpen(false)}
+            className="block py-3 text-sm font-medium text-text-secondary"
+          >
+            Log In
+          </Link>
           <Link
             href="/pricing"
             onClick={() => setMobileOpen(false)}
