@@ -78,7 +78,7 @@ export function WelcomeMockup() {
           style={{
             width: 120,
             height: 120,
-            background: 'radial-gradient(circle at 50% 50%, #FFFFFF 0%, #F7F3EC 100%)',
+            background: 'linear-gradient(135deg, #FFF8F3 0%, #F0F9F4 50%, #F8F5FF 100%)',
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)',

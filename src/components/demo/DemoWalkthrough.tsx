@@ -132,7 +132,7 @@ export function DemoWalkthrough() {
   const touchStartY = useRef(0);
 
   const step = STEPS[currentStep];
-  const isNavy = step.bg === 'section-navy';
+  const isNavy = currentStep === TOTAL - 1;
   const isLastStep = currentStep === TOTAL - 1;
 
   const disableAutoPlay = useCallback(() => setAutoPlay(false), []);
@@ -233,18 +233,13 @@ export function DemoWalkthrough() {
   }
 
   return (
-    <div className={`${step.bg} min-h-screen flex flex-col transition-colors duration-500`}>
-      {/* ── Progress bar ───────────────────────── */}
-      <div className={`sticky top-16 z-30 ${isNavy ? 'bg-primary/80' : 'bg-surface/80'} backdrop-blur-md border-b ${isNavy ? 'border-white/10' : 'border-border'}`}>
-        {/* Thin fill bar */}
-        <div className="h-1 w-full">
-          <div
-            className="h-full bg-accent-teal transition-all duration-500 ease-out"
-            style={{ width: `${((currentStep + 1) / TOTAL) * 100}%` }}
-          />
-        </div>
-        {/* Step indicators */}
-        <div className="max-w-5xl mx-auto px-6 py-3 flex items-center justify-center gap-2 sm:gap-3">
+    <div
+      className="min-h-screen flex flex-col transition-colors duration-500"
+      style={{ backgroundColor: isNavy ? '#1F2A44' : '#F7F3EC' }}
+    >
+      {/* ── Step indicator dots ────────────────── */}
+      <div className="pt-4 pb-2">
+        <div className="flex items-center justify-center gap-2.5">
           {STEPS.map((_, i) => {
             const isActive = i === currentStep;
             const isCompleted = i < currentStep;
@@ -257,19 +252,23 @@ export function DemoWalkthrough() {
                     goTo(i, i > currentStep ? 'next' : 'prev');
                   }
                 }}
-                className={`
-                  transition-all duration-300 cursor-pointer
-                  ${isActive
-                    ? `sm:w-8 sm:h-8 w-3 h-3 rounded-full bg-accent-teal ${isNavy ? 'text-white' : 'text-white'} text-xs font-bold flex items-center justify-center`
+                className="transition-all duration-300 cursor-pointer rounded-full"
+                style={{
+                  width: isActive ? 10 : 7,
+                  height: isActive ? 10 : 7,
+                  backgroundColor: isActive
+                    ? '#1F2A44'
                     : isCompleted
-                      ? `sm:w-7 sm:h-7 w-2.5 h-2.5 rounded-full bg-accent-teal/30 ${isNavy ? 'text-white/60' : 'text-accent-teal'} text-[10px] font-medium flex items-center justify-center`
-                      : `sm:w-7 sm:h-7 w-2.5 h-2.5 rounded-full ${isNavy ? 'bg-white/10 text-white/30' : 'bg-surface-variant text-text-muted'} text-[10px] font-medium flex items-center justify-center`
-                  }
-                `}
+                      ? 'rgba(31,42,68,0.35)'
+                      : 'transparent',
+                  border: !isActive && !isCompleted
+                    ? (isNavy ? '1.5px solid rgba(255,255,255,0.3)' : '1.5px solid rgba(31,42,68,0.2)')
+                    : 'none',
+                  ...(isNavy && isActive ? { backgroundColor: '#FFFFFF' } : {}),
+                  ...(isNavy && isCompleted ? { backgroundColor: 'rgba(255,255,255,0.4)' } : {}),
+                }}
                 aria-label={`Step ${i + 1}: ${STEPS[i].title}`}
-              >
-                <span className="hidden sm:inline">{i + 1}</span>
-              </button>
+              />
             );
           })}
         </div>
