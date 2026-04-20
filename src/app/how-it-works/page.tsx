@@ -71,7 +71,7 @@ export default function HowItWorksPage() {
             href="/demo"
             className="btn-primary rounded-xl bg-primary px-7 py-3.5 text-sm font-semibold text-text-on-primary text-center"
           >
-            Book a Demo
+            Try the Demo
           </Link>
           <Link
             href="/features"

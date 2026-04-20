@@ -57,7 +57,7 @@ export function Navbar() {
             href="/demo"
             className="btn-primary rounded-xl bg-primary px-7 py-3 text-base font-semibold text-text-on-primary"
           >
-            Book a Demo
+            Try the Demo
           </Link>
         </div>
 
@@ -110,7 +110,7 @@ export function Navbar() {
             onClick={() => setMobileOpen(false)}
             className="mt-2 block btn-primary rounded-xl bg-primary px-5 py-2.5 text-center text-sm font-semibold text-text-on-primary"
           >
-            Book a Demo
+            Try the Demo
           </Link>
         </div>
       )}

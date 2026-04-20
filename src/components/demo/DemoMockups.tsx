@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
@@ -28,39 +27,92 @@ function SignalBadge({ label, color }: { label: string; color: string }) {
 }
 
 /* ═══════════════════════════════════════════════════
-   Step 0 — Welcome: Animated logo + floating circles
+   Step 0 — Welcome: FAB with orbiting dots
    ═══════════════════════════════════════════════════ */
-const CIRCLES = [
-  { color: '#3FA7F5', x: -100, y: -70, size: 42, anim: 'animate-drift' },
-  { color: '#7B5CF0', x: 80, y: -90, size: 36, anim: 'animate-drift-slow' },
-  { color: '#5CCB8A', x: 110, y: 30, size: 40, anim: 'animate-drift-delay' },
-  { color: '#FFC83D', x: -90, y: 60, size: 34, anim: 'animate-drift' },
-  { color: '#FF8C42', x: 50, y: 90, size: 38, anim: 'animate-drift-slow' },
-  { color: '#FF5DA2', x: -50, y: -40, size: 30, anim: 'animate-drift-delay' },
+const ORBIT_DOTS = [
+  { color: '#3FA7F5', offset: 0 },
+  { color: '#7B5CF0', offset: 60 },
+  { color: '#5CCB8A', offset: 120 },
+  { color: '#FFC83D', offset: 180 },
+  { color: '#FF8C42', offset: 240 },
+  { color: '#FF5DA2', offset: 300 },
 ];
 
 export function WelcomeMockup() {
   return (
-    <div className="relative flex items-center justify-center h-[320px] sm:h-[380px]">
-      {CIRCLES.map((c, i) => (
+    <div className="relative flex flex-col items-center justify-center h-[320px] sm:h-[380px]">
+      {/* Orbit container — rotates the whole ring */}
+      <div
+        className="relative"
+        style={{ width: 200, height: 200 }}
+      >
+        {/* Rotating ring of dots */}
         <div
-          key={i}
-          className={c.anim}
           style={{
             position: 'absolute',
-            width: c.size,
-            height: c.size,
-            borderRadius: '50%',
-            background: c.color,
-            opacity: 0.7,
-            transform: `translate(${c.x}px, ${c.y}px)`,
+            inset: 0,
+            animation: 'fab-orbit 20s linear infinite',
           }}
-        />
-      ))}
-      <div className="relative z-10 flex flex-col items-center">
-        <Image src="/logo-plane.png" alt="PlayPilot" width={80} height={80} priority />
-        <p className="mt-3 text-xl font-bold text-primary tracking-tight">PlayPilot</p>
+        >
+          {ORBIT_DOTS.map((dot) => (
+            <div
+              key={dot.color}
+              style={{
+                position: 'absolute',
+                width: 10,
+                height: 10,
+                borderRadius: '50%',
+                backgroundColor: dot.color,
+                boxShadow: `0 0 10px 2px ${dot.color}80`,
+                top: '50%',
+                left: '50%',
+                transform: `rotate(${dot.offset}deg) translateY(-80px) translate(-50%, -50%)`,
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Center FAB circle */}
+        <div
+          className="absolute rounded-full flex items-center justify-center"
+          style={{
+            width: 120,
+            height: 120,
+            backgroundColor: '#1F2A44',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            boxShadow: '0 8px 32px rgba(31,42,68,0.4)',
+          }}
+        >
+          {/* Paper plane SVG */}
+          <svg
+            width="48"
+            height="48"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
+              fill="white"
+            />
+          </svg>
+        </div>
       </div>
+
+      {/* Title below */}
+      <p className="mt-5 text-2xl font-bold tracking-tight" style={{ color: '#1F2A44' }}>
+        PlayPilot
+      </p>
+
+      {/* Keyframes injected via style tag */}
+      <style>{`
+        @keyframes fab-orbit {
+          from { transform: rotate(0deg); }
+          to   { transform: rotate(360deg); }
+        }
+      `}</style>
     </div>
   );
 }
