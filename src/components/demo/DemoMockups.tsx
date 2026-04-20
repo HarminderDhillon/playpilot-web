@@ -92,7 +92,7 @@ export function WelcomeMockup() {
               width: 500,
               height: 333,
               objectFit: 'cover',
-              objectPosition: 'center 25%',
+              objectPosition: 'center 5%',
               position: 'absolute',
               top: -4,
               left: '50%',
