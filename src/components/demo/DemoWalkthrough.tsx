@@ -237,44 +237,8 @@ export function DemoWalkthrough() {
       className="min-h-screen flex flex-col transition-colors duration-500"
       style={{ backgroundColor: isNavy ? '#1F2A44' : '#F7F3EC' }}
     >
-      {/* ── Step indicator dots (below fixed navbar) ── */}
-      <div className="pt-20 pb-4">
-        <div className="flex items-center justify-center gap-2.5">
-          {STEPS.map((_, i) => {
-            const isActive = i === currentStep;
-            const isCompleted = i < currentStep;
-            return (
-              <button
-                key={i}
-                onClick={() => {
-                  if (i !== currentStep) {
-                    disableAutoPlay();
-                    goTo(i, i > currentStep ? 'next' : 'prev');
-                  }
-                }}
-                className="transition-all duration-300 cursor-pointer rounded-full"
-                style={{
-                  width: isActive ? 10 : 7,
-                  height: isActive ? 10 : 7,
-                  backgroundColor: isActive
-                    ? '#1F2A44'
-                    : isCompleted
-                      ? 'rgba(31,42,68,0.35)'
-                      : 'transparent',
-                  border: !isActive && !isCompleted
-                    ? (isNavy ? '1.5px solid rgba(255,255,255,0.3)' : '1.5px solid rgba(31,42,68,0.2)')
-                    : 'none',
-                  ...(isNavy && isActive ? { backgroundColor: '#FFFFFF' } : {}),
-                  ...(isNavy && isCompleted ? { backgroundColor: 'rgba(255,255,255,0.4)' } : {}),
-                }}
-                aria-label={`Step ${i + 1}: ${STEPS[i].title}`}
-              />
-            );
-          })}
-        </div>
-      </div>
-
       {/* ── Main content ───────────────────────── */}
+      <div className="pt-16" />
       <div
         className="flex-1 flex items-center"
         onTouchStart={onTouchStart}
@@ -328,10 +292,38 @@ export function DemoWalkthrough() {
             )}
           </div>
 
-          {/* Step counter */}
-          <span className={`text-sm font-medium ${isNavy ? 'text-white/50' : 'text-text-muted'}`}>
-            {currentStep + 1} of {TOTAL}
-          </span>
+          {/* Step dots */}
+          <div className="flex items-center gap-2.5">
+            {STEPS.map((_, i) => {
+              const isActive = i === currentStep;
+              const isCompleted = i < currentStep;
+              return (
+                <button
+                  key={i}
+                  onClick={() => {
+                    if (i !== currentStep) {
+                      disableAutoPlay();
+                      goTo(i, i > currentStep ? 'next' : 'prev');
+                    }
+                  }}
+                  className="transition-all duration-300 cursor-pointer rounded-full"
+                  style={{
+                    width: isActive ? 10 : 7,
+                    height: isActive ? 10 : 7,
+                    backgroundColor: isActive
+                      ? (isNavy ? '#FFFFFF' : '#1F2A44')
+                      : isCompleted
+                        ? (isNavy ? 'rgba(255,255,255,0.4)' : 'rgba(31,42,68,0.35)')
+                        : 'transparent',
+                    border: !isActive && !isCompleted
+                      ? (isNavy ? '1.5px solid rgba(255,255,255,0.3)' : '1.5px solid rgba(31,42,68,0.2)')
+                      : 'none',
+                  }}
+                  aria-label={`Step ${i + 1}: ${STEPS[i].title}`}
+                />
+              );
+            })}
+          </div>
 
           {/* Next / Get Started — pill button */}
           <div className="w-24 flex justify-end">
