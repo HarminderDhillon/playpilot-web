@@ -9,7 +9,7 @@ const navLinks = [
   { label: 'About', href: '/about' },
   { label: 'How It Works', href: '/how-it-works' },
   { label: 'Features', href: '/features' },
-  { label: 'Early Access', href: '/pricing' },
+  { label: 'Download App', href: '/pricing' },
 ];
 
 export function Navbar() {
@@ -50,15 +50,9 @@ export function Navbar() {
           ))}
           <Link
             href="/login"
-            className="text-base font-medium text-text-secondary transition-colors hover:text-primary"
-          >
-            Log In
-          </Link>
-          <Link
-            href="/pricing"
             className="btn-secondary rounded-xl border border-border bg-surface px-6 py-3 text-base font-medium text-text"
           >
-            Download App
+            Log In
           </Link>
           <Link
             href="/demo"
@@ -111,13 +105,6 @@ export function Navbar() {
             className="block py-3 text-sm font-medium text-text-secondary"
           >
             Log In
-          </Link>
-          <Link
-            href="/pricing"
-            onClick={() => setMobileOpen(false)}
-            className="block py-3 text-sm font-medium text-text-secondary"
-          >
-            Download App
           </Link>
           <Link
             href="/demo"
