@@ -76,18 +76,27 @@ export function SplashScreen() {
           transition: 'opacity 0.4s ease-out, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)',
         }}
       >
-        <div style={{ position: 'relative', width: LOGO_SIZE, height: LOGO_SIZE }}>
-          {/* Logo image */}
-          <Image
-            src="/logo-plane.png"
-            alt="PlayPilot"
-            width={LOGO_SIZE}
-            height={LOGO_SIZE}
-            style={{ objectFit: 'contain' }}
-            priority
-          />
+        <div style={{ position: 'relative', width: LOGO_SIZE + 60, height: LOGO_SIZE + 60 }}>
+          {/* Logo image — centered in the orbit area */}
+          <div style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: LOGO_SIZE,
+            height: LOGO_SIZE,
+          }}>
+            <Image
+              src="/logo-plane.png"
+              alt="PlayPilot"
+              width={LOGO_SIZE}
+              height={LOGO_SIZE}
+              style={{ objectFit: 'contain' }}
+              priority
+            />
+          </div>
 
-          {/* Orbiting dots */}
+          {/* Orbiting dots — centered on the same point */}
           <div
             style={{
               position: 'absolute',
@@ -102,15 +111,15 @@ export function SplashScreen() {
                   key={`orbit-${i}`}
                   style={{
                     position: 'absolute',
-                    width: 10,
-                    height: 10,
+                    width: 12,
+                    height: 12,
                     borderRadius: '50%',
                     backgroundColor: dot.color,
-                    boxShadow: `0 0 8px 2px ${dot.color}50`,
+                    boxShadow: `0 0 10px 3px ${dot.color}50`,
                     top: '50%',
                     left: '50%',
-                    marginTop: -5,
-                    marginLeft: -5,
+                    marginTop: -6,
+                    marginLeft: -6,
                     opacity: phase === 'logo' ? 1 : 0,
                     transform: phase === 'logo'
                       ? `rotate(${angleDeg}deg) translateY(-${ORBIT_RADIUS}px)`
