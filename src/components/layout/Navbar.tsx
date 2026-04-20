@@ -33,7 +33,7 @@ export function Navbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-8 py-6 sm:py-8">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
-          <Image src="/logo-plane.png" alt="PlayPilot" width={96} height={96} priority />
+          <Image src="/logo-plane.png" alt="PlayPilot" width={120} height={120} priority />
           <span className="text-3xl font-bold text-primary">PlayPilot</span>
         </Link>
 
