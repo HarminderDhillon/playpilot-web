@@ -25,7 +25,7 @@ const STEPS: Step[] = [
     title: 'See PlayPilot in Action',
     subtitle: 'Interactive Walkthrough',
     description:
-      'Click through the entire PlayPilot experience — multiple capture modes, AI-powered enrichment, family journeys, and classroom spaces. No sign-up required.',
+      'Click through the entire PlayPilot experience. Explore multiple capture modes, AI-powered enrichment, family journeys, and classroom spaces. No sign-up required.',
     accent: 'accent-teal',
     bg: 'section-gradient',
   },
@@ -33,7 +33,7 @@ const STEPS: Step[] = [
     title: '16+ Ways to Capture Learning',
     subtitle: 'The Capture Hub',
     description:
-      'Quick Jot, Voice Note, Mark Growth, Smart Swipe, ABC Tracker, Learning Thread, Child Voice — 16+ purpose-built tools so educators capture the right way every time, without leaving the moment.',
+      'Quick Jot, Voice Note, Mark Growth, Smart Swipe, ABC Tracker, Learning Thread, Child Voice, and more. 16+ purpose-built tools so educators capture the right way every time, without leaving the moment.',
     accent: 'accent-coral',
     bg: 'section-warm',
   },
@@ -41,7 +41,7 @@ const STEPS: Step[] = [
     title: 'AI That Understands Pedagogy',
     subtitle: 'Intelligent Enrichment',
     description:
-      'PlayPilot detects development domains (Cognitive, Physical, Creative), learning dispositions (Curiosity, Persistence), and schemas (Transporting, Trajectory) — then drafts interpretations and next steps automatically.',
+      'PlayPilot detects development domains (Cognitive, Physical, Creative), learning dispositions (Curiosity, Persistence), and schemas (Transporting, Trajectory). It then drafts interpretations and next steps automatically.',
     accent: 'accent-purple',
     bg: 'section-cream',
   },
@@ -49,7 +49,7 @@ const STEPS: Step[] = [
     title: 'Families See the Full Picture',
     subtitle: 'Family Learning Journey',
     description:
-      'Parents receive a living timeline of their child\'s growth across all five domains. Every observation links to dispositions, schemas, and educator insights — building deep trust and partnership.',
+      'Parents receive a living timeline of their child\'s growth across all five domains. Every observation links to dispositions, schemas, and educator insights, building deep trust and partnership.',
     accent: 'accent-yellow',
     bg: 'section-warm',
   },
@@ -57,7 +57,7 @@ const STEPS: Step[] = [
     title: 'One Classroom, Five Lenses',
     subtitle: 'The Classroom Space',
     description:
-      'Moments, Journey, Community, Culture, and Insights — five sections give educators, families, and consultants different views of the same classroom, each tailored to their role.',
+      'Moments, Journey, Community, Culture, and Insights. Five sections give educators, families, and consultants different views of the same classroom, each tailored to their role.',
     accent: 'accent-teal',
     bg: 'section-white',
   },
