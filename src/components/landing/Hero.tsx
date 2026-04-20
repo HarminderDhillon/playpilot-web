@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { useEffect, useRef } from 'react';
 import { ProductMockup } from './ProductMockup';
-import { HeroBackground } from './HeroBackground';
 
 export function Hero() {
   const mockupRef = useRef<HTMLDivElement>(null);
@@ -27,7 +26,6 @@ export function Hero() {
 
   return (
     <section className="section-overlay-top relative overflow-hidden grid-bg px-6 pt-32 pb-24 sm:pt-44 sm:pb-36">
-      <HeroBackground />
       <div className="mx-auto max-w-6xl grid gap-12 lg:grid-cols-2 lg:items-center relative z-10">
         {/* Left — copy */}
         <div className="reveal">
