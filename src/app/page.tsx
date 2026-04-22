@@ -1,6 +1,5 @@
 import { EnergyMotion } from '@/components/landing/EnergyMotion';
 import { Hero } from '@/components/landing/Hero';
-import { FlyingPlane } from '@/components/landing/FlyingPlane';
 import { TrustedBy } from '@/components/landing/TrustedBy';
 import { BigStat } from '@/components/landing/BigStat';
 import { TheShift } from '@/components/landing/TheShift';
@@ -21,8 +20,7 @@ export default function Home() {
       <EnergyMotion />
       {/* 1. Hero — Empowering the next generation */}
       <Hero />
-      {/* Paper plane fly-in */}
-      <FlyingPlane />
+
       {/* 2. Trusted By — Logo bar */}
       <TrustedBy />
       {/* 3. Big Stat — Impact numbers */}
@@ -35,8 +33,7 @@ export default function Home() {
       <ObservationPipeline />
       {/* 7. Product Showcase — Dashboard visual wow */}
       <ProductShowcase />
-      {/* Paper plane fly-in */}
-      <FlyingPlane />
+
       {/* 8–10. For Educators, For Leaders, For Families */}
       <StakeholderPillars />
       {/* 11. Leadership Console — The operating system */}
