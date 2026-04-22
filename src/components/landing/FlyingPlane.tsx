@@ -80,20 +80,31 @@ export function FlyingPlane() {
         </>
       )}
 
-      {/* Paper plane */}
+      {/* Paper plane — glides along the exact SVG path */}
       <div
-        className={triggered ? 'plane-fly' : ''}
         style={{
           position: 'absolute',
-          top: '85%',
-          left: '-8%',
-          opacity: triggered ? 1 : 0,
-          transition: 'opacity 0.3s ease-out',
-          fontSize: 36,
-          lineHeight: 1,
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          pointerEvents: 'none',
         }}
       >
-        ✈️
+        <div
+          style={{
+            offsetPath: "path('M-50 180 Q 200 180, 350 120 T 600 60 T 850 100 T 1100 30 L 1250 20')",
+            offsetRotate: 'auto',
+            offsetDistance: triggered ? '100%' : '0%',
+            transition: 'offset-distance 3s cubic-bezier(0.25, 0.1, 0.25, 1)',
+            fontSize: 36,
+            lineHeight: 1,
+            opacity: triggered ? 1 : 0,
+            position: 'absolute',
+          } as React.CSSProperties}
+        >
+          ✈️
+        </div>
       </div>
 
       <style>{`
@@ -101,70 +112,6 @@ export function FlyingPlane() {
           0% { opacity: 0; transform: scale(0) rotate(0deg); }
           50% { opacity: 1; transform: scale(1.4) rotate(180deg); }
           100% { opacity: 0.4; transform: scale(1) rotate(360deg); }
-        }
-
-        /* Path: M-50 180 Q 200 180, 350 120 T 600 60 T 850 100 T 1100 30 L 1250 20
-           viewBox 1200x200 → percentages */
-        @keyframes plane-flight {
-          0% {
-            left: -4%;
-            top: 90%;
-            transform: rotate(0deg);
-          }
-          10% {
-            left: 8%;
-            top: 85%;
-            transform: rotate(-10deg);
-          }
-          20% {
-            left: 20%;
-            top: 72%;
-            transform: rotate(-25deg);
-          }
-          30% {
-            left: 29%;
-            top: 60%;
-            transform: rotate(-25deg);
-          }
-          40% {
-            left: 40%;
-            top: 42%;
-            transform: rotate(-22deg);
-          }
-          50% {
-            left: 50%;
-            top: 30%;
-            transform: rotate(-15deg);
-          }
-          60% {
-            left: 60%;
-            top: 35%;
-            transform: rotate(12deg);
-          }
-          70% {
-            left: 71%;
-            top: 50%;
-            transform: rotate(10deg);
-          }
-          80% {
-            left: 80%;
-            top: 38%;
-            transform: rotate(-25deg);
-          }
-          90% {
-            left: 89%;
-            top: 18%;
-            transform: rotate(-30deg);
-          }
-          100% {
-            left: 96%;
-            top: 10%;
-            transform: rotate(-20deg);
-          }
-        }
-
-        .plane-fly {
-          animation: plane-flight 3s cubic-bezier(0.22, 1, 0.36, 1) forwards !important;
         }
       `}</style>
     </div>
