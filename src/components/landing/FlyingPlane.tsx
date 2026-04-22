@@ -80,32 +80,30 @@ export function FlyingPlane() {
         </>
       )}
 
-      {/* Paper plane — glides along the exact SVG path */}
-      <div
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          pointerEvents: 'none',
-        }}
+      {/* Paper plane — glides along the exact SVG curve */}
+      <svg
+        className="absolute inset-0 w-full h-full"
+        viewBox="0 0 1200 200"
+        preserveAspectRatio="none"
+        style={{ overflow: 'visible', pointerEvents: 'none' }}
       >
-        <div
-          style={{
-            offsetPath: "path('M-50 180 Q 200 180, 350 120 T 600 60 T 850 100 T 1100 30 L 1250 20')",
-            offsetRotate: 'auto',
-            offsetDistance: triggered ? '100%' : '0%',
-            transition: 'offset-distance 3s cubic-bezier(0.25, 0.1, 0.25, 1)',
-            fontSize: 36,
-            lineHeight: 1,
-            opacity: triggered ? 1 : 0,
-            position: 'absolute',
-          } as React.CSSProperties}
-        >
-          ✈️
-        </div>
-      </div>
+        {triggered && (
+          <g>
+            <text fontSize="48" dominantBaseline="central" textAnchor="middle">
+              <animateMotion
+                dur="5s"
+                fill="freeze"
+                rotate="auto"
+                keySplines="0.25 0.1 0.25 1"
+                calcMode="spline"
+                keyTimes="0;1"
+                path="M-50 180 Q 200 180, 350 120 T 600 60 T 850 100 T 1100 30 L 1250 20"
+              />
+              ✈️
+            </text>
+          </g>
+        )}
+      </svg>
 
       <style>{`
         @keyframes sparkle-pop {
