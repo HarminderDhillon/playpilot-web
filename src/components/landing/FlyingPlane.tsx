@@ -103,51 +103,63 @@ export function FlyingPlane() {
           100% { opacity: 0.4; transform: scale(1) rotate(360deg); }
         }
 
+        /* Path: M-50 180 Q 200 180, 350 120 T 600 60 T 850 100 T 1100 30 L 1250 20
+           viewBox 1200x200 → percentages */
         @keyframes plane-flight {
           0% {
-            left: -8%;
-            top: 85%;
-            transform: rotate(-35deg);
+            left: -4%;
+            top: 90%;
+            transform: rotate(0deg);
           }
-          15% {
-            left: 15%;
-            top: 60%;
-            transform: rotate(-30deg);
+          10% {
+            left: 8%;
+            top: 85%;
+            transform: rotate(-10deg);
+          }
+          20% {
+            left: 20%;
+            top: 72%;
+            transform: rotate(-25deg);
           }
           30% {
-            left: 30%;
-            top: 40%;
-            transform: rotate(-20deg);
+            left: 29%;
+            top: 60%;
+            transform: rotate(-25deg);
           }
-          45% {
-            left: 45%;
-            top: 28%;
-            transform: rotate(-5deg);
+          40% {
+            left: 40%;
+            top: 42%;
+            transform: rotate(-22deg);
           }
-          55% {
-            left: 55%;
-            top: 25%;
-            transform: rotate(10deg);
+          50% {
+            left: 50%;
+            top: 30%;
+            transform: rotate(-15deg);
+          }
+          60% {
+            left: 60%;
+            top: 35%;
+            transform: rotate(12deg);
           }
           70% {
-            left: 70%;
-            top: 38%;
-            transform: rotate(15deg);
+            left: 71%;
+            top: 50%;
+            transform: rotate(10deg);
           }
           80% {
             left: 80%;
-            top: 30%;
-            transform: rotate(-20deg);
+            top: 38%;
+            transform: rotate(-25deg);
           }
           90% {
-            left: 88%;
-            top: 15%;
-            transform: rotate(-35deg);
+            left: 89%;
+            top: 18%;
+            transform: rotate(-30deg);
           }
           100% {
-            left: 95%;
-            top: 8%;
-            transform: rotate(-30deg);
+            left: 96%;
+            top: 10%;
+            transform: rotate(-20deg);
           }
         }
 
