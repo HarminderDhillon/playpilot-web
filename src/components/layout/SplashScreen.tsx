@@ -68,35 +68,34 @@ export function SplashScreen() {
         />
       ))}
 
-      {/* Logo + orbit */}
+      {/* Logo + orbit — single center point */}
       <div
         style={{
+          position: 'relative',
+          width: ORBIT_RADIUS * 2 + 24,
+          height: ORBIT_RADIUS * 2 + 24,
           opacity: phase === 'logo' || phase === 'done' ? 1 : 0,
           transform: phase === 'logo' || phase === 'done' ? 'scale(1)' : 'scale(0)',
           transition: 'opacity 0.4s ease-out, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)',
         }}
       >
-        <div style={{ position: 'relative', width: 160, height: 160 }}>
-          {/* Logo image — centered in the orbit area */}
-          <div style={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            width: LOGO_SIZE,
-            height: LOGO_SIZE,
-          }}>
-            <Image
-              src="/logo-plane.png"
-              alt="PlayPilot"
-              width={LOGO_SIZE}
-              height={LOGO_SIZE}
-              style={{ objectFit: 'contain' }}
-              priority
-            />
-          </div>
+          {/* Logo — exactly centered */}
+          <Image
+            src="/logo-plane.png"
+            alt="PlayPilot"
+            width={LOGO_SIZE}
+            height={Math.round(LOGO_SIZE * (1024 / 1536))}
+            style={{
+              objectFit: 'contain',
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+            }}
+            priority
+          />
 
-          {/* Orbiting dots — centered on the same point */}
+          {/* Orbiting dots — rotating around exact center */}
           <div
             style={{
               position: 'absolute',
@@ -104,9 +103,7 @@ export function SplashScreen() {
               animation: phase === 'logo' ? 'splash-orbit 8s linear infinite' : undefined,
             }}
           >
-            {DOTS.map((dot, i) => {
-              const angleDeg = dot.angle;
-              return (
+            {DOTS.map((dot, i) => (
                 <div
                   key={`orbit-${i}`}
                   style={{
@@ -122,15 +119,13 @@ export function SplashScreen() {
                     marginLeft: -6,
                     opacity: phase === 'logo' ? 1 : 0,
                     transform: phase === 'logo'
-                      ? `rotate(${angleDeg}deg) translateY(-${ORBIT_RADIUS}px)`
-                      : `rotate(${angleDeg}deg) translateY(0px)`,
+                      ? `rotate(${dot.angle}deg) translateY(-${ORBIT_RADIUS}px)`
+                      : `rotate(${dot.angle}deg) translateY(0px)`,
                     transition: `opacity 0.3s ease-out ${0.3 + i * 0.05}s, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1) ${0.2 + i * 0.05}s`,
                   }}
                 />
-              );
-            })}
+            ))}
           </div>
-        </div>
       </div>
 
       <style>{`
