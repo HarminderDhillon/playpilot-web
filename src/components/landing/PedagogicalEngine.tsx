@@ -27,7 +27,7 @@ export function PedagogicalEngine() {
             PlayPilot is a living infrastructure system that strengthens:
           </p>
 
-          <div className="mt-8 mx-auto max-w-sm text-left space-y-3">
+          <div className="mt-8 mx-auto max-w-xs sm:max-w-sm text-left space-y-3">
             {capabilities.map((c, i) => (
               <div key={c.label} className="flex items-center gap-3">
                 <span className={`h-2.5 w-2.5 shrink-0 rounded-full ${c.color}`} />

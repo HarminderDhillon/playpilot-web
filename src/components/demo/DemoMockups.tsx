@@ -44,7 +44,7 @@ export function WelcomeMockup() {
       {/* Orbit container — rotates the whole ring */}
       <div
         className="relative"
-        style={{ width: 220, height: 220 }}
+        style={{ width: 180, height: 180 }}
       >
         {/* Rotating ring of dots */}
         <div

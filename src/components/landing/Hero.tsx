@@ -36,12 +36,12 @@ export function Hero() {
             <span className="text-[11px] font-semibold tracking-widest text-primary uppercase">Built for Early Childhood Leaders</span>
           </div>
 
-          <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-text sm:text-5xl lg:text-[3.5rem]">
+          <h1 className="text-2xl sm:text-4xl lg:text-[3.5rem] font-bold leading-[1.1] tracking-tight text-text">
             Empowering the next generation of{' '}
             <span className="text-primary">early childhood leaders.</span>
           </h1>
 
-          <p className="mt-6 max-w-lg text-lg text-text-secondary leading-relaxed">
+          <p className="mt-6 max-w-lg text-sm sm:text-lg text-text-secondary leading-relaxed">
             In a world moving faster every day, educators deserve systems that support
             presence, not pressure. PlayPilot transforms documentation from a compliance
             burden into a powerful engine for insight, creativity, and community.

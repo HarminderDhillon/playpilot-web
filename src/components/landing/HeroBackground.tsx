@@ -53,7 +53,7 @@ function SquiggleSVG({ size, color }: { size: number; color: string }) {
 
 export function HeroBackground() {
   return (
-    <div className="absolute inset-0 z-[1] overflow-hidden pointer-events-none">
+    <div className="absolute inset-0 z-[1] overflow-hidden pointer-events-none hidden sm:block">
       {SHAPES.map((shape, i) => (
         <div
           key={i}

@@ -4,16 +4,16 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 const DOTS = [
-  { color: '#3FA7F5', scatterX: -120, scatterY: -180, angle: 0 },
-  { color: '#7B5CF0', scatterX: 140, scatterY: -140, angle: 60 },
-  { color: '#5CCB8A', scatterX: 160, scatterY: 50, angle: 120 },
-  { color: '#FFC83D', scatterX: -130, scatterY: 120, angle: 180 },
-  { color: '#FF8C42', scatterX: 80, scatterY: 160, angle: 240 },
-  { color: '#FF5DA2', scatterX: -90, scatterY: -40, angle: 300 },
+  { color: '#3FA7F5', scatterX: -80, scatterY: -100, angle: 0 },
+  { color: '#7B5CF0', scatterX: 90, scatterY: -80, angle: 60 },
+  { color: '#5CCB8A', scatterX: 100, scatterY: 30, angle: 120 },
+  { color: '#FFC83D', scatterX: -85, scatterY: 80, angle: 180 },
+  { color: '#FF8C42', scatterX: 50, scatterY: 95, angle: 240 },
+  { color: '#FF5DA2', scatterX: -60, scatterY: -30, angle: 300 },
 ];
 
-const ORBIT_RADIUS = 120;
-const LOGO_SIZE = 200;
+const ORBIT_RADIUS = 85;
+const LOGO_SIZE = 140;
 
 export function SplashScreen() {
   const [phase, setPhase] = useState<'scatter' | 'converge' | 'logo' | 'done'>('scatter');
@@ -76,7 +76,7 @@ export function SplashScreen() {
           transition: 'opacity 0.4s ease-out, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)',
         }}
       >
-        <div style={{ position: 'relative', width: LOGO_SIZE + 60, height: LOGO_SIZE + 60 }}>
+        <div style={{ position: 'relative', width: 160, height: 160 }}>
           {/* Logo image — centered in the orbit area */}
           <div style={{
             position: 'absolute',

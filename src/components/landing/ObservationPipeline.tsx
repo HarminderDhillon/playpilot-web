@@ -8,13 +8,13 @@ export function ObservationPipeline() {
       <div className="mx-auto max-w-3xl">
         <ScrollReveal>
           <div className="text-center space-y-3">
-            <h2 className="text-2xl font-bold text-text sm:text-3xl tracking-tight">
+            <h2 className="text-xl sm:text-2xl font-bold text-text tracking-tight">
               From pressure → to presence.
             </h2>
-            <h2 className="text-2xl font-bold text-text sm:text-3xl tracking-tight">
+            <h2 className="text-xl sm:text-2xl font-bold text-text tracking-tight">
               From compliance → to clarity.
             </h2>
-            <h2 className="text-2xl font-bold text-text sm:text-3xl tracking-tight">
+            <h2 className="text-xl sm:text-2xl font-bold text-text tracking-tight">
               From scattered notes → to shared intelligence.
             </h2>
           </div>
