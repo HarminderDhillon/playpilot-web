@@ -2,24 +2,6 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-// SVG paper plane icon — simple, clean silhouette
-function PlaneSVG({ size = 28, color = '#1F2A44' }: { size?: number; color?: string }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M2.5 12L4 10.5L10 12.5L19 5.5L12 14.5L14 20.5L12.5 22L9.5 15.5L2.5 12Z"
-        fill={color}
-        opacity={0.85}
-      />
-      <path
-        d="M19 5.5L10 12.5L9.5 15.5L12 14.5L19 5.5Z"
-        fill={color}
-        opacity={0.6}
-      />
-    </svg>
-  );
-}
-
 export function FlyingPlane() {
   const [triggered, setTriggered] = useState(false);
   const sentinelRef = useRef<HTMLDivElement>(null);
@@ -34,7 +16,7 @@ export function FlyingPlane() {
           setTriggered(true);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.2 }
     );
 
     observer.observe(sentinel);
@@ -45,68 +27,123 @@ export function FlyingPlane() {
     <div
       ref={sentinelRef}
       className="relative w-full overflow-hidden"
-      style={{ height: 80 }}
+      style={{ height: 200 }}
     >
-      {/* Dashed trail */}
-      <div
-        style={{
-          position: 'absolute',
-          top: '50%',
-          left: 0,
-          width: triggered ? '85%' : '0%',
-          height: 0,
-          borderTop: '2px dashed rgba(31, 42, 68, 0.15)',
-          transition: 'width 2.5s cubic-bezier(0.22, 1, 0.36, 1)',
-          transformOrigin: 'left center',
-        }}
-      />
+      {/* Curved SVG trail path */}
+      <svg
+        className="absolute inset-0 w-full h-full"
+        viewBox="0 0 1200 200"
+        preserveAspectRatio="none"
+        fill="none"
+      >
+        <path
+          d="M-50 180 Q 200 180, 350 120 T 600 60 T 850 100 T 1100 30 L 1250 20"
+          stroke="rgba(31,42,68,0.1)"
+          strokeWidth="2"
+          strokeDasharray="8 6"
+          strokeLinecap="round"
+          style={{
+            strokeDashoffset: triggered ? 0 : 2000,
+            transition: 'stroke-dashoffset 3s cubic-bezier(0.22, 1, 0.36, 1)',
+          }}
+          pathLength="2000"
+        />
+      </svg>
 
-      {/* Colored accent dots along the trail */}
+      {/* Sparkle particles along the path */}
       {triggered && (
         <>
           {[
-            { color: '#3FA7F5', left: '15%', delay: '0.4s' },
-            { color: '#5CCB8A', left: '35%', delay: '0.8s' },
-            { color: '#7B5CF0', left: '55%', delay: '1.2s' },
-            { color: '#FFC83D', left: '70%', delay: '1.5s' },
-          ].map((dot, i) => (
+            { x: '18%', y: '55%', color: '#3FA7F5', size: 10, delay: '0.5s' },
+            { x: '32%', y: '38%', color: '#5CCB8A', size: 12, delay: '0.9s' },
+            { x: '48%', y: '25%', color: '#7B5CF0', size: 8, delay: '1.3s' },
+            { x: '62%', y: '35%', color: '#FF5DA2', size: 11, delay: '1.6s' },
+            { x: '75%', y: '42%', color: '#FFC83D', size: 9, delay: '1.9s' },
+            { x: '88%', y: '18%', color: '#FF8C42', size: 10, delay: '2.2s' },
+          ].map((spark, i) => (
             <div
               key={i}
               style={{
                 position: 'absolute',
-                top: '50%',
-                left: dot.left,
-                width: 6,
-                height: 6,
+                left: spark.x,
+                top: spark.y,
+                width: spark.size,
+                height: spark.size,
                 borderRadius: '50%',
-                backgroundColor: dot.color,
-                marginTop: -3,
+                backgroundColor: spark.color,
+                boxShadow: `0 0 ${spark.size * 2}px ${spark.size / 2}px ${spark.color}40`,
                 opacity: 0,
-                animation: `plane-dot-pop 0.4s ease-out ${dot.delay} forwards`,
+                animation: `sparkle-pop 0.8s ease-out ${spark.delay} forwards`,
               }}
             />
           ))}
         </>
       )}
 
-      {/* Paper plane */}
+      {/* Paper plane — larger, following the curve */}
       <div
+        className={triggered ? 'plane-fly' : ''}
         style={{
           position: 'absolute',
-          top: '50%',
-          left: triggered ? '85%' : '-5%',
-          transform: 'translateY(-50%) rotate(-20deg)',
-          transition: 'left 2.5s cubic-bezier(0.22, 1, 0.36, 1)',
+          top: '85%',
+          left: '-8%',
+          opacity: triggered ? 1 : 0,
+          transition: 'opacity 0.3s ease-out',
         }}
       >
-        <PlaneSVG size={28} color="#1F2A44" />
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+          <g transform="rotate(-30, 24, 24)">
+            <path
+              d="M6 38L10 34L22 37L40 18L28 32L32 42L28 44L22 34L6 38Z"
+              fill="#1F2A44"
+              opacity="0.9"
+            />
+            <path
+              d="M40 18L22 37L22 34L28 32L40 18Z"
+              fill="#1F2A44"
+              opacity="0.6"
+            />
+          </g>
+        </svg>
       </div>
 
       <style>{`
-        @keyframes plane-dot-pop {
-          0% { opacity: 0; transform: scale(0); }
-          60% { opacity: 1; transform: scale(1.3); }
-          100% { opacity: 0.5; transform: scale(1); }
+        @keyframes sparkle-pop {
+          0% { opacity: 0; transform: scale(0) rotate(0deg); }
+          50% { opacity: 1; transform: scale(1.4) rotate(180deg); }
+          100% { opacity: 0.4; transform: scale(1) rotate(360deg); }
+        }
+
+        @keyframes plane-flight {
+          0% {
+            left: -8%;
+            top: 85%;
+            transform: rotate(-15deg);
+          }
+          25% {
+            left: 25%;
+            top: 50%;
+            transform: rotate(-25deg);
+          }
+          50% {
+            left: 50%;
+            top: 22%;
+            transform: rotate(-10deg);
+          }
+          75% {
+            left: 75%;
+            top: 40%;
+            transform: rotate(-30deg);
+          }
+          100% {
+            left: 92%;
+            top: 8%;
+            transform: rotate(-20deg);
+          }
+        }
+
+        .plane-fly {
+          animation: plane-flight 3s cubic-bezier(0.22, 1, 0.36, 1) forwards !important;
         }
       `}</style>
     </div>
