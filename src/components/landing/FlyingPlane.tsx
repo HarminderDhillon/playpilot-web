@@ -80,7 +80,7 @@ export function FlyingPlane() {
         </>
       )}
 
-      {/* Paper plane — classic folded paper plane shape */}
+      {/* Paper plane */}
       <div
         className={triggered ? 'plane-fly' : ''}
         style={{
@@ -89,17 +89,11 @@ export function FlyingPlane() {
           left: '-8%',
           opacity: triggered ? 1 : 0,
           transition: 'opacity 0.3s ease-out',
+          fontSize: 36,
+          lineHeight: 1,
         }}
       >
-        <svg width="44" height="44" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          {/* Paper plane body */}
-          <path d="M2 28L30 16L2 4L6 14L22 16L6 18L2 28Z" fill="#1F2A44" opacity="0.85"/>
-          {/* Fold line */}
-          <path d="M6 14L22 16L6 18" fill="#3B4A6B" opacity="0.5"/>
-          {/* Wing crease */}
-          <path d="M2 4L22 16L2 16" fill="#1F2A44" opacity="0.95"/>
-          <path d="M2 28L22 16L2 16" fill="#2A3A5C" opacity="0.75"/>
-        </svg>
+        ✈️
       </div>
 
       <style>{`
