@@ -80,7 +80,7 @@ export function FlyingPlane() {
         </>
       )}
 
-      {/* Paper plane — larger, following the curve */}
+      {/* Paper plane — classic folded paper plane shape */}
       <div
         className={triggered ? 'plane-fly' : ''}
         style={{
@@ -91,19 +91,14 @@ export function FlyingPlane() {
           transition: 'opacity 0.3s ease-out',
         }}
       >
-        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-          <g transform="rotate(-30, 24, 24)">
-            <path
-              d="M6 38L10 34L22 37L40 18L28 32L32 42L28 44L22 34L6 38Z"
-              fill="#1F2A44"
-              opacity="0.9"
-            />
-            <path
-              d="M40 18L22 37L22 34L28 32L40 18Z"
-              fill="#1F2A44"
-              opacity="0.6"
-            />
-          </g>
+        <svg width="44" height="44" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Paper plane body */}
+          <path d="M2 28L30 16L2 4L6 14L22 16L6 18L2 28Z" fill="#1F2A44" opacity="0.85"/>
+          {/* Fold line */}
+          <path d="M6 14L22 16L6 18" fill="#3B4A6B" opacity="0.5"/>
+          {/* Wing crease */}
+          <path d="M2 4L22 16L2 16" fill="#1F2A44" opacity="0.95"/>
+          <path d="M2 28L22 16L2 16" fill="#2A3A5C" opacity="0.75"/>
         </svg>
       </div>
 
