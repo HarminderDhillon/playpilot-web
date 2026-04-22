@@ -4,7 +4,6 @@ import { Geist_Mono } from 'next/font/google';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { SplashScreen } from '@/components/layout/SplashScreen';
-import { NavPlane } from '@/components/layout/NavPlane';
 import './globals.css';
 
 const inter = Inter({
@@ -42,7 +41,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} ${geistMono.variable} font-sans antialiased`}>
         <SplashScreen />
-        <NavPlane />
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />
