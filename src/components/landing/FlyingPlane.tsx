@@ -107,27 +107,47 @@ export function FlyingPlane() {
           0% {
             left: -8%;
             top: 85%;
-            transform: rotate(-15deg);
+            transform: rotate(-35deg);
           }
-          25% {
-            left: 25%;
-            top: 50%;
-            transform: rotate(-25deg);
-          }
-          50% {
-            left: 50%;
-            top: 22%;
-            transform: rotate(-10deg);
-          }
-          75% {
-            left: 75%;
-            top: 40%;
+          15% {
+            left: 15%;
+            top: 60%;
             transform: rotate(-30deg);
           }
-          100% {
-            left: 92%;
-            top: 8%;
+          30% {
+            left: 30%;
+            top: 40%;
             transform: rotate(-20deg);
+          }
+          45% {
+            left: 45%;
+            top: 28%;
+            transform: rotate(-5deg);
+          }
+          55% {
+            left: 55%;
+            top: 25%;
+            transform: rotate(10deg);
+          }
+          70% {
+            left: 70%;
+            top: 38%;
+            transform: rotate(15deg);
+          }
+          80% {
+            left: 80%;
+            top: 30%;
+            transform: rotate(-20deg);
+          }
+          90% {
+            left: 88%;
+            top: 15%;
+            transform: rotate(-35deg);
+          }
+          100% {
+            left: 95%;
+            top: 8%;
+            transform: rotate(-30deg);
           }
         }
 
