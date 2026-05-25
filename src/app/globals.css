@@ -249,10 +249,10 @@ html {
   70% { transform: translateY(4px); }
 }
 .animate-bird-fly {
-  animation: bird-fly 20s linear infinite;
+  animation: bird-fly 35s linear infinite;
 }
 .animate-bird-bob {
-  animation: bird-bob 1.2s ease-in-out infinite;
+  animation: bird-bob 1.6s ease-in-out infinite;
 }
 
 /* ── Pop-in for demo tag chips ───────────── */
