@@ -4,11 +4,11 @@ import { notFound } from 'next/navigation';
 import { getAllPosts, getPostBySlug } from '@/lib/blog';
 
 const CATEGORY_LABELS: Record<string, string> = {
-  pedagogy: 'Pedagogy',
-  product: 'Product',
-  stories: 'Educator Stories',
-  leadership: 'Leadership',
-  resources: 'Resources',
+  pedagogy: 'Pedagogical Thinking',
+  product: 'Product Updates',
+  stories: 'From Educators',
+  leadership: 'Presence & Practice',
+  resources: 'Learning & Reflection',
 };
 
 export async function generateStaticParams() {

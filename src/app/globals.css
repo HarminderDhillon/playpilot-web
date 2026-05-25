@@ -248,6 +248,14 @@ html {
   40% { transform: translateY(-6px); }
   70% { transform: translateY(4px); }
 }
+/* ── Moment bubbles (blog signature) ─────── */
+.moment-bubble {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.12;
+  pointer-events: none;
+}
+
 .animate-bird-fly {
   animation: bird-fly 35s linear infinite;
 }
