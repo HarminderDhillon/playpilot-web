@@ -39,6 +39,25 @@ export function SkyBackground() {
           <div className="absolute -top-2 left-3 w-12 h-7 bg-white/40 rounded-full" />
         </div>
       </div>
+
+      {/* Flying bird — glides across the sky with gentle bob */}
+      <div className="absolute top-[20%] animate-bird-fly">
+        <svg
+          width="28"
+          height="28"
+          viewBox="0 0 24 24"
+          fill="none"
+          className="animate-bird-bob opacity-55"
+        >
+          <path
+            d="M23 11.5C20 11.5 18.5 9 18.5 9s-1 3.5-5.5 3.5c0 0 2.5-1.5 2.5-4S12 5 12 5s-1 4-4.5 4S1 5.5 1 5.5s1.5 4 5 5.5c3.5 1.5 6 1 6 1s-2 2-6.5 2.5"
+            stroke="rgba(31,42,68,0.55)"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </div>
     </div>
   );
 }

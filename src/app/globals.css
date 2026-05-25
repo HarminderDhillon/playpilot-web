@@ -238,6 +238,23 @@ html {
   animation: float-drift 12s ease-in-out 3s infinite;
 }
 
+/* ── Flying bird across the sky ──────────── */
+@keyframes bird-fly {
+  0% { transform: translateX(-40px); }
+  100% { transform: translateX(calc(100vw + 40px)); }
+}
+@keyframes bird-bob {
+  0%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-6px); }
+  70% { transform: translateY(4px); }
+}
+.animate-bird-fly {
+  animation: bird-fly 10s linear infinite;
+}
+.animate-bird-bob {
+  animation: bird-bob 0.9s ease-in-out infinite;
+}
+
 /* ── Pop-in for demo tag chips ───────────── */
 @keyframes pop-in {
   from {

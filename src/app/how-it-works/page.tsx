@@ -40,7 +40,7 @@ export default function HowItWorksPage() {
               <p className="mt-2 text-text-secondary leading-relaxed">
                 PlayPilot&apos;s pedagogical engine identifies play schemas, maps developmental
                 milestones, and drafts strength-based learning stories, all grounded in the
-                NNN framework and Flight curriculum.
+                NNN framework and 14+ curriculum frameworks including FLIGHT, EYLF, Te Wh&#257;riki, and EYFS.
               </p>
             </div>
           </div>
