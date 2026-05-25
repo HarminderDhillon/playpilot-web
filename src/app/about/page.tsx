@@ -44,9 +44,9 @@ export default function AboutPage() {
           </p>
 
           <p>
-            We started with Alberta&apos;s <strong>Flight curriculum framework</strong> and
-            the developmental research that underpins quality early childhood education, with
-            plans to support frameworks across Canada and beyond.
+            PlayPilot supports <strong>14+ curriculum frameworks</strong> including FLIGHT,
+            EYLF, Te Wh&#257;riki, EYFS, and all Canadian provincial frameworks. Used by
+            educators across Canada, Australia, New Zealand, the UK, and the US.
           </p>
 
           <h2 className="pt-4 text-2xl font-bold text-text">Built With Educators</h2>

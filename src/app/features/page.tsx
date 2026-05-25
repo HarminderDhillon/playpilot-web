@@ -50,11 +50,46 @@ const featureSections = [
     dot: 'bg-accent-teal',
   },
   {
-    title: 'Leadership Tools (Coming Soon)',
+    title: 'Leadership Hub',
     description:
-      'A web-based view for supervisors and educational leaders to review documentation and support quality improvement across classrooms. Currently in development.',
+      'A web-based command center for directors and pedagogical leaders. See trends across classrooms, support educators with real data, and prepare for licensing visits without stress.',
     accent: 'bg-primary/5 border-primary/20',
     dot: 'bg-primary',
+  },
+  {
+    title: '20+ Capture Modes',
+    description:
+      'Quick Jot, Voice Note, Photo, Handwriting Scan, Noticing Tiles, ABC Tracker, Disposition Radar, and more — 20+ modes shaped around how educators actually work.',
+    accent: 'bg-accent-teal/10 border-accent-teal/30',
+    dot: 'bg-accent-teal',
+  },
+  {
+    title: 'Story Canvas',
+    description:
+      'Every child gets a living visual journey. Observations become moments, moments become threads, threads become a visible story of growth.',
+    accent: 'bg-accent-pink/10 border-accent-pink/30',
+    dot: 'bg-accent-pink',
+  },
+  {
+    title: 'Offline Sync',
+    description:
+      'Full offline support with automatic sync. Capture observations anywhere — in the garden, on a field trip — and sync when you\'re back online.',
+    accent: 'bg-accent-green/10 border-accent-green/30',
+    dot: 'bg-accent-green',
+  },
+  {
+    title: 'Calendar & Operations',
+    description:
+      'Attendance, daily logs, incident reports, and scheduling — all in one place. Less admin, more time with children.',
+    accent: 'bg-accent-yellow/10 border-accent-yellow/30',
+    dot: 'bg-accent-yellow',
+  },
+  {
+    title: 'Reports',
+    description:
+      'Generate child learning, educator summary, curriculum usage, and program overview reports from real observation data.',
+    accent: 'bg-accent-purple/10 border-accent-purple/30',
+    dot: 'bg-accent-purple',
   },
 ];
 
@@ -84,7 +119,7 @@ export default function FeaturesPage() {
             href="/pricing"
             className="inline-block rounded-xl bg-primary px-8 py-3.5 text-base font-semibold text-text-on-primary transition-colors hover:bg-primary-hover"
           >
-            Get Early Access
+            Get Started
           </Link>
         </div>
       </div>

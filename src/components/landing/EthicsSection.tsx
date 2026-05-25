@@ -23,6 +23,23 @@ export function EthicsSection() {
           </h2>
         </ScrollReveal>
 
+        <ScrollReveal delay={80}>
+          <div className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto mb-12">
+            {[
+              { icon: '\u{1F6E1}', title: 'PIPEDA & COPPA compliant', desc: 'Canadian & US privacy standards' },
+              { icon: '\u{1F512}', title: 'No ads. No tracking. Ever.', desc: 'Children are not the product.' },
+              { icon: '\u{1F4E1}', title: 'Works offline', desc: 'Syncs when connected.' },
+              { icon: '\u{1F4CB}', title: 'FLIGHT \u00B7 EYLF \u00B7 Te Wh\u0101riki', desc: 'Mapped, not bolted on.' },
+            ].map((card) => (
+              <div key={card.title} className="glass-card rounded-2xl p-5 text-center">
+                <span className="text-2xl">{card.icon}</span>
+                <p className="mt-2 text-sm font-semibold text-text">{card.title}</p>
+                <p className="mt-1 text-xs text-text-muted">{card.desc}</p>
+              </div>
+            ))}
+          </div>
+        </ScrollReveal>
+
         <ScrollReveal delay={100}>
           <div className="mt-8 mx-auto max-w-sm space-y-3">
             {commitments.map((c, i) => (

@@ -10,6 +10,9 @@ const consoleFeatures = [
   'Milestone trends',
   'Family engagement metrics',
   'Educator reflection frequency',
+  'Multi-site network dashboard',
+  'Consultant workspace with visit tracking',
+  'Program-wide reports from real observations',
 ];
 
 const schemas = [
@@ -39,11 +42,10 @@ export function LeadershipConsole() {
                 For Leaders
               </p>
               <h2 className="text-3xl font-bold text-text sm:text-4xl tracking-tight">
-                The Leadership Console&trade;
+                The Leadership Hub
               </h2>
-              <p className="mt-1 text-xs font-semibold text-accent-purple">(Coming Soon)</p>
               <p className="mt-4 text-text-secondary leading-relaxed">
-                A real-time view of your program&apos;s learning ecosystem. Currently in development.
+                A real-time view of your program&apos;s learning ecosystem. See documentation trends, educator activity, and compliance across all classrooms.
               </p>
             </ScrollReveal>
 
@@ -73,7 +75,7 @@ export function LeadershipConsole() {
                 href="/pricing"
                 className="mt-6 inline-block btn-primary rounded-xl bg-primary px-7 py-3.5 text-sm font-semibold text-text-on-primary"
               >
-                Get Early Access
+                Get Started
               </Link>
             </ScrollReveal>
           </div>

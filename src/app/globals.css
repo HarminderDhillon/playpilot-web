@@ -51,6 +51,7 @@
   --color-divider: var(--divider);
   --color-glow: var(--glow);
   --font-sans: var(--font-inter);
+  --font-serif: var(--font-lora);
   --font-mono: var(--font-geist-mono);
 }
 
@@ -176,6 +177,11 @@ html {
 .section-navy-gradient {
   background: linear-gradient(165deg, var(--primary) 0%, #243275 50%, #1B2559 100%);
   color: var(--text-on-primary);
+}
+.section-sky {
+  background: linear-gradient(180deg, #C9E8F7 0%, #DDEEF8 35%, #EDF4F8 65%, var(--background) 100%);
+  position: relative;
+  overflow: hidden;
 }
 
 /* ── Section transition fades ────────────── */

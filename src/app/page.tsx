@@ -7,6 +7,7 @@ import { PedagogicalEngine } from '@/components/landing/PedagogicalEngine';
 import { ObservationPipeline } from '@/components/landing/ObservationPipeline';
 import { ProductShowcase } from '@/components/landing/ProductShowcase';
 import { StakeholderPillars } from '@/components/landing/StakeholderPillars';
+import { GetStarted } from '@/components/landing/GetStarted';
 import { LeadershipConsole } from '@/components/landing/LeadershipConsole';
 import { SocialProof } from '@/components/landing/SocialProof';
 import { EthicsSection } from '@/components/landing/EthicsSection';
@@ -36,7 +37,9 @@ export default function Home() {
 
       {/* 8–10. For Educators, For Leaders, For Families */}
       <StakeholderPillars />
-      {/* 11. Leadership Console — The operating system */}
+      {/* Get Started in Three — simple onboarding steps */}
+      <GetStarted />
+      {/* 11. Leadership Hub — The operating system */}
       <LeadershipConsole />
       {/* 12. Social Proof — Testimonials + founder quote */}
       <SocialProof />

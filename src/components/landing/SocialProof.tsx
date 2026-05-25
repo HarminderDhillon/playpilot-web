@@ -7,7 +7,7 @@ const testimonials = [
     quote:
       'I used to spend my evenings writing observations. Now I capture them in seconds during the day and actually get to be present with the children.',
     name: 'Sarah M.',
-    role: 'Dayhome Educator, Edmonton',
+    role: 'Early Childhood Educator, Edmonton',
     initials: 'SM',
     color: 'bg-accent-coral',
   },

@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 
 const programs = [
-  'Sunshine Dayhome',
+  'Sunshine Early Learning',
   'Little Explorers',
   'Prairie Child Co.',
   'Bright Beginnings',
@@ -18,7 +18,7 @@ const programs = [
   'Blue Sky Childcare',
   'Rosewood Academy',
   'Stepping Stones Learning',
-  'Cedar Grove Dayhome',
+  'Cedar Grove Learning Centre',
 ];
 
 const accents = [
@@ -63,7 +63,7 @@ export function TrustedBy() {
   return (
     <section className="section-white border-y border-divider px-6 py-16 sm:py-20 overflow-hidden">
       <p className="text-center text-xs font-semibold tracking-widest text-text-muted uppercase mb-8">
-        Trusted by early learning programs across Canada
+        Trusted by early learning programs across Canada, Australia, and New Zealand
       </p>
 
       <div className="relative">

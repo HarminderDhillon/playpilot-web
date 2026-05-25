@@ -37,7 +37,7 @@ export function CTA() {
               href="/pricing"
               className="rounded-xl border border-text-on-primary/30 px-7 py-3.5 text-sm font-semibold text-text-on-primary transition-all hover:border-text-on-primary/60 hover:bg-white/5 hover:-translate-y-0.5"
             >
-              Join Early Access
+              Get Started
             </Link>
           </div>
         </ScrollReveal>
