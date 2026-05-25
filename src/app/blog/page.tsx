@@ -90,7 +90,7 @@ export default function BlogPage() {
             talking about how leaves rest.&rdquo;
           </p>
           <p className="mt-4 text-sm text-text-muted">
-            Bhavleen, Early Childhood Educator
+            Priya, Early Childhood Educator
           </p>
         </div>
 
