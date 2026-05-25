@@ -14,6 +14,8 @@ const CATEGORY_LABELS: Record<string, string> = {
   stories: 'From Educators',
   leadership: 'Presence & Practice',
   resources: 'Learning & Reflection',
+  families: 'For Families',
+  childvoice: 'Child Voice',
 };
 
 export default function BlogPage() {
@@ -24,13 +26,11 @@ export default function BlogPage() {
   return (
     <div className="px-6 pt-32 pb-20">
       <div className="mx-auto max-w-5xl">
-        {/* Hero with moment bubbles */}
+        {/* Hero */}
         <div className="relative">
-          {/* Moment bubbles */}
-          <div className="moment-bubble bg-accent-purple w-5 h-5 top-0 right-12 animate-float" />
-          <div className="moment-bubble bg-accent-teal w-3 h-3 top-8 right-4 animate-float-slow" />
-          <div className="moment-bubble bg-accent-coral w-4 h-4 -top-2 right-32 animate-float-delay" />
-          <div className="moment-bubble bg-accent-green w-3.5 h-3.5 top-12 right-20 animate-float" />
+          {/* Subtle moment bubbles in hero only */}
+          <div className="moment-bubble bg-accent-purple w-4 h-4 top-0 right-16 animate-float" />
+          <div className="moment-bubble bg-accent-teal w-3 h-3 top-10 right-6 animate-float-slow" />
 
           <p className="text-xs tracking-widest uppercase text-text-muted font-semibold mb-3">
             From the Field
@@ -50,10 +50,6 @@ export default function BlogPage() {
               {/* Decorative watercolor circle */}
               <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-gradient-to-br from-accent-purple/8 via-accent-teal/6 to-accent-pink/8 blur-2xl pointer-events-none" />
 
-              {/* Moment bubbles on featured card */}
-              <div className="moment-bubble bg-accent-purple w-3 h-3 top-6 right-20 animate-float-slow" />
-              <div className="moment-bubble bg-accent-coral w-2.5 h-2.5 bottom-10 right-8 animate-float" />
-
               <div className="relative z-10">
                 <div className="flex items-center gap-3 mb-5">
                   <span className="inline-block rounded-full bg-primary/8 px-3 py-1 text-[10px] font-semibold text-primary uppercase tracking-widest">
@@ -66,7 +62,7 @@ export default function BlogPage() {
                   {featured.title}
                 </h2>
 
-                {/* Pull quote in serif italic */}
+                {/* Pull quote */}
                 <p className="mt-4 text-base font-serif italic text-text-secondary leading-relaxed max-w-2xl">
                   &ldquo;{featured.excerpt}&rdquo;
                 </p>
@@ -77,15 +73,26 @@ export default function BlogPage() {
                     <span>&middot;</span>
                     <span>{new Date(featured.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
                   </div>
-                  <span className={`h-1.5 w-1.5 rounded-full bg-${featured.coverColor}`} />
-                  <span className="text-xs text-text-muted">
-                    {CATEGORY_LABELS[featured.category] ?? featured.category}
-                  </span>
                 </div>
               </div>
             </div>
           </Link>
         )}
+
+        {/* A Moment From the Field — signature slow moment */}
+        <div className="mt-14 py-10 border-t border-b border-divider">
+          <p className="text-[10px] tracking-widest uppercase text-text-muted font-semibold mb-5">
+            A Moment From the Field
+          </p>
+          <p className="text-lg font-serif italic text-text leading-relaxed max-w-2xl">
+            &ldquo;Today a child handed me a leaf and whispered,
+            &lsquo;This one is tired.&rsquo; We spent the next ten minutes
+            talking about how leaves rest.&rdquo;
+          </p>
+          <p className="mt-4 text-sm text-text-muted">
+            Bhavleen, Early Childhood Educator
+          </p>
+        </div>
 
         {/* Asymmetric editorial grid */}
         {rest.length > 0 && (
@@ -117,6 +124,13 @@ export default function BlogPage() {
                         {post.title}
                       </h3>
 
+                      {/* Pull quote on wide cards if available */}
+                      {isWide && post.pullQuote && (
+                        <p className="mt-3 text-sm font-serif italic text-text-muted leading-relaxed">
+                          &ldquo;{post.pullQuote}&rdquo;
+                        </p>
+                      )}
+
                       <p className={`mt-2 text-text-secondary leading-relaxed flex-1 ${isWide ? 'text-base' : 'text-sm'}`}>
                         {post.excerpt}
                       </p>
@@ -140,18 +154,14 @@ export default function BlogPage() {
         )}
 
         {/* Newsletter CTA */}
-        <div className="mt-20 rounded-2xl bg-primary/5 border border-primary/10 p-8 sm:p-10 text-center relative overflow-hidden">
-          {/* Subtle moment bubbles */}
-          <div className="moment-bubble bg-accent-purple w-4 h-4 top-4 left-8 animate-float-slow" />
-          <div className="moment-bubble bg-accent-teal w-3 h-3 bottom-6 right-12 animate-float" />
-
-          <h2 className="text-2xl font-bold text-text relative z-10">
+        <div className="mt-20 rounded-2xl bg-primary/5 border border-primary/10 p-8 sm:p-10 text-center">
+          <h2 className="text-2xl font-bold text-text">
             Written for educators who care deeply
           </h2>
-          <p className="mt-2 text-sm text-text-secondary max-w-md mx-auto relative z-10">
+          <p className="mt-2 text-sm text-text-secondary max-w-md mx-auto">
             Reflections on presence, play, and the quiet work of noticing. Delivered when we have something worth sharing.
           </p>
-          <form className="mt-6 flex flex-col sm:flex-row gap-3 max-w-md mx-auto relative z-10">
+          <form className="mt-6 flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
             <input
               type="email"
               placeholder="your@email.com"

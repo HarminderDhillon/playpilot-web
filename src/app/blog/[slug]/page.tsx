@@ -9,6 +9,8 @@ const CATEGORY_LABELS: Record<string, string> = {
   stories: 'From Educators',
   leadership: 'Presence & Practice',
   resources: 'Learning & Reflection',
+  families: 'For Families',
+  childvoice: 'Child Voice',
 };
 
 export async function generateStaticParams() {

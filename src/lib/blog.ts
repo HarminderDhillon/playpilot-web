@@ -9,6 +9,7 @@ export interface BlogPost {
   slug: string;
   title: string;
   excerpt: string;
+  pullQuote?: string;
   category: string;
   author: string;
   date: string;
@@ -24,6 +25,8 @@ const CATEGORY_COLORS: Record<string, string> = {
   stories: 'accent-coral',
   leadership: 'accent-teal',
   resources: 'accent-green',
+  families: 'accent-pink',
+  childvoice: 'accent-yellow',
 };
 
 export function getAllPosts(): BlogPost[] {
@@ -41,6 +44,7 @@ export function getAllPosts(): BlogPost[] {
       slug,
       title: data.title ?? '',
       excerpt: data.excerpt ?? '',
+      pullQuote: data.pullQuote ?? undefined,
       category: data.category ?? 'pedagogy',
       author: data.author ?? 'PlayPilot Team',
       date: data.date ?? '',
