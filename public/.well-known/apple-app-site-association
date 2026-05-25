@@ -1,0 +1,17 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "TEAM_ID.com.playpilot.app",
+        "paths": [
+          "/invite/*",
+          "/accept-invite/*",
+          "/echo/*",
+          "/journey/*",
+          "/child/*"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.playpilot.app",
+      "sha256_cert_fingerprints": [
+        "AB:91:08:5F:0D:4F:D6:13:2F:2C:D3:35:04:A7:40:78:E0:B2:63:24:18:91:27:BE:A3:1A:00:00:B5:8C:1A:B7"
+      ]
+    }
+  }
+]
