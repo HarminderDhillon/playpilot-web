@@ -44,7 +44,8 @@ export default function PricingPage() {
     setIsSubmitting(true);
     setError('');
     try {
-      const res = await fetch('https://formspree.io/f/mlgawdnw', {
+      const formspreeId = process.env.NEXT_PUBLIC_FORMSPREE_ID || 'mlgawdnw';
+      const res = await fetch(`https://formspree.io/f/${formspreeId}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, role, organization: organization || 'Not specified' }),

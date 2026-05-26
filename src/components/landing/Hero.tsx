@@ -33,7 +33,7 @@ export function Hero() {
         <div className="reveal">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-primary/8 px-4 py-1.5 border border-primary/10">
             <span className="h-2 w-2 rounded-full bg-accent-green animate-pulse" />
-            <span className="text-[11px] font-semibold tracking-widest text-primary uppercase">Built for Early Childhood Leaders</span>
+            <span className="text-[11px] font-semibold tracking-widest text-primary uppercase">Built for Everyone in Early Childhood</span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-text">
@@ -42,7 +42,7 @@ export function Hero() {
           </h1>
 
           <p className="mt-6 max-w-lg text-base sm:text-lg text-text-secondary leading-relaxed">
-            Early learning documentation for educators, leaders, and families.
+            Early learning documentation for educators, leaders, families, and consultants.
           </p>
 
           <p className="mt-4 max-w-md text-sm font-semibold text-text leading-relaxed">
@@ -51,11 +51,11 @@ export function Hero() {
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Link href="#the-problem" className="btn-primary rounded-xl bg-primary px-7 py-3.5 text-sm font-semibold text-text-on-primary text-center">
-              Reclaim Documentation
+            <Link href="/demo" className="btn-primary rounded-xl bg-primary px-7 py-3.5 text-sm font-semibold text-text-on-primary text-center">
+              Try the Demo
             </Link>
-            <Link href="#the-vision" className="btn-secondary rounded-xl border border-border bg-surface px-7 py-3.5 text-sm font-semibold text-text text-center">
-              See the Vision
+            <Link href="/pricing" className="btn-secondary rounded-xl border border-border bg-surface px-7 py-3.5 text-sm font-semibold text-text text-center">
+              Get Started
             </Link>
           </div>
         </div>

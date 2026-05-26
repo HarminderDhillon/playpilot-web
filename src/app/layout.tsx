@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import { Inter, Lora } from 'next/font/google';
 import { Geist_Mono } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/react';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
-import { SplashScreen } from '@/components/layout/SplashScreen';
 import './globals.css';
 
 const inter = Inter({
@@ -38,6 +38,27 @@ export const metadata: Metadata = {
     ],
     apple: '/apple-touch-icon.png',
   },
+  openGraph: {
+    type: 'website',
+    siteName: 'PlayPilot',
+    locale: 'en_US',
+    title: 'PlayPilot | Pedagogical Intelligence for Early Learning',
+    description:
+      'PlayPilot is a pedagogical intelligence platform connecting educators, families, supervisors, and communities through meaningful documentation and shared insight.',
+    url: 'https://playpilotlearning.com',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'PlayPilot | Pedagogical Intelligence for Early Learning',
+    description:
+      'PlayPilot is a pedagogical intelligence platform connecting educators, families, supervisors, and communities through meaningful documentation and shared insight.',
+  },
+  manifest: '/manifest.json',
+  other: {
+    'theme-color': '#1B2559',
+    'apple-mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-status-bar-style': 'black-translucent',
+  },
 };
 
 export default function RootLayout({
@@ -48,10 +69,25 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${lora.variable} ${geistMono.variable} font-sans antialiased`}>
-        <SplashScreen />
         <Navbar />
-        <main className="min-h-screen">{children}</main>
+        <main id="main-content" className="min-h-screen">{children}</main>
         <Footer />
+        <Analytics />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'PlayPilot',
+              url: 'https://playpilotlearning.com',
+              logo: 'https://playpilotlearning.com/logo-plane.png',
+              description: 'Pedagogical intelligence platform for early childhood education.',
+              email: 'hello@playpilotlearning.com',
+              sameAs: [],
+            }),
+          }}
+        />
       </body>
     </html>
   );

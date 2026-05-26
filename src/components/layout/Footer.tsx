@@ -14,7 +14,7 @@ export function Footer() {
               <p className="text-lg font-bold text-primary">PlayPilot</p>
             </div>
             <p className="mt-2 text-sm text-text-secondary leading-relaxed">
-              Empowering the next generation of early childhood leaders.
+              Empowering everyone in early childhood education.
             </p>
           </div>
 

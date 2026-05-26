@@ -7,10 +7,9 @@ import Image from 'next/image';
 const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
-  { label: 'How It Works', href: '/how-it-works' },
   { label: 'Features', href: '/features' },
   { label: 'Blog', href: '/blog' },
-  { label: 'Download App', href: '/pricing' },
+  { label: 'Early Access', href: '/pricing' },
 ];
 
 export function Navbar() {
@@ -31,6 +30,12 @@ export function Navbar() {
           : 'bg-transparent'
       }`}
     >
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-text-on-primary"
+      >
+        Skip to content
+      </a>
       <div className="mx-auto flex max-w-7xl items-center justify-between px-8 py-6 sm:py-8">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
@@ -49,12 +54,6 @@ export function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Link
-            href="/login"
-            className="btn-secondary rounded-xl border border-border bg-surface px-6 py-3 text-base font-medium text-text"
-          >
-            Log In
-          </Link>
           <Link
             href="/demo"
             className="btn-primary rounded-xl bg-primary px-7 py-3 text-base font-semibold text-text-on-primary"
@@ -100,13 +99,6 @@ export function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Link
-            href="/login"
-            onClick={() => setMobileOpen(false)}
-            className="block py-3 text-sm font-medium text-text-secondary"
-          >
-            Log In
-          </Link>
           <Link
             href="/demo"
             onClick={() => setMobileOpen(false)}

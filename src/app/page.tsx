@@ -3,15 +3,12 @@ import { Hero } from '@/components/landing/Hero';
 import { TrustedBy } from '@/components/landing/TrustedBy';
 import { BigStat } from '@/components/landing/BigStat';
 import { TheShift } from '@/components/landing/TheShift';
-import { PedagogicalEngine } from '@/components/landing/PedagogicalEngine';
-import { ObservationPipeline } from '@/components/landing/ObservationPipeline';
+import { PedagogicalShift } from '@/components/landing/PedagogicalShift';
 import { ProductShowcase } from '@/components/landing/ProductShowcase';
 import { StakeholderPillars } from '@/components/landing/StakeholderPillars';
 import { GetStarted } from '@/components/landing/GetStarted';
-import { LeadershipConsole } from '@/components/landing/LeadershipConsole';
 import { SocialProof } from '@/components/landing/SocialProof';
-import { EthicsSection } from '@/components/landing/EthicsSection';
-import { BuiltForScale } from '@/components/landing/BuiltForScale';
+import { CommitmentAndVision } from '@/components/landing/CommitmentAndVision';
 import { CTA } from '@/components/landing/CTA';
 
 export default function Home() {
@@ -19,7 +16,7 @@ export default function Home() {
     <>
       {/* Energy Motion — plays once per session */}
       <EnergyMotion />
-      {/* 1. Hero — Empowering the next generation */}
+      {/* 1. Hero — Less pressure. More presence. */}
       <Hero />
 
       {/* 2. Trusted By — Logo bar */}
@@ -28,26 +25,20 @@ export default function Home() {
       <BigStat />
       {/* 4. The Real Problem — Drowning in documentation */}
       <TheShift />
-      {/* 5. Pedagogical Powerhouse — Not another observation app */}
-      <PedagogicalEngine />
-      {/* 6. The Shift — Pressure → Presence */}
-      <ObservationPipeline />
-      {/* 7. Product Showcase — Dashboard visual wow */}
+      {/* 5. Pedagogical Shift — Not another app + pressure → presence */}
+      <PedagogicalShift />
+      {/* 6. Product Showcase — Dashboard visual */}
       <ProductShowcase />
 
-      {/* 8–10. For Educators, For Leaders, For Families */}
+      {/* 7–9. For Educators, For Leaders, For Families */}
       <StakeholderPillars />
-      {/* Get Started in Three — simple onboarding steps */}
+      {/* 10. Get Started in Three — simple onboarding steps */}
       <GetStarted />
-      {/* 11. Leadership Hub — The operating system */}
-      <LeadershipConsole />
-      {/* 12. Social Proof — Testimonials + founder quote */}
+      {/* 11. Social Proof — Testimonials */}
       <SocialProof />
-      {/* 13. Ethics — Built on dignity */}
-      <EthicsSection />
-      {/* 14. The Vision — Stronger ecosystems together */}
-      <BuiltForScale />
-      {/* 15. Final CTA — Reclaim documentation */}
+      {/* 12. Commitment & Vision — Ethics + scale */}
+      <CommitmentAndVision />
+      {/* 13. Final CTA */}
       <CTA />
     </>
   );

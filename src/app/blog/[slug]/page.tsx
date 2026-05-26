@@ -2,6 +2,18 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getAllPosts, getPostBySlug } from '@/lib/blog';
+import { BlogContent } from './BlogContent';
+
+const COVER_COLORS: Record<string, { bg: string; text: string }> = {
+  'accent-purple': { bg: 'bg-accent-purple/20', text: 'text-accent-purple' },
+  'accent-blue': { bg: 'bg-accent-blue/20', text: 'text-accent-blue' },
+  'accent-coral': { bg: 'bg-accent-coral/20', text: 'text-accent-coral' },
+  'accent-teal': { bg: 'bg-accent-teal/20', text: 'text-accent-teal' },
+  'accent-green': { bg: 'bg-accent-green/20', text: 'text-accent-green' },
+  'accent-pink': { bg: 'bg-accent-pink/20', text: 'text-accent-pink' },
+  'accent-yellow': { bg: 'bg-accent-yellow/20', text: 'text-accent-yellow' },
+  'accent-orange': { bg: 'bg-accent-orange/20', text: 'text-accent-orange' },
+};
 
 const CATEGORY_LABELS: Record<string, string> = {
   pedagogy: 'Pedagogical Thinking',
@@ -30,6 +42,18 @@ export async function generateMetadata({
   return {
     title: `${post.title} | PlayPilot Blog`,
     description: post.excerpt,
+    openGraph: {
+      type: 'article',
+      title: post.title,
+      description: post.excerpt,
+      url: `https://playpilotlearning.com/blog/${slug}`,
+      siteName: 'PlayPilot',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+    },
   };
 }
 
@@ -41,48 +65,6 @@ export default async function BlogPostPage({
   const { slug } = await params;
   const post = getPostBySlug(slug);
   if (!post) notFound();
-
-  // Simple markdown-to-HTML for MDX content (headings, paragraphs, bold, italic, lists)
-  const html = post.content
-    .split('\n\n')
-    .map((block) => {
-      const trimmed = block.trim();
-      if (!trimmed) return '';
-
-      // Headings
-      if (trimmed.startsWith('### '))
-        return `<h3 class="text-lg font-bold text-text mt-8 mb-3">${trimmed.slice(4)}</h3>`;
-      if (trimmed.startsWith('## '))
-        return `<h2 class="text-xl font-bold text-text mt-10 mb-4">${trimmed.slice(3)}</h2>`;
-
-      // Blockquote
-      if (trimmed.startsWith('> '))
-        return `<blockquote class="border-l-4 border-primary/20 pl-5 my-6 italic text-text-secondary">${trimmed.slice(2)}</blockquote>`;
-
-      // Unordered list
-      if (trimmed.startsWith('- ')) {
-        const items = trimmed
-          .split('\n')
-          .filter((l) => l.trim().startsWith('- '))
-          .map((l) => `<li class="ml-4">${inlineFormat(l.trim().slice(2))}</li>`)
-          .join('\n');
-        return `<ul class="list-disc pl-5 my-4 space-y-2 text-text-secondary leading-relaxed">${items}</ul>`;
-      }
-
-      // Ordered list
-      if (/^\d+\.\s/.test(trimmed)) {
-        const items = trimmed
-          .split('\n')
-          .filter((l) => /^\d+\.\s/.test(l.trim()))
-          .map((l) => `<li class="ml-4">${inlineFormat(l.trim().replace(/^\d+\.\s/, ''))}</li>`)
-          .join('\n');
-        return `<ol class="list-decimal pl-5 my-4 space-y-2 text-text-secondary leading-relaxed">${items}</ol>`;
-      }
-
-      // Paragraph
-      return `<p class="text-base text-text-secondary leading-relaxed my-4">${inlineFormat(trimmed)}</p>`;
-    })
-    .join('\n');
 
   return (
     <div className="px-6 pt-32 pb-20">
@@ -99,7 +81,7 @@ export default async function BlogPostPage({
         <div className="mb-10">
           <div className="flex items-center gap-3 mb-4">
             <span
-              className={`inline-block rounded-full bg-${post.coverColor}/20 px-3 py-1 text-xs font-semibold text-${post.coverColor} uppercase tracking-wider`}
+              className={`inline-block rounded-full ${COVER_COLORS[post.coverColor]?.bg ?? 'bg-accent-purple/20'} px-3 py-1 text-xs font-semibold ${COVER_COLORS[post.coverColor]?.text ?? 'text-accent-purple'} uppercase tracking-wider`}
             >
               {CATEGORY_LABELS[post.category] ?? post.category}
             </span>
@@ -126,10 +108,9 @@ export default async function BlogPostPage({
         <div className="h-px bg-divider mb-10" />
 
         {/* Content */}
-        <article
-          className="prose-playpilot"
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
+        <article className="prose-playpilot">
+          <BlogContent content={post.content} />
+        </article>
 
         {/* Footer CTA */}
         <div className="mt-16 rounded-2xl bg-primary/5 border border-primary/10 p-8 text-center">
@@ -156,15 +137,27 @@ export default async function BlogPostPage({
             &larr; All posts
           </Link>
         </div>
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'BlogPosting',
+              headline: post.title,
+              description: post.excerpt,
+              author: { '@type': 'Organization', name: post.author },
+              datePublished: post.date,
+              publisher: {
+                '@type': 'Organization',
+                name: 'PlayPilot',
+                url: 'https://playpilotlearning.com',
+              },
+              mainEntityOfPage: `https://playpilotlearning.com/blog/${post.slug}`,
+            }),
+          }}
+        />
       </div>
     </div>
   );
-}
-
-/** Inline formatting for bold, italic, and code */
-function inlineFormat(text: string): string {
-  return text
-    .replace(/\*\*(.+?)\*\*/g, '<strong class="font-semibold text-text">$1</strong>')
-    .replace(/\*(.+?)\*/g, '<em>$1</em>')
-    .replace(/`(.+?)`/g, '<code class="bg-surface-variant px-1.5 py-0.5 rounded text-sm">$1</code>');
 }

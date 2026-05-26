@@ -22,7 +22,7 @@ export function CTA() {
         </ScrollReveal>
 
         <ScrollReveal delay={100}>
-          <p className="mt-6 text-base text-text-on-primary/80">Join the movement.</p>
+          <p className="mt-6 text-base text-text-on-primary/80">Start for free today.</p>
         </ScrollReveal>
 
         <ScrollReveal delay={200}>
@@ -31,7 +31,7 @@ export function CTA() {
               href="/demo"
               className="rounded-xl bg-surface px-7 py-3.5 text-sm font-semibold text-primary transition-all hover:bg-surface-variant hover:shadow-lg hover:-translate-y-0.5"
             >
-              Book a Walkthrough
+              Try the Demo
             </Link>
             <Link
               href="/pricing"

@@ -565,7 +565,7 @@ export function CTAMockup({ onRestart }: { onRestart: () => void }) {
           href="/demo"
           className="block w-full btn-primary rounded-xl bg-accent-teal py-3.5 text-sm font-semibold text-white text-center"
         >
-          Book a Walkthrough
+          Try the Demo
         </Link>
         <Link
           href="/#features"

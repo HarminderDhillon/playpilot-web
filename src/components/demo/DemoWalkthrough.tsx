@@ -11,6 +11,13 @@ import {
   CTAMockup,
 } from './DemoMockups';
 
+const ACCENT_TEXT: Record<string, string> = {
+  'accent-teal': 'text-accent-teal',
+  'accent-coral': 'text-accent-coral',
+  'accent-purple': 'text-accent-purple',
+  'accent-yellow': 'text-accent-yellow',
+};
+
 /* ── Step data ──────────────────────────────────── */
 interface Step {
   title: string;
@@ -252,7 +259,7 @@ export function DemoWalkthrough() {
           >
             {/* Text column */}
             <div style={contentStyle} className={currentStep === 6 ? '' : ''}>
-              <p className={`text-xs font-semibold tracking-widest uppercase mb-3 text-${step.accent}`}>
+              <p className={`text-xs font-semibold tracking-widest uppercase mb-3 ${ACCENT_TEXT[step.accent] ?? 'text-accent-teal'}`}>
                 {step.subtitle}
               </p>
               <h1 className={`text-3xl sm:text-4xl font-bold tracking-tight ${isNavy ? 'text-white' : 'text-text'}`}>

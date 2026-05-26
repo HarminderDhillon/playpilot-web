@@ -8,6 +8,17 @@ export const metadata: Metadata = {
     'Moments, reflections, and ideas from the world of early learning. Written for educators who care deeply.',
 };
 
+const COVER_COLORS: Record<string, { bg: string; bgSubtle: string; dot: string }> = {
+  'accent-purple': { bg: 'bg-accent-purple', bgSubtle: 'bg-accent-purple/6', dot: 'bg-accent-purple' },
+  'accent-blue': { bg: 'bg-accent-blue', bgSubtle: 'bg-accent-blue/6', dot: 'bg-accent-blue' },
+  'accent-coral': { bg: 'bg-accent-coral', bgSubtle: 'bg-accent-coral/6', dot: 'bg-accent-coral' },
+  'accent-teal': { bg: 'bg-accent-teal', bgSubtle: 'bg-accent-teal/6', dot: 'bg-accent-teal' },
+  'accent-green': { bg: 'bg-accent-green', bgSubtle: 'bg-accent-green/6', dot: 'bg-accent-green' },
+  'accent-pink': { bg: 'bg-accent-pink', bgSubtle: 'bg-accent-pink/6', dot: 'bg-accent-pink' },
+  'accent-yellow': { bg: 'bg-accent-yellow', bgSubtle: 'bg-accent-yellow/6', dot: 'bg-accent-yellow' },
+  'accent-orange': { bg: 'bg-accent-orange', bgSubtle: 'bg-accent-orange/6', dot: 'bg-accent-orange' },
+};
+
 const CATEGORY_LABELS: Record<string, string> = {
   pedagogy: 'Pedagogical Thinking',
   product: 'Product Updates',
@@ -109,12 +120,12 @@ export default function BlogPage() {
                   <div className="glass-card rounded-2xl p-6 h-full flex flex-col transition-all group-hover:-translate-y-1 relative overflow-hidden">
                     {/* Subtle accent glow on wide cards */}
                     {isWide && (
-                      <div className={`absolute -bottom-8 -right-8 w-32 h-32 rounded-full bg-${post.coverColor}/6 blur-2xl pointer-events-none`} />
+                      <div className={`absolute -bottom-8 -right-8 w-32 h-32 rounded-full ${COVER_COLORS[post.coverColor]?.bgSubtle ?? 'bg-accent-purple/6'} blur-2xl pointer-events-none`} />
                     )}
 
                     <div className="relative z-10 flex flex-col h-full">
                       <div className="flex items-center gap-2 mb-3">
-                        <span className={`h-2 w-2 rounded-full bg-${post.coverColor}`} />
+                        <span className={`h-2 w-2 rounded-full ${COVER_COLORS[post.coverColor]?.dot ?? 'bg-accent-purple'}`} />
                         <span className="text-[11px] font-semibold text-text-muted uppercase tracking-wider">
                           {CATEGORY_LABELS[post.category] ?? post.category}
                         </span>

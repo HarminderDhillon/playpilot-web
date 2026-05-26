@@ -1,65 +1,35 @@
-import type { Metadata } from 'next';
+'use client';
+
 import Link from 'next/link';
+import { ScrollReveal } from '@/components/landing/ScrollReveal';
+import { ObservationMockup, SupervisorMockup, ParentTimelineMockup } from '@/components/shared/Mockups';
 
-export const metadata: Metadata = {
-  title: 'Features | PlayPilot',
-  description: 'Explore all the ways PlayPilot helps educators document, track, and share learning.',
-};
-
-const featureSections = [
+const educatorFeatures = [
   {
     title: 'Voice-First Capture',
     description:
-      'Speak your observation while it happens. PlayPilot transcribes your voice note, identifies developmental domains, and creates a draft learning story, all in seconds. No more scribbling on Post-its and typing them up later.',
+      'Speak your observation while it happens. PlayPilot transcribes your voice note, identifies developmental domains, and creates a draft learning story in seconds.',
     accent: 'bg-accent-blue/10 border-accent-blue/30',
     dot: 'bg-accent-blue',
   },
   {
     title: 'NNN Framework Built In',
     description:
-      'Every observation flows through Noticing, Naming, and Nurturing. The app guides you through objective observation, connects behaviour to learning theory, and suggests responsive next steps. Professional documentation without the overwhelm.',
+      'Every observation flows through Noticing, Naming, and Nurturing. Professional documentation without the overwhelm.',
     accent: 'bg-accent-purple/10 border-accent-purple/30',
     dot: 'bg-accent-purple',
   },
   {
     title: 'Schema Recognition',
     description:
-      'Spot transporting, trajectory, enclosing, rotation, and more. PlayPilot helps you identify repeated patterns of play and plan meaningful provocations that extend children\'s natural curiosity.',
+      'Spot transporting, trajectory, enclosing, rotation, and more. Identify repeated patterns of play and plan meaningful provocations.',
     accent: 'bg-accent-orange/10 border-accent-orange/30',
     dot: 'bg-accent-orange',
   },
   {
-    title: 'Milestone Tracking',
-    description:
-      'Visual developmental progress at a glance. Track milestones across domains, see where each child is thriving, and identify areas that might need extra attention. No spreadsheets needed.',
-    accent: 'bg-accent-green/10 border-accent-green/30',
-    dot: 'bg-accent-green',
-  },
-  {
-    title: 'Portfolio & Family Sharing',
-    description:
-      'Beautiful, parent-friendly learning portfolios that celebrate each child\'s journey. Families see the learning behind the play without the educator jargon. Strengthens the home-centre partnership.',
-    accent: 'bg-accent-pink/10 border-accent-pink/30',
-    dot: 'bg-accent-pink',
-  },
-  {
-    title: 'Team Communication',
-    description:
-      'Connect with your team through group messaging and classroom announcements. Share updates, coordinate planning, and stay aligned. Great educators thrive when they work together.',
-    accent: 'bg-accent-teal/10 border-accent-teal/30',
-    dot: 'bg-accent-teal',
-  },
-  {
-    title: 'Leadership Hub',
-    description:
-      'A web-based command center for directors and pedagogical leaders. See trends across classrooms, support educators with real data, and prepare for licensing visits without stress.',
-    accent: 'bg-primary/5 border-primary/20',
-    dot: 'bg-primary',
-  },
-  {
     title: '20+ Capture Modes',
     description:
-      'Quick Jot, Voice Note, Photo, Handwriting Scan, Noticing Tiles, ABC Tracker, Disposition Radar, and more — 20+ modes shaped around how educators actually work.',
+      'Quick Jot, Voice Note, Photo, Handwriting Scan, Noticing Tiles, ABC Tracker, Disposition Radar, and more.',
     accent: 'bg-accent-teal/10 border-accent-teal/30',
     dot: 'bg-accent-teal',
   },
@@ -73,16 +43,19 @@ const featureSections = [
   {
     title: 'Offline Sync',
     description:
-      'Full offline support with automatic sync. Capture observations anywhere — in the garden, on a field trip — and sync when you\'re back online.',
+      'Full offline support with automatic sync. Capture observations anywhere and sync when you\'re back online.',
     accent: 'bg-accent-green/10 border-accent-green/30',
     dot: 'bg-accent-green',
   },
+];
+
+const leaderFeatures = [
   {
-    title: 'Calendar & Operations',
+    title: 'Leadership Hub',
     description:
-      'Attendance, daily logs, incident reports, and scheduling — all in one place. Less admin, more time with children.',
-    accent: 'bg-accent-yellow/10 border-accent-yellow/30',
-    dot: 'bg-accent-yellow',
+      'A web-based command center for directors and pedagogical leaders. See trends across classrooms, support educators with real data, and prepare for licensing visits.',
+    accent: 'bg-primary/5 border-primary/20',
+    dot: 'bg-primary',
   },
   {
     title: 'Reports',
@@ -91,33 +64,174 @@ const featureSections = [
     accent: 'bg-accent-purple/10 border-accent-purple/30',
     dot: 'bg-accent-purple',
   },
+  {
+    title: 'Calendar & Operations',
+    description:
+      'Attendance, daily logs, incident reports, and scheduling. Less admin, more time with children.',
+    accent: 'bg-accent-yellow/10 border-accent-yellow/30',
+    dot: 'bg-accent-yellow',
+  },
 ];
+
+const familyFeatures = [
+  {
+    title: 'Portfolio & Family Sharing',
+    description:
+      'Beautiful, parent-friendly learning portfolios that celebrate each child\'s journey. Families see the learning behind the play.',
+    accent: 'bg-accent-pink/10 border-accent-pink/30',
+    dot: 'bg-accent-pink',
+  },
+  {
+    title: 'Milestone Tracking',
+    description:
+      'Visual developmental progress at a glance. Track milestones across domains and see where each child is thriving.',
+    accent: 'bg-accent-green/10 border-accent-green/30',
+    dot: 'bg-accent-green',
+  },
+  {
+    title: 'Team Communication',
+    description:
+      'Connect educators and families through group messaging and classroom announcements. Stay aligned and informed.',
+    accent: 'bg-accent-teal/10 border-accent-teal/30',
+    dot: 'bg-accent-teal',
+  },
+];
+
+function FeatureCard({ title, description, accent, dot }: { title: string; description: string; accent: string; dot: string }) {
+  return (
+    <div className={`rounded-xl border p-5 sm:p-6 ${accent}`}>
+      <div className="flex items-center gap-3">
+        <span className={`h-2.5 w-2.5 rounded-full ${dot}`} />
+        <h3 className="text-lg font-semibold text-text">{title}</h3>
+      </div>
+      <p className="mt-2 text-sm leading-relaxed text-text-secondary">{description}</p>
+    </div>
+  );
+}
 
 export default function FeaturesPage() {
   return (
-    <div className="px-6 pt-32 pb-20">
-      <div className="mx-auto max-w-4xl">
-        <h1 className="text-4xl font-bold text-text sm:text-5xl">Features</h1>
-        <p className="mt-4 max-w-xl text-lg text-text-secondary">
-          Every feature is designed to save you time, deepen your practice, and keep children at the centre.
-        </p>
-
-        <div className="mt-14 space-y-8">
-          {featureSections.map((f) => (
-            <div key={f.title} className={`rounded-xl border p-6 sm:p-8 ${f.accent}`}>
-              <div className="flex items-center gap-3">
-                <span className={`h-2.5 w-2.5 rounded-full ${f.dot}`} />
-                <h2 className="text-xl font-semibold text-text">{f.title}</h2>
-              </div>
-              <p className="mt-3 text-sm leading-relaxed text-text-secondary sm:text-base">{f.description}</p>
-            </div>
-          ))}
+    <div className="pt-32 pb-20">
+      {/* Page header */}
+      <div className="px-6">
+        <div className="mx-auto max-w-5xl">
+          <ScrollReveal>
+            <h1 className="text-4xl font-bold text-text sm:text-5xl">Features</h1>
+            <p className="mt-4 max-w-xl text-lg text-text-secondary">
+              Every feature is designed to save you time, deepen your practice, and keep children at the centre.
+            </p>
+          </ScrollReveal>
         </div>
+      </div>
 
-        <div className="mt-16 text-center">
+      {/* For Educators */}
+      <section className="section-warm px-6 py-16 sm:py-20 mt-12">
+        <div className="mx-auto max-w-5xl">
+          <div className="grid gap-12 lg:grid-cols-[1fr_280px] lg:items-start">
+            <div>
+              <ScrollReveal>
+                <p className="text-xs font-semibold tracking-widest text-accent-coral uppercase mb-3">
+                  For Educators
+                </p>
+                <h2 className="text-2xl font-bold text-text sm:text-3xl tracking-tight">
+                  Be more present. Document with confidence.
+                </h2>
+              </ScrollReveal>
+
+              <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                {educatorFeatures.map((f, i) => (
+                  <ScrollReveal key={f.title} delay={i * 60}>
+                    <FeatureCard {...f} />
+                  </ScrollReveal>
+                ))}
+              </div>
+            </div>
+
+            <ScrollReveal delay={150}>
+              <div className="hidden lg:block sticky top-32">
+                <ObservationMockup />
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* For Leaders */}
+      <section className="section-white px-6 py-16 sm:py-20">
+        <div className="mx-auto max-w-5xl">
+          <div className="grid gap-12 lg:grid-cols-[280px_1fr] lg:items-start">
+            <ScrollReveal delay={150}>
+              <div className="hidden lg:block sticky top-32">
+                <SupervisorMockup />
+              </div>
+            </ScrollReveal>
+
+            <div>
+              <ScrollReveal>
+                <p className="text-xs font-semibold tracking-widest text-accent-teal uppercase mb-3">
+                  For Leaders
+                </p>
+                <h2 className="text-2xl font-bold text-text sm:text-3xl tracking-tight">
+                  Empower your educators. Strengthen your program.
+                </h2>
+              </ScrollReveal>
+
+              <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+                {leaderFeatures.map((f, i) => (
+                  <ScrollReveal key={f.title} delay={i * 60}>
+                    <FeatureCard {...f} />
+                  </ScrollReveal>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* For Families */}
+      <section className="section-cream px-6 py-16 sm:py-20">
+        <div className="mx-auto max-w-5xl">
+          <div className="grid gap-12 lg:grid-cols-[1fr_280px] lg:items-start">
+            <div>
+              <ScrollReveal>
+                <p className="text-xs font-semibold tracking-widest text-accent-yellow uppercase mb-3">
+                  For Families
+                </p>
+                <h2 className="text-2xl font-bold text-text sm:text-3xl tracking-tight">
+                  See the learning. Feel connected.
+                </h2>
+              </ScrollReveal>
+
+              <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+                {familyFeatures.map((f, i) => (
+                  <ScrollReveal key={f.title} delay={i * 60}>
+                    <FeatureCard {...f} />
+                  </ScrollReveal>
+                ))}
+              </div>
+            </div>
+
+            <ScrollReveal delay={150}>
+              <div className="hidden lg:block sticky top-32">
+                <ParentTimelineMockup />
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <div className="px-6 py-16 text-center">
+        <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+          <Link
+            href="/demo"
+            className="btn-primary rounded-xl bg-primary px-7 py-3.5 text-sm font-semibold text-text-on-primary text-center"
+          >
+            Try the Demo
+          </Link>
           <Link
             href="/pricing"
-            className="inline-block rounded-xl bg-primary px-8 py-3.5 text-base font-semibold text-text-on-primary transition-colors hover:bg-primary-hover"
+            className="btn-secondary rounded-xl border border-border bg-surface px-7 py-3.5 text-sm font-semibold text-text text-center"
           >
             Get Started
           </Link>

@@ -1,9 +1,10 @@
 'use client';
 
+import Link from 'next/link';
 import { ScrollReveal } from './ScrollReveal';
 
 const steps = [
-  { num: '01', title: 'Download', desc: 'Free on iOS and Android.' },
+  { num: '01', title: 'Sign up', desc: 'Free to get started. No credit card needed.' },
   { num: '02', title: 'Set up your classroom', desc: 'Add children, choose your framework.' },
   { num: '03', title: 'Capture your first moment', desc: 'Under 30 seconds. Promise.' },
 ];
@@ -30,6 +31,17 @@ export function GetStarted() {
             </ScrollReveal>
           ))}
         </div>
+
+        <ScrollReveal delay={300}>
+          <div className="mt-10 text-center">
+            <Link
+              href="/pricing"
+              className="inline-block btn-primary rounded-xl bg-primary px-7 py-3.5 text-sm font-semibold text-text-on-primary"
+            >
+              Get Started
+            </Link>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );
