@@ -51,9 +51,9 @@ const privacyCards = [
 
 export default function AboutPage() {
   return (
-    <div className="pt-32 pb-20">
+    <div className="pb-20">
       {/* Hero */}
-      <section className="section-warm px-6 py-16 sm:py-20">
+      <section className="section-lavender px-6 pt-32 pb-16 sm:pb-20">
         <div className="mx-auto max-w-3xl">
           <ScrollReveal>
             <h1 className="text-4xl font-bold text-text sm:text-5xl">About PlayPilot</h1>

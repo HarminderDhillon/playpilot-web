@@ -199,6 +199,30 @@ textarea:focus-visible {
   position: relative;
   overflow: hidden;
 }
+/* Warm lavender — for reflective/about pages */
+.section-lavender {
+  background: linear-gradient(180deg, #E4DAF0 0%, #EDE5F6 35%, #F2EEF8 65%, var(--background) 100%);
+  position: relative;
+  overflow: hidden;
+}
+/* Soft mint — for features/product pages */
+.section-mint {
+  background: linear-gradient(180deg, #D0EDE6 0%, #DDEEE9 35%, #ECF4F2 65%, var(--background) 100%);
+  position: relative;
+  overflow: hidden;
+}
+/* Warm peach — for community/blog pages */
+.section-peach {
+  background: linear-gradient(180deg, #F5DFD0 0%, #F5E8DE 35%, #F7F0EA 65%, var(--background) 100%);
+  position: relative;
+  overflow: hidden;
+}
+/* Soft gold — for pricing/early access */
+.section-gold {
+  background: linear-gradient(180deg, #F0E4C8 0%, #F3EBDA 35%, #F5F0E6 65%, var(--background) 100%);
+  position: relative;
+  overflow: hidden;
+}
 
 /* ── Section transition fades ────────────── */
 .section-fade-top::before {

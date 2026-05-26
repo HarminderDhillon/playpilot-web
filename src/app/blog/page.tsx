@@ -35,8 +35,9 @@ export default function BlogPage() {
   const rest = posts.filter((p) => p !== featured);
 
   return (
-    <div className="px-6 pt-32 pb-20">
-      <div className="mx-auto max-w-5xl">
+    <div className="pb-20">
+      <div className="section-peach px-6 pt-32 pb-10">
+        <div className="mx-auto max-w-5xl">
         {/* Hero */}
         <div className="relative">
           {/* Subtle moment bubbles in hero only */}
@@ -53,7 +54,11 @@ export default function BlogPage() {
             from the world of early learning.
           </p>
         </div>
+        </div>
+      </div>
 
+      <div className="px-6">
+      <div className="mx-auto max-w-5xl">
         {/* Featured story */}
         {featured && (
           <Link href={`/blog/${featured.slug}`} className="block mt-14 group">
@@ -187,6 +192,7 @@ export default function BlogPage() {
             </button>
           </form>
         </div>
+      </div>
       </div>
     </div>
   );

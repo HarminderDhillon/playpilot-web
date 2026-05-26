@@ -100,9 +100,9 @@ const familyFeatures = [
 
 export default function FeaturesPage() {
   return (
-    <div className="pt-32 pb-20">
+    <div className="pb-20">
       {/* Page header */}
-      <div className="px-6">
+      <section className="section-mint px-6 pt-32 pb-16">
         <div className="mx-auto max-w-5xl">
           <ScrollReveal>
             <h1 className="text-4xl font-bold text-text sm:text-5xl">Features</h1>
@@ -111,10 +111,10 @@ export default function FeaturesPage() {
             </p>
           </ScrollReveal>
         </div>
-      </div>
+      </section>
 
       {/* For Educators */}
-      <section className="section-warm px-6 py-16 sm:py-20 mt-12">
+      <section className="section-warm px-6 py-16 sm:py-20">
         <div className="mx-auto max-w-5xl">
           <div className="grid gap-12 lg:grid-cols-[1fr_280px] lg:items-start">
             <div>

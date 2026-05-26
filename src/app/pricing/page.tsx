@@ -63,14 +63,18 @@ export default function PricingPage() {
   };
 
   return (
-    <div className="px-6 pt-32 pb-20">
-      <div className="mx-auto max-w-5xl">
-        <div className="text-center">
+    <div className="pb-20">
+      <div className="section-gold px-6 pt-32 pb-12">
+        <div className="mx-auto max-w-5xl text-center">
           <h1 className="text-4xl font-bold text-text sm:text-5xl">Join the Early Access</h1>
           <p className="mt-4 text-lg text-text-secondary max-w-2xl mx-auto">
             Be among the first educators to try PlayPilot. We&apos;re onboarding select early childhood programs now.
           </p>
         </div>
+      </div>
+
+      <div className="px-6">
+      <div className="mx-auto max-w-5xl">
 
         {/* Signup form */}
         <div className="mt-12 mx-auto max-w-md">
@@ -199,6 +203,7 @@ export default function PricingPage() {
             </a>
           </p>
         </div>
+      </div>
       </div>
     </div>
   );
