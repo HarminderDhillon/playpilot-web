@@ -54,7 +54,7 @@ export function ProductMockup() {
       </div>
 
       {/* Mobile mockup (front, overlapping) */}
-      <div className="hidden sm:block absolute -bottom-6 -right-4 w-36 glass-card rounded-2xl p-3 animate-float-delay shadow-xl">
+      <div className="absolute -bottom-6 -right-4 w-36 glass-card rounded-2xl p-3 animate-float-delay shadow-xl">
         <div className="flex items-center gap-1.5 mb-2">
           <div className="h-5 w-5 rounded-full bg-accent-blue/15 flex items-center justify-center">
             <span className="text-[8px] font-bold text-accent-blue">N</span>

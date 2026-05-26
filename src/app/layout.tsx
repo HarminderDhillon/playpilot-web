@@ -70,7 +70,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} ${lora.variable} ${geistMono.variable} font-sans antialiased`}>
         <Navbar />
-        <main id="main-content" className="min-h-screen pt-20">{children}</main>
+        <main id="main-content" className="min-h-screen">{children}</main>
         <Footer />
         <Analytics />
         <script

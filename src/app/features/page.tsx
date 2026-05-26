@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { ScrollReveal } from '@/components/landing/ScrollReveal';
 import { ObservationMockup, SupervisorMockup, ParentTimelineMockup } from '@/components/shared/Mockups';
+import { FeatureCard } from '@/components/shared/FeatureCard';
 
 const educatorFeatures = [
   {
@@ -97,18 +98,6 @@ const familyFeatures = [
   },
 ];
 
-function FeatureCard({ title, description, accent, dot }: { title: string; description: string; accent: string; dot: string }) {
-  return (
-    <div className={`rounded-xl border p-5 sm:p-6 ${accent}`}>
-      <div className="flex items-center gap-3">
-        <span className={`h-2.5 w-2.5 rounded-full ${dot}`} />
-        <h3 className="text-lg font-semibold text-text">{title}</h3>
-      </div>
-      <p className="mt-2 text-sm leading-relaxed text-text-secondary">{description}</p>
-    </div>
-  );
-}
-
 export default function FeaturesPage() {
   return (
     <div className="pt-32 pb-20">
@@ -176,7 +165,7 @@ export default function FeaturesPage() {
                 </h2>
               </ScrollReveal>
 
-              <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+              <div className="mt-8 grid gap-4 sm:grid-cols-2">
                 {leaderFeatures.map((f, i) => (
                   <ScrollReveal key={f.title} delay={i * 60}>
                     <FeatureCard {...f} />
@@ -202,7 +191,7 @@ export default function FeaturesPage() {
                 </h2>
               </ScrollReveal>
 
-              <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+              <div className="mt-8 grid gap-4 sm:grid-cols-2">
                 {familyFeatures.map((f, i) => (
                   <ScrollReveal key={f.title} delay={i * 60}>
                     <FeatureCard {...f} />
