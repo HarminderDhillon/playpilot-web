@@ -9,6 +9,9 @@ export function Hero() {
   const mockupRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
     let rafId: number;
     const onScroll = () => {
       rafId = requestAnimationFrame(() => {
@@ -57,6 +60,26 @@ export function Hero() {
             <Link href="/pricing" className="btn-secondary rounded-xl border border-border bg-surface px-7 py-3.5 text-sm font-semibold text-text text-center">
               Get Started
             </Link>
+          </div>
+
+          {/* Mobile product hint */}
+          <div className="mt-8 lg:hidden">
+            <div className="glass-card rounded-2xl p-4 mx-auto max-w-xs">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="h-8 w-8 rounded-full bg-accent-coral flex items-center justify-center">
+                  <span className="text-xs font-bold text-white">PP</span>
+                </div>
+                <div>
+                  <p className="text-xs font-semibold text-text">Voice Capture</p>
+                  <p className="text-[10px] text-text-muted">Speak. PlayPilot documents.</p>
+                </div>
+              </div>
+              <div className="flex gap-1.5">
+                <span className="text-[10px] font-medium bg-accent-purple/12 text-accent-purple px-2 py-0.5 rounded-full">Cognitive</span>
+                <span className="text-[10px] font-medium bg-accent-orange/12 text-accent-orange px-2 py-0.5 rounded-full">Trajectory</span>
+                <span className="text-[10px] font-medium bg-accent-blue/12 text-accent-blue px-2 py-0.5 rounded-full">Schema</span>
+              </div>
+            </div>
           </div>
         </div>
 

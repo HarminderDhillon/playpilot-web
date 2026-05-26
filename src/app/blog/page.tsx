@@ -107,7 +107,7 @@ export default function BlogPage() {
 
         {/* Asymmetric editorial grid */}
         {rest.length > 0 && (
-          <div className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
             {rest.map((post, i) => {
               const isWide = i % 3 === 0;
 
@@ -115,7 +115,7 @@ export default function BlogPage() {
                 <Link
                   key={post.slug}
                   href={`/blog/${post.slug}`}
-                  className={`group ${isWide ? 'sm:col-span-2' : ''}`}
+                  className={`group ${isWide ? 'md:col-span-2' : ''}`}
                 >
                   <div className="glass-card rounded-2xl p-6 h-full flex flex-col transition-all group-hover:-translate-y-1 relative overflow-hidden">
                     {/* Subtle accent glow on wide cards */}

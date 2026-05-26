@@ -59,18 +59,22 @@ export function StakeholderPillars() {
             </ScrollReveal>
           </div>
 
-          <ScrollReveal delay={150}>
-            <ObservationMockup />
-          </ScrollReveal>
+          <div className="hidden lg:block">
+            <ScrollReveal delay={150}>
+              <ObservationMockup />
+            </ScrollReveal>
+          </div>
         </div>
       </section>
 
       {/* FOR LEADERS — mockup left, text right */}
       <section className="section-white px-6 py-20 sm:py-28">
         <div className="mx-auto max-w-5xl grid gap-12 lg:grid-cols-2 lg:items-center">
-          <ScrollReveal delay={150}>
-            <SupervisorMockup />
-          </ScrollReveal>
+          <div className="hidden lg:block">
+            <ScrollReveal delay={150}>
+              <SupervisorMockup />
+            </ScrollReveal>
+          </div>
 
           <div>
             <ScrollReveal>
@@ -141,9 +145,11 @@ export function StakeholderPillars() {
             </ScrollReveal>
           </div>
 
-          <ScrollReveal delay={150}>
-            <ParentTimelineMockup />
-          </ScrollReveal>
+          <div className="hidden lg:block">
+            <ScrollReveal delay={150}>
+              <ParentTimelineMockup />
+            </ScrollReveal>
+          </div>
         </div>
       </section>
     </>

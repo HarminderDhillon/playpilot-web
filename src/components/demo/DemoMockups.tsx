@@ -186,7 +186,7 @@ export function CaptureMockup() {
         {captureSections.map((s, i) => (
           <div
             key={s.title}
-            className={`text-[9px] font-semibold px-3 py-1.5 rounded-full transition-all duration-300 ${
+            className={`text-[10px] font-semibold px-3 py-2 rounded-full transition-all duration-300 ${
               i === activeSection
                 ? 'bg-primary text-white'
                 : 'bg-surface-variant text-text-muted'

@@ -287,7 +287,7 @@ export function DemoWalkthrough() {
               <button
                 onClick={() => { disableAutoPlay(); prev(); }}
                 disabled={isTransitioning}
-                className={`flex items-center gap-2 text-sm font-medium transition-colors cursor-pointer ${
+                className={`flex items-center gap-2 text-sm font-medium px-5 py-2.5 rounded-full transition-colors cursor-pointer ${
                   isNavy ? 'text-white/60 hover:text-white' : 'text-text-muted hover:text-text'
                 } disabled:opacity-40`}
               >
@@ -338,7 +338,7 @@ export function DemoWalkthrough() {
               <button
                 onClick={() => { disableAutoPlay(); next(); }}
                 disabled={isTransitioning}
-                className={`flex items-center gap-2 text-sm font-semibold px-4 py-1.5 rounded-full transition-all cursor-pointer disabled:opacity-40 ${
+                className={`flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-full transition-all cursor-pointer disabled:opacity-40 ${
                   isNavy
                     ? 'bg-accent-teal/15 text-accent-teal hover:bg-accent-teal/25'
                     : 'bg-primary/10 text-primary hover:bg-primary/20'

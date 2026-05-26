@@ -45,7 +45,7 @@ const components: Components = {
     // Fenced code blocks get a className like "language-js"
     if (className) {
       return (
-        <code className="block bg-surface-variant p-4 rounded-lg text-sm font-mono overflow-x-auto my-4">
+        <code className="block bg-surface-variant p-4 rounded-lg text-sm font-mono overflow-x-auto max-w-full my-4">
           {children}
         </code>
       );
@@ -58,7 +58,7 @@ const components: Components = {
     );
   },
   pre: ({ children }) => (
-    <pre className="bg-surface-variant rounded-lg overflow-x-auto my-4 p-4 text-sm">
+    <pre className="bg-surface-variant rounded-lg overflow-x-auto max-w-full my-4 p-4 text-sm">
       {children}
     </pre>
   ),

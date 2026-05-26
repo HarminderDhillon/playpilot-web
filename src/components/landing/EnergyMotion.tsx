@@ -33,6 +33,12 @@ export function EnergyMotion() {
 
   // Check sessionStorage — only play once per session
   useEffect(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      setPhase('done');
+      return;
+    }
+
     try {
       if (sessionStorage.getItem('pp-splash-played')) {
         setPhase('done');

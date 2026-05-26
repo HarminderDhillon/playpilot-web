@@ -96,6 +96,7 @@ export default function PricingPage() {
                     id="name"
                     type="text"
                     required
+                    autoComplete="name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Your full name"
@@ -111,6 +112,7 @@ export default function PricingPage() {
                     id="email"
                     type="email"
                     required
+                    autoComplete="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="you@centre.edu.au"
@@ -143,6 +145,7 @@ export default function PricingPage() {
                   <input
                     id="organization"
                     type="text"
+                    autoComplete="organization"
                     value={organization}
                     onChange={(e) => setOrganization(e.target.value)}
                     placeholder="Your centre or organization name"

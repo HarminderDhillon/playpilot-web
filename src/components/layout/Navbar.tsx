@@ -22,6 +22,15 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [mobileOpen]);
+
   return (
     <nav
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${
@@ -65,7 +74,7 @@ export function Navbar() {
         {/* Mobile hamburger */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="flex flex-col gap-1 lg:hidden"
+          className="flex flex-col gap-1 lg:hidden p-2"
           aria-label="Toggle menu"
         >
           <span
@@ -94,7 +103,7 @@ export function Navbar() {
               key={link.href}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="block py-3 text-sm font-medium text-text-secondary"
+              className="block py-4 text-sm font-medium text-text-secondary"
             >
               {link.label}
             </Link>
